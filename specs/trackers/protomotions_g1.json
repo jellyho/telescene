@@ -1,0 +1,1253 @@
+{
+ "slug": "protomotions_g1",
+ "name": "ProtoMotions G1 BONES-SEED deployment motion tracker (g1-bones-deploy)",
+ "paper": "ProtoMotions framework (NVlabs); recipe = BeyondMimic-style tracker + AMP + L2C2 (no dedicated paper for this checkpoint)",
+ "repo": "https://github.com/NVlabs/ProtoMotions",
+ "repo_commit": "6a1887f65b8a619c77198431d0ec00d5c88bea2c",
+ "license_code": "Apache-2.0",
+ "license_weights": "NVIDIA Open Model License (LICENSE.pdf + NOTICE.txt must accompany redistribution)",
+ "files": [
+  {
+   "path": "compiled_models/unified_pipeline.onnx",
+   "bytes": 22603610,
+   "sha256": "fbbcf33a3fbcc939a5765161947f390b7911800011ca535ab896acf9f40e12a3",
+   "source_url": "https://media.githubusercontent.com/media/NVlabs/ProtoMotions/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/compiled_models/unified_pipeline.onnx",
+   "what": "policy (unified ONNX: obs processing + normalizer + actor MLP + bm_pd action map; LFS, sha matches pointer)"
+  },
+  {
+   "path": "compiled_models/unified_pipeline.yaml",
+   "bytes": 15920,
+   "sha256": "7789576fdedd80f4b1227952629e599bb47b15d0e6478e059f76cf78838af4af",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/compiled_models/unified_pipeline.yaml",
+   "what": "config (deployment contract sidecar: inputs, joint order, gains, action scale/offset, timing)"
+  },
+  {
+   "path": "inference_last.ckpt",
+   "bytes": 50336905,
+   "sha256": "fd285ee0a1b1127bfd86efbd2a9fe53d32d163dbd135207241c0847dd263f68b",
+   "source_url": "https://media.githubusercontent.com/media/NVlabs/ProtoMotions/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/inference_last.ckpt",
+   "what": "policy (PyTorch inference checkpoint, model-only; not opened)"
+  },
+  {
+   "path": "resolved_configs.json",
+   "bytes": 54413,
+   "sha256": "4eca021a2c39d229325ff359e2e324c7374e75f15e076074c2305c29d12bdde4",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/resolved_configs.json",
+   "what": "config (full resolved training/inference config bundle)"
+  },
+  {
+   "path": "experiment_config.py",
+   "bytes": 18332,
+   "sha256": "ba450a2bfb5eb2a071de580e6b4a10865591c4ab8f044a8e0b96eab5ea2b4e5d",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/experiment_config.py",
+   "what": "config (experiment recipe, read as text only)"
+  },
+  {
+   "path": "config.yaml",
+   "bytes": 475,
+   "sha256": "1e554f8ef4d61e254df09ffe9dd79bf6db7a5b9f44b63a0973f01626c715c82e",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/config.yaml",
+   "what": "config (launcher args)"
+  },
+  {
+   "path": "provenance.json",
+   "bytes": 337,
+   "sha256": "bafaa67cf1669299549d9b3604c3787a1b91ecf6fe81cf21e6fd84fbbb321646",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/provenance.json",
+   "what": "metadata"
+  },
+  {
+   "path": "MODEL_CARD.md",
+   "bytes": 4012,
+   "sha256": "517d104e1b4d48a3b5701b46e2dd5d9fffdad00cbd3a368816f68e4da0df6c16",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/MODEL_CARD.md",
+   "what": "model card"
+  },
+  {
+   "path": "NOTICE.txt",
+   "bytes": 68,
+   "sha256": "99320002f1654cb51413cf33e20afc03feac7744f03d531b73e380092a0c6a14",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/NOTICE.txt",
+   "what": "license notice"
+  },
+  {
+   "path": "LICENSE.pdf",
+   "bytes": 79005,
+   "sha256": "4d2fb590aa9b30c47f2058bff17291df7fa2aa0c1bd775a20703da9bb267cfab",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/LICENSE.pdf",
+   "what": "license (NVIDIA Open Model License)"
+  },
+  {
+   "path": "motions/g1_bones_seed_mini.pt",
+   "bytes": 24555451,
+   "sha256": "fa36ece31f99c56f218e51d0db54def318fae163f05c4b66eb7b41649336ef5e",
+   "source_url": "https://media.githubusercontent.com/media/NVlabs/ProtoMotions/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/motion_for_trackers/g1_bones_seed_mini.pt",
+   "what": "example motions (packaged MotionLib library, torch pickle; not opened)"
+  },
+  {
+   "path": "motions/output_walk.motion",
+   "bytes": 304176,
+   "sha256": "09061b8fa0df9e99daaf857293b32cfa8d2faa68631ff20ed0fdde0683e80884",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/g1-kimodo-generated/proto/output_walk.motion",
+   "what": "example motion (single clip, torch zip pickle RobotState; not opened)"
+  },
+  {
+   "path": "motions/output_wave.motion",
+   "bytes": 304176,
+   "sha256": "cb23fb229ca49116462624a8164d1755eff1c2e57dce75dfd896a1c24113bc93",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/g1-kimodo-generated/proto/output_wave.motion",
+   "what": "example motion (single clip, torch zip pickle RobotState; not opened)"
+  },
+  {
+   "path": "motions/output_dance.motion",
+   "bytes": 304187,
+   "sha256": "934309f9357dbb833b7d68411c6c41fd6e31e14d792d5eca43952a9c5f28f784",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/g1-kimodo-generated/proto/output_dance.motion",
+   "what": "example motion (single clip, torch zip pickle RobotState; not opened)"
+  },
+  {
+   "path": "motions/output_high5.motion",
+   "bytes": 304187,
+   "sha256": "ef666262b8cccfd5279ce07b84eba9684e39ba2ca1a1cd1e2b55715a0394cf44",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/g1-kimodo-generated/proto/output_high5.motion",
+   "what": "example motion (single clip, torch zip pickle RobotState; not opened)"
+  },
+  {
+   "path": "motions/output_jumpjack.motion",
+   "bytes": 243996,
+   "sha256": "5349a1acc3b2f8cf06d89ae6080dc957591a512223cbc43132d5ab7a4d1f89ef",
+   "source_url": "https://github.com/NVlabs/ProtoMotions/blob/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/g1-kimodo-generated/proto/output_jumpjack.motion",
+   "what": "example motion (single clip, torch zip pickle RobotState; not opened)"
+  }
+ ],
+ "skipped": [],
+ "format": "onnx",
+ "robot": "G1 29DoF",
+ "hands": "none (rubber hands; MJCF mjcf/g1_holo_compat.xml)",
+ "control_hz": 50,
+ "sim_dt_trained": 0.005,
+ "decimation": 4,
+ "deploy_sim_dt": 0.001,
+ "deploy_decimation": 20,
+ "joint_order": [
+  "left_hip_pitch_joint",
+  "left_hip_roll_joint",
+  "left_hip_yaw_joint",
+  "left_knee_joint",
+  "left_ankle_pitch_joint",
+  "left_ankle_roll_joint",
+  "right_hip_pitch_joint",
+  "right_hip_roll_joint",
+  "right_hip_yaw_joint",
+  "right_knee_joint",
+  "right_ankle_pitch_joint",
+  "right_ankle_roll_joint",
+  "waist_yaw_joint",
+  "waist_roll_joint",
+  "waist_pitch_joint",
+  "left_shoulder_pitch_joint",
+  "left_shoulder_roll_joint",
+  "left_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "left_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_shoulder_pitch_joint",
+  "right_shoulder_roll_joint",
+  "right_shoulder_yaw_joint",
+  "right_elbow_joint",
+  "right_wrist_roll_joint",
+  "right_wrist_pitch_joint",
+  "right_wrist_yaw_joint"
+ ],
+ "default_joint_pos": {
+  "left_hip_pitch_joint": -0.31200000643730164,
+  "left_hip_roll_joint": 0.0,
+  "left_hip_yaw_joint": 0.0,
+  "left_knee_joint": 0.6690000295639038,
+  "left_ankle_pitch_joint": -0.3630000054836273,
+  "left_ankle_roll_joint": 0.0,
+  "right_hip_pitch_joint": -0.31200000643730164,
+  "right_hip_roll_joint": 0.0,
+  "right_hip_yaw_joint": 0.0,
+  "right_knee_joint": 0.6690000295639038,
+  "right_ankle_pitch_joint": -0.3630000054836273,
+  "right_ankle_roll_joint": 0.0,
+  "waist_yaw_joint": 0.0,
+  "waist_roll_joint": 0.0,
+  "waist_pitch_joint": 0.0,
+  "left_shoulder_pitch_joint": 0.20000000298023224,
+  "left_shoulder_roll_joint": 0.20000000298023224,
+  "left_shoulder_yaw_joint": 0.0,
+  "left_elbow_joint": 0.6000000238418579,
+  "left_wrist_roll_joint": 0.0,
+  "left_wrist_pitch_joint": 0.0,
+  "left_wrist_yaw_joint": 0.0,
+  "right_shoulder_pitch_joint": 0.20000000298023224,
+  "right_shoulder_roll_joint": -0.20000000298023224,
+  "right_shoulder_yaw_joint": 0.0,
+  "right_elbow_joint": 0.6000000238418579,
+  "right_wrist_roll_joint": 0.0,
+  "right_wrist_pitch_joint": 0.0,
+  "right_wrist_yaw_joint": 0.0
+ },
+ "kp": {
+  "left_hip_pitch_joint": 40.17923847137318,
+  "left_hip_roll_joint": 99.09842777666113,
+  "left_hip_yaw_joint": 40.17923847137318,
+  "left_knee_joint": 99.09842777666113,
+  "left_ankle_pitch_joint": 28.50124619574858,
+  "left_ankle_roll_joint": 28.50124619574858,
+  "right_hip_pitch_joint": 40.17923847137318,
+  "right_hip_roll_joint": 99.09842777666113,
+  "right_hip_yaw_joint": 40.17923847137318,
+  "right_knee_joint": 99.09842777666113,
+  "right_ankle_pitch_joint": 28.50124619574858,
+  "right_ankle_roll_joint": 28.50124619574858,
+  "waist_yaw_joint": 40.17923847137318,
+  "waist_roll_joint": 28.50124619574858,
+  "waist_pitch_joint": 28.50124619574858,
+  "left_shoulder_pitch_joint": 14.25062309787429,
+  "left_shoulder_roll_joint": 14.25062309787429,
+  "left_shoulder_yaw_joint": 14.25062309787429,
+  "left_elbow_joint": 14.25062309787429,
+  "left_wrist_roll_joint": 14.25062309787429,
+  "left_wrist_pitch_joint": 16.77832748089279,
+  "left_wrist_yaw_joint": 16.77832748089279,
+  "right_shoulder_pitch_joint": 14.25062309787429,
+  "right_shoulder_roll_joint": 14.25062309787429,
+  "right_shoulder_yaw_joint": 14.25062309787429,
+  "right_elbow_joint": 14.25062309787429,
+  "right_wrist_roll_joint": 14.25062309787429,
+  "right_wrist_pitch_joint": 16.77832748089279,
+  "right_wrist_yaw_joint": 16.77832748089279
+ },
+ "kd": {
+  "left_hip_pitch_joint": 2.5578897650279457,
+  "left_hip_roll_joint": 6.3088018534966395,
+  "left_hip_yaw_joint": 2.5578897650279457,
+  "left_knee_joint": 6.3088018534966395,
+  "left_ankle_pitch_joint": 1.814445686584846,
+  "left_ankle_roll_joint": 1.814445686584846,
+  "right_hip_pitch_joint": 2.5578897650279457,
+  "right_hip_roll_joint": 6.3088018534966395,
+  "right_hip_yaw_joint": 2.5578897650279457,
+  "right_knee_joint": 6.3088018534966395,
+  "right_ankle_pitch_joint": 1.814445686584846,
+  "right_ankle_roll_joint": 1.814445686584846,
+  "waist_yaw_joint": 2.5578897650279457,
+  "waist_roll_joint": 1.814445686584846,
+  "waist_pitch_joint": 1.814445686584846,
+  "left_shoulder_pitch_joint": 0.907222843292423,
+  "left_shoulder_roll_joint": 0.907222843292423,
+  "left_shoulder_yaw_joint": 0.907222843292423,
+  "left_elbow_joint": 0.907222843292423,
+  "left_wrist_roll_joint": 0.907222843292423,
+  "left_wrist_pitch_joint": 1.06814150219,
+  "left_wrist_yaw_joint": 1.06814150219,
+  "right_shoulder_pitch_joint": 0.907222843292423,
+  "right_shoulder_roll_joint": 0.907222843292423,
+  "right_shoulder_yaw_joint": 0.907222843292423,
+  "right_elbow_joint": 0.907222843292423,
+  "right_wrist_roll_joint": 0.907222843292423,
+  "right_wrist_pitch_joint": 1.06814150219,
+  "right_wrist_yaw_joint": 1.06814150219
+ },
+ "armature": {
+  "left_hip_pitch_joint": 0.01017752,
+  "left_hip_roll_joint": 0.025101925,
+  "left_hip_yaw_joint": 0.01017752,
+  "left_knee_joint": 0.025101925,
+  "left_ankle_pitch_joint": 0.00721945,
+  "left_ankle_roll_joint": 0.00721945,
+  "right_hip_pitch_joint": 0.01017752,
+  "right_hip_roll_joint": 0.025101925,
+  "right_hip_yaw_joint": 0.01017752,
+  "right_knee_joint": 0.025101925,
+  "right_ankle_pitch_joint": 0.00721945,
+  "right_ankle_roll_joint": 0.00721945,
+  "waist_yaw_joint": 0.01017752,
+  "waist_roll_joint": 0.00721945,
+  "waist_pitch_joint": 0.00721945,
+  "left_shoulder_pitch_joint": 0.003609725,
+  "left_shoulder_roll_joint": 0.003609725,
+  "left_shoulder_yaw_joint": 0.003609725,
+  "left_elbow_joint": 0.003609725,
+  "left_wrist_roll_joint": 0.003609725,
+  "left_wrist_pitch_joint": 0.00425,
+  "left_wrist_yaw_joint": 0.00425,
+  "right_shoulder_pitch_joint": 0.003609725,
+  "right_shoulder_roll_joint": 0.003609725,
+  "right_shoulder_yaw_joint": 0.003609725,
+  "right_elbow_joint": 0.003609725,
+  "right_wrist_roll_joint": 0.003609725,
+  "right_wrist_pitch_joint": 0.00425,
+  "right_wrist_yaw_joint": 0.00425
+ },
+ "effort_limit": {
+  "left_hip_pitch_joint": 88.0,
+  "left_hip_roll_joint": 139.0,
+  "left_hip_yaw_joint": 88.0,
+  "left_knee_joint": 139.0,
+  "left_ankle_pitch_joint": 50.0,
+  "left_ankle_roll_joint": 50.0,
+  "right_hip_pitch_joint": 88.0,
+  "right_hip_roll_joint": 139.0,
+  "right_hip_yaw_joint": 88.0,
+  "right_knee_joint": 139.0,
+  "right_ankle_pitch_joint": 50.0,
+  "right_ankle_roll_joint": 50.0,
+  "waist_yaw_joint": 88.0,
+  "waist_roll_joint": 50.0,
+  "waist_pitch_joint": 50.0,
+  "left_shoulder_pitch_joint": 25.0,
+  "left_shoulder_roll_joint": 25.0,
+  "left_shoulder_yaw_joint": 25.0,
+  "left_elbow_joint": 25.0,
+  "left_wrist_roll_joint": 25.0,
+  "left_wrist_pitch_joint": 5.0,
+  "left_wrist_yaw_joint": 5.0,
+  "right_shoulder_pitch_joint": 25.0,
+  "right_shoulder_roll_joint": 25.0,
+  "right_shoulder_yaw_joint": 25.0,
+  "right_elbow_joint": 25.0,
+  "right_wrist_roll_joint": 25.0,
+  "right_wrist_pitch_joint": 5.0,
+  "right_wrist_yaw_joint": 5.0
+ },
+ "action": {
+  "dim": 29,
+  "meaning": "joint pos offset (BeyondMimic bm_pd_action: target = default + scale * a); the ONNX already outputs the absolute PD target as 'joint_pos_targets'",
+  "scale": {
+   "left_hip_pitch_joint": 2.190186023712158,
+   "left_hip_roll_joint": 1.4026458263397217,
+   "left_hip_yaw_joint": 2.190186023712158,
+   "left_knee_joint": 1.4026458263397217,
+   "left_ankle_pitch_joint": 1.7543092966079712,
+   "left_ankle_roll_joint": 1.7543092966079712,
+   "right_hip_pitch_joint": 2.190186023712158,
+   "right_hip_roll_joint": 1.4026458263397217,
+   "right_hip_yaw_joint": 2.190186023712158,
+   "right_knee_joint": 1.4026458263397217,
+   "right_ankle_pitch_joint": 1.7543092966079712,
+   "right_ankle_roll_joint": 1.7543092966079712,
+   "waist_yaw_joint": 2.190186023712158,
+   "waist_roll_joint": 1.7543092966079712,
+   "waist_pitch_joint": 1.7543092966079712,
+   "left_shoulder_pitch_joint": 1.7543092966079712,
+   "left_shoulder_roll_joint": 1.7543092966079712,
+   "left_shoulder_yaw_joint": 1.7543092966079712,
+   "left_elbow_joint": 1.7543092966079712,
+   "left_wrist_roll_joint": 1.7543092966079712,
+   "left_wrist_pitch_joint": 0.2980034649372101,
+   "left_wrist_yaw_joint": 0.2980034649372101,
+   "right_shoulder_pitch_joint": 1.7543092966079712,
+   "right_shoulder_roll_joint": 1.7543092966079712,
+   "right_shoulder_yaw_joint": 1.7543092966079712,
+   "right_elbow_joint": 1.7543092966079712,
+   "right_wrist_roll_joint": 1.7543092966079712,
+   "right_wrist_pitch_joint": 0.2980034649372101,
+   "right_wrist_yaw_joint": 0.2980034649372101
+  },
+  "scale_formula": "effort_limit / kp (effort_fraction=1.0, experiment_config.py:271-273)",
+  "offset": "default pose",
+  "clip": "none (no tanh, no clamp: protomotions/envs/action/action_functions.py:268-295); pd_target_max_accel=null, action_ema_alpha=1.0",
+  "onnx_outputs": {
+   "actions": "raw a [1,29]",
+   "joint_pos_targets": "absolute PD targets [1,29] -> write to position actuators",
+   "stiffness_targets": "constant kp [1,29]",
+   "damping_targets": "constant kd [1,29]"
+  }
+ },
+ "obs": {
+  "note": "The ONNX consumes raw named inputs (below) and computes the 349-d actor vector internally. Feed the ONNX inputs; the internal terms are listed for reference / re-implementation.",
+  "onnx_inputs": [
+   {
+    "name": "mimic_future_anchor_rot",
+    "shape": [
+     1,
+     4,
+     4
+    ],
+    "what": "reference torso_link world quat xyzw at future steps [1,2,4,8], heading-aligned to robot start (align_future_motion_refs)"
+   },
+   {
+    "name": "mimic_future_dof_pos",
+    "shape": [
+     1,
+     4,
+     29
+    ],
+    "what": "reference joint pos at future steps [1,2,4,8]"
+   },
+   {
+    "name": "mimic_future_dof_vel",
+    "shape": [
+     1,
+     4,
+     29
+    ],
+    "what": "reference joint vel at future steps [1,2,4,8]"
+   },
+   {
+    "name": "current_anchor_rot",
+    "shape": [
+     1,
+     4
+    ],
+    "what": "robot torso_link world quat xyzw (MuJoCo: xquat[torso] wxyz->xyzw; real: pelvis IMU + FK)"
+   },
+   {
+    "name": "current_dof_pos",
+    "shape": [
+     1,
+     29
+    ],
+    "what": "joint pos, absolute (not minus default)"
+   },
+   {
+    "name": "current_dof_vel",
+    "shape": [
+     1,
+     29
+    ],
+    "what": "joint vel"
+   },
+   {
+    "name": "current_root_local_ang_vel",
+    "shape": [
+     1,
+     3
+    ],
+    "what": "pelvis ang vel in pelvis frame (MuJoCo qvel[3:6])"
+   },
+   {
+    "name": "processed_action_history",
+    "shape": [
+     1,
+     1,
+     29
+    ],
+    "what": "own joint_pos_targets output from previous call, before any clamp; zeros after reset"
+   }
+  ],
+  "onnx_inputs_from": "compiled_models/unified_pipeline.yaml policy_inputs + _runtime.onnx_in_names (text sidecar; ONNX file itself not parsed - see open_questions)",
+  "total_dim": 349,
+  "terms": [
+   {
+    "name": "dof_pos",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "joint",
+    "noise": "uniform +-0.01 (train)",
+    "source_ref": "protomotions/envs/obs/humanoid.py:150-155; experiment_config.py:256"
+   },
+   {
+    "name": "dof_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "joint",
+    "noise": "uniform +-0.5 (train)",
+    "source_ref": "protomotions/envs/obs/humanoid.py:150-155"
+   },
+   {
+    "name": "root_local_ang_vel (pelvis)",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "body",
+    "noise": "uniform +-0.2 (train)",
+    "source_ref": "protomotions/envs/obs/humanoid.py:153; experiment_config.py:257"
+   },
+   {
+    "name": "projected_gravity of torso_link anchor",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "body",
+    "noise": "quat +-0.05 then renorm (train)",
+    "source_ref": "protomotions/envs/obs/humanoid.py:148,154"
+   },
+   {
+    "name": "target_poses x4 future steps, step-major; per step: tan_norm6(conj(cur_anchor)*ref_anchor) [6], ref_dof_vel [29], ref_dof_pos [29]",
+    "dim": 256,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "body (relative to current torso orientation)",
+    "noise": null,
+    "source_ref": "protomotions/envs/obs/target_poses.py:384-576 (474-486 order, 576 reshape)"
+   },
+   {
+    "name": "historical_previous_processed_actions (joint_pos_targets t-1)",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 1,
+    "frame": "joint",
+    "noise": null,
+    "source_ref": "experiment_config.py:173-177; protomotions/envs/obs/humanoid_historical.py:224-251"
+   }
+  ],
+  "concat_order_ref": "experiment_config.py:317-321 (in_keys: noisy_reduced_coords_obs, noisy_mimic_reduced_coords_target_poses, historical_previous_processed_actions)",
+  "history_layout": "no proprio history; action history 1 slot (steps_back=[1])",
+  "normalization": "running mean/std with clamp 5 per in_key (MLPWithConcat normalize_obs=True, experiment_config.py:323-326); baked into the ONNX, stats also in inference_last.ckpt"
+ },
+ "reference": {
+  "type": "joint pos+vel + torso orientation (no root position)",
+  "future_frames": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "frame_dt": 0.02,
+  "lookahead_s": 0.16,
+  "includes_root": "torso_link (anchor) world rotation only; no root/anchor position, no linear velocity (include_xy_offset=False, include_height=False)",
+  "coordinate frame": "world, z-up, quats xyzw; reference rotations pre-multiplied by a yaw-only offset computed at motion start (robot torso heading vs motion frame-0 torso heading), deployment/tracker_inputs.py:429-475",
+  "motion_file_format": "ProtoMotions .motion (torch-saved RobotState dict: fps, dof_pos [T,29], dof_vel, rigid_body_pos [T,33,3], rigid_body_rot [T,33,4] xyzw, rigid_body_vel, rigid_body_ang_vel) or packaged .pt MotionLib (length_starts, motion_num_frames, motion_dt, gts, grs, gvs, gavs, dps, dvs); resampled to 50 Hz with lerp/slerp (deployment/motion_utils.py:261-340). Future indices past the end clamp to last frame.",
+  "body_names_33": [
+   "pelvis",
+   "head",
+   "left_hip_pitch_link",
+   "left_hip_roll_link",
+   "left_hip_yaw_link",
+   "left_knee_link",
+   "left_ankle_pitch_link",
+   "left_ankle_roll_link",
+   "right_hip_pitch_link",
+   "right_hip_roll_link",
+   "right_hip_yaw_link",
+   "right_knee_link",
+   "right_ankle_pitch_link",
+   "right_ankle_roll_link",
+   "waist_yaw_link",
+   "waist_roll_link",
+   "torso_link",
+   "left_shoulder_pitch_link",
+   "left_shoulder_roll_link",
+   "left_shoulder_yaw_link",
+   "left_elbow_link",
+   "left_wrist_roll_link",
+   "left_wrist_pitch_link",
+   "left_wrist_yaw_link",
+   "left_rubber_hand",
+   "right_shoulder_pitch_link",
+   "right_shoulder_roll_link",
+   "right_shoulder_yaw_link",
+   "right_elbow_link",
+   "right_wrist_roll_link",
+   "right_wrist_pitch_link",
+   "right_wrist_yaw_link",
+   "right_rubber_hand"
+  ],
+  "anchor_body": "torso_link (index 16)"
+ },
+ "inputs_supported": [
+  "full-body"
+ ],
+ "example_motions": [
+  "motions/g1_bones_seed_mini.pt",
+  "motions/output_walk.motion",
+  "motions/output_wave.motion",
+  "motions/output_dance.motion",
+  "motions/output_high5.motion",
+  "motions/output_jumpjack.motion"
+ ],
+ "how_they_run_it": "deployment/test_tracker_mujoco.py: loads mjcf/g1_holo_compat.xml, sets timestep=0.001, zeroes passive stiffness/damping/frictionloss, turns the 29 actuators into implicit PD (gainprm=kp, biasprm=[0,-kp,-kd]), no force limit set. Robot initialised on motion frame 0 (root pos/rot + dof_pos, zero vel). Each 50 Hz step: read qpos[7:], qvel[6:], torso xquat (->xyzw), pelvis qvel[3:6]; on step 0 compute yaw-only heading offset between robot torso and motion torso; fetch reference at frame+[1,2,4,8] (clamped), rotate reference body_rot by the heading offset; build the 8 named ONNX inputs; run ONNX; record joint_pos_targets into the 1-slot action history (zeros before first call); optional accel clamp (null here); data.ctrl = joint_pos_targets; mj_step x20.",
+ "code_refs": [
+  "data/pretrained_models/motion_tracker/g1-bones-deploy/compiled_models/unified_pipeline.yaml (whole file)",
+  "deployment/test_tracker_mujoco.py:261-361 (MuJoCo model/PD setup)",
+  "deployment/test_tracker_mujoco.py:364-402 (read_robot_state)",
+  "deployment/test_tracker_mujoco.py:405-425 (set_initial_pose)",
+  "deployment/test_tracker_mujoco.py:690-815 (control loop)",
+  "deployment/tracker_inputs.py:229-353 (ActionFeedback)",
+  "deployment/tracker_inputs.py:429-475 (heading alignment)",
+  "deployment/tracker_inputs.py:497-613 (build_tracker_onnx_inputs)",
+  "deployment/motion_utils.py:157-212 (frame clamp / future refs)",
+  "deployment/state_utils.py:296-350 (yaw offset)",
+  "protomotions/envs/obs/humanoid.py:108-176",
+  "protomotions/envs/obs/target_poses.py:384-576",
+  "protomotions/envs/action/action_functions.py:268-300",
+  "protomotions/envs/action/config.py:176-215",
+  "data/pretrained_models/motion_tracker/g1-bones-deploy/experiment_config.py:131-279,312-330",
+  "docs/source/tutorials/workflows/g1_deployment.rst"
+ ],
+ "confidence": "high",
+ "open_questions": [
+  "ONNX input/output names and shapes are from the YAML sidecar + exporter/runner code, unverified against the .onnx file (weights not opened per rule).",
+  "Training sim was IsaacLab at 200 Hz (decimation 4); the reference MuJoCo runner uses 1 kHz x20 and no actuator force limits. Which to use in our runner (both at 50 Hz control) is our choice; effort limits are listed if we want forcerange.",
+  "MJCF g1_holo_compat.xml joints carry frictionloss=0.1 and armature; the runner zeroes frictionloss and dof_damping but keeps armature. Our G1 MJCF must match body/joint layout (33 bodies incl. head and rubber hands; torso_link index 16).",
+  "Docs (g1_deployment.rst) say the ONNX applies 'tanh + PD offset/scale', but bm_pd_action code says no tanh/clamp; resolved config uses bm_pd_action. Trust code (no tanh).",
+  "action_scale is large (effort/kp, e.g. 2.19 rad for hip pitch) because effort_fraction=1.0 for this shipped checkpoint (public default 0.25).",
+  "Motion files are torch pickles; our runner must convert them without torch.load of untrusted data (or re-export from BONES-SEED CSV / our own retargeted clips).",
+  "runtime block: ONNX input/output names and shapes come from unified_pipeline.yaml and deploy code, not from the .onnx file (not opened).",
+  "isaac: exact Isaac Lab / Isaac Sim version used to train the shipped weights is not stated; repo now targets IsaacLab develop 4ecd0b0 (Isaac Sim 6.0).",
+  "isaac: Unitree real-robot PD loop rate is not given in this repo (RoboJuDo handles it)."
+ ],
+ "isaac": {
+  "trained_in": "Isaac Lab (PhysX) via the ProtoMotions IsaacLab backend, sim fps 200 (resolved_configs.json configs.simulator.sim.$type=IsaacLabSimParams, fps=200; MODEL_CARD.md:42). Current repo pins IsaacLab develop 4ecd0b0 ('IsaacLab 3' badge / 'IsaacLab 12.0.0 with Isaac Sim 6.0', requirements_isaaclab.txt:2, docs/source/getting_started/installation.rst:13,38,155). The exact IsaacLab/Isaac Sim version used for these 2026-08-10 weights (experiment_config.py:269-270) is not stated.",
+  "actuator_model": "implicit PD: robot control_type BUILT_IN_PD (resolved_configs.json configs.robot.control.control_type) -> isaaclab.actuators.ImplicitActuatorCfg with stiffness/damping/armature/effort_limit_sim/velocity_limit_sim per joint group (protomotions/simulator/isaaclab/utils/scene.py:123-141, utils/actuator_groups.py:13-18). No latency/delay randomization (configs.simulator.domain_randomization.latency=null); action noise U(-0.025,0.025) on all dofs (experiment_config.py:429-431); pd_target_max_accel=null.",
+  "velocity_limit": {
+   "values": {
+    "left_hip_pitch_joint": 32,
+    "left_hip_roll_joint": 20,
+    "left_hip_yaw_joint": 32,
+    "left_knee_joint": 20,
+    "left_ankle_pitch_joint": 37,
+    "left_ankle_roll_joint": 37,
+    "right_hip_pitch_joint": 32,
+    "right_hip_roll_joint": 20,
+    "right_hip_yaw_joint": 32,
+    "right_knee_joint": 20,
+    "right_ankle_pitch_joint": 37,
+    "right_ankle_roll_joint": 37,
+    "waist_yaw_joint": 32,
+    "waist_roll_joint": 37,
+    "waist_pitch_joint": 37,
+    "left_shoulder_pitch_joint": 37,
+    "left_shoulder_roll_joint": 37,
+    "left_shoulder_yaw_joint": 37,
+    "left_elbow_joint": 37,
+    "left_wrist_roll_joint": 37,
+    "left_wrist_pitch_joint": 22,
+    "left_wrist_yaw_joint": 22,
+    "right_shoulder_pitch_joint": 37,
+    "right_shoulder_roll_joint": 37,
+    "right_shoulder_yaw_joint": 37,
+    "right_elbow_joint": 37,
+    "right_wrist_roll_joint": 37,
+    "right_wrist_pitch_joint": 22,
+    "right_wrist_yaw_joint": 22
+   },
+   "source": "resolved_configs.json configs.robot.control.override_control_info.*.velocity_limit (rad/s), passed as velocity_limit_sim (actuator_groups.py:17)"
+  },
+  "self_collision": true,
+  "self_collision_ref": "resolved_configs.json configs.robot.asset.self_collisions=true -> ArticulationRootPropertiesCfg(enabled_self_collisions=...) protomotions/simulator/isaaclab/utils/scene.py:167-168; experiment_config.py:410-411 requires it (self-contact cost)",
+  "default_root_height": 0.8,
+  "default_root_height_ref": "protomotions/robot_configs/g1.py:60; scene.py:178-182 (init joint_pos 0, but episodes reset onto motion frames via the motion manager, init_start_prob=0.2, plus reset noise experiment_config.py:420-426)",
+  "terrain_friction": "flat plane (terrain_proportions [0,..,0,1] = flat, protomotions/components/terrains/config.py:92-94); static 1.0, dynamic 1.0, restitution 0.0, combine MULTIPLY (experiment_config.py:66-76); friction DR on all robot bodies, 64 buckets, static U(0.3,1.6), dynamic U(0.3,1.2), restitution U(0,0.5) (experiment_config.py:432-439); also torso COM DR x+-0.025 y+-0.05 z+-0.05 m and pushes every 1-3 s up to (0.5,0.5,0.2) m/s lin, (0.52,0.52,0.78) rad/s ang (experiment_config.py:440-448). Inference override: friction 1.0 AVERAGE, no DR (experiment_config.py:465-471).",
+  "hands": "no hand joints; asset protomotions/data/assets/mjcf/g1_holo_compat.xml (converted to USD by IsaacLab MjcfConverter). Rubber-hand mesh is a visual geom (contype 0) on *_wrist_yaw_link (g1_holo_compat.xml:195); left/right_rubber_hand bodies are massless markers (sphere r=1e-4, no collision) 0.12 m beyond the wrist (g1_holo_compat.xml:198-200).",
+  "teleop_reference": "none shipped. References are offline clips: BONES-SEED retargeted G1 CSVs -> data/scripts/convert_g1_csv_to_proto.py -> .motion (docs/source/tutorials/workflows/g1_deployment.rst 'Pipeline Overview'), or Kimodo-generated clips (data/g1-kimodo-generated/proto/). No live operator/VR path for this tracker in the repo.",
+  "realtime_lookahead": "needs future frames +1,+2,+4,+8 control ticks (0.02/0.04/0.08/0.16 s), unified_pipeline.yaml motion.future_step_indices; deployment/test_tracker_mujoco.py:705. Only pre-recorded clips are played; indices past the clip end clamp to the last frame (deployment/motion_utils.py:157-212). No live/teleop faking of the lookahead is shipped.",
+  "deploy_rate": "policy 50 Hz (control_dt 0.02). MuJoCo sim2sim: physics 1 kHz, decimation 20 (unified_pipeline.yaml timing; test_tracker_mujoco.py:320,813-814). Real robot via RoboJuDo (external repo); Unitree motor-side PD rate not stated in this repo."
+ },
+ "runtime": {
+  "onnx_url": "https://media.githubusercontent.com/media/NVlabs/ProtoMotions/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/compiled_models/unified_pipeline.onnx",
+  "sha256": "fbbcf33a3fbcc939a5765161947f390b7911800011ca535ab896acf9f40e12a3",
+  "io_names_source": "from code: unified_pipeline.yaml policy_inputs/_runtime + deployment/test_tracker_mujoco.py:44-75 (ONNX file not opened)",
+  "inputs": {
+   "mimic_future_anchor_rot": [
+    {
+     "terms": [
+      "ref_anchor_quat_world_xyzw"
+     ],
+     "steps": [
+      1,
+      2,
+      4,
+      8
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "mimic_future_dof_pos": [
+    {
+     "terms": [
+      "ref_joint_pos"
+     ],
+     "steps": [
+      1,
+      2,
+      4,
+      8
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "mimic_future_dof_vel": [
+    {
+     "terms": [
+      "ref_joint_vel"
+     ],
+     "steps": [
+      1,
+      2,
+      4,
+      8
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "current_anchor_rot": [
+    {
+     "terms": [
+      "anchor_quat_world_xyzw"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "current_dof_pos": [
+    {
+     "terms": [
+      "joint_pos"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "current_dof_vel": [
+    {
+     "terms": [
+      "joint_vel"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "current_root_local_ang_vel": [
+    {
+     "terms": [
+      "base_ang_vel"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "processed_action_history": [
+    {
+     "terms": [
+      "prev_joint_pos_target"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ]
+  },
+  "input_shapes": {
+   "mimic_future_anchor_rot": [
+    1,
+    4,
+    4
+   ],
+   "mimic_future_dof_pos": [
+    1,
+    4,
+    29
+   ],
+   "mimic_future_dof_vel": [
+    1,
+    4,
+    29
+   ],
+   "current_anchor_rot": [
+    1,
+    4
+   ],
+   "current_dof_pos": [
+    1,
+    29
+   ],
+   "current_dof_vel": [
+    1,
+    29
+   ],
+   "current_root_local_ang_vel": [
+    1,
+    3
+   ],
+   "processed_action_history": [
+    1,
+    1,
+    29
+   ]
+  },
+  "constant_inputs": {},
+  "output": "actions",
+  "other_outputs": {
+   "joint_pos_targets": "= default_joint_pos + action_scale * actions (already absolute PD target)",
+   "stiffness_targets": "kp",
+   "damping_targets": "kd"
+  },
+  "joint_names": [
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint",
+   "waist_yaw_joint",
+   "waist_roll_joint",
+   "waist_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_shoulder_yaw_joint",
+   "left_elbow_joint",
+   "left_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_shoulder_yaw_joint",
+   "right_elbow_joint",
+   "right_wrist_roll_joint",
+   "right_wrist_pitch_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "default_joint_pos": [
+   -0.31200000643730164,
+   0.0,
+   0.0,
+   0.6690000295639038,
+   -0.3630000054836273,
+   0.0,
+   -0.31200000643730164,
+   0.0,
+   0.0,
+   0.6690000295639038,
+   -0.3630000054836273,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.20000000298023224,
+   0.20000000298023224,
+   0.0,
+   0.6000000238418579,
+   0.0,
+   0.0,
+   0.0,
+   0.20000000298023224,
+   -0.20000000298023224,
+   0.0,
+   0.6000000238418579,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "action_scale": [
+   2.190186023712158,
+   1.4026458263397217,
+   2.190186023712158,
+   1.4026458263397217,
+   1.7543092966079712,
+   1.7543092966079712,
+   2.190186023712158,
+   1.4026458263397217,
+   2.190186023712158,
+   1.4026458263397217,
+   1.7543092966079712,
+   1.7543092966079712,
+   2.190186023712158,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   0.2980034649372101,
+   0.2980034649372101,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   1.7543092966079712,
+   0.2980034649372101,
+   0.2980034649372101
+  ],
+  "action_offset": "default",
+  "action_clip": null,
+  "control_dt": 0.02,
+  "sim_dt": 0.005,
+  "decimation": 4,
+  "kp": [
+   40.17923847137318,
+   99.09842777666113,
+   40.17923847137318,
+   99.09842777666113,
+   28.50124619574858,
+   28.50124619574858,
+   40.17923847137318,
+   99.09842777666113,
+   40.17923847137318,
+   99.09842777666113,
+   28.50124619574858,
+   28.50124619574858,
+   40.17923847137318,
+   28.50124619574858,
+   28.50124619574858,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   16.77832748089279,
+   16.77832748089279,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   16.77832748089279,
+   16.77832748089279
+  ],
+  "kd": [
+   2.5578897650279457,
+   6.3088018534966395,
+   2.5578897650279457,
+   6.3088018534966395,
+   1.814445686584846,
+   1.814445686584846,
+   2.5578897650279457,
+   6.3088018534966395,
+   2.5578897650279457,
+   6.3088018534966395,
+   1.814445686584846,
+   1.814445686584846,
+   2.5578897650279457,
+   1.814445686584846,
+   1.814445686584846,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   1.06814150219,
+   1.06814150219,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   1.06814150219,
+   1.06814150219
+  ],
+  "armature": [
+   0.01017752,
+   0.025101925,
+   0.01017752,
+   0.025101925,
+   0.00721945,
+   0.00721945,
+   0.01017752,
+   0.025101925,
+   0.01017752,
+   0.025101925,
+   0.00721945,
+   0.00721945,
+   0.01017752,
+   0.00721945,
+   0.00721945,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.00425,
+   0.00425,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.00425,
+   0.00425
+  ],
+  "effort": [
+   88.0,
+   139.0,
+   88.0,
+   139.0,
+   50.0,
+   50.0,
+   88.0,
+   139.0,
+   88.0,
+   139.0,
+   50.0,
+   50.0,
+   88.0,
+   50.0,
+   50.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   5.0,
+   5.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   5.0,
+   5.0
+  ],
+  "velocity_limit": [
+   32,
+   20,
+   32,
+   20,
+   37,
+   37,
+   32,
+   20,
+   32,
+   20,
+   37,
+   37,
+   32,
+   37,
+   37,
+   37,
+   37,
+   37,
+   37,
+   37,
+   22,
+   22,
+   37,
+   37,
+   37,
+   37,
+   37,
+   22,
+   22
+  ],
+  "obs_normalization": "in_graph",
+  "reference": {
+   "source": "other:ProtoMotions motion clips (BONES-SEED retargeted CSV / Kimodo), lerp+slerp resampled to 50 Hz; no live retargeter shipped",
+   "frames": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "lookahead_s": 0.16
+  }
+ },
+ "term_defs": {
+  "ref_anchor_quat_world_xyzw": {
+   "what": "reference torso_link (body index 16 of the 33-body list) world orientation",
+   "frame": "world, z-up, after yaw-only alignment: q = q_yaw_offset * q_ref, where q_yaw_offset = yaw-only rotation taking the motion's frame-0 torso heading to the robot's torso heading at motion start (computed once per motion start)",
+   "units": "unit quaternion",
+   "quat_order": "xyzw",
+   "per_step_layout": "[4] per future step, steps stacked -> [4,4]",
+   "source": "deployment/tracker_inputs.py:429-475, deployment/state_utils.py:296-350, deployment/tracker_inputs.py:563-567"
+  },
+  "anchor_quat_world_xyzw": {
+   "what": "robot torso_link world orientation (MuJoCo data.xquat[torso] converted wxyz->xyzw; real robot: pelvis IMU + FK through waist joints)",
+   "frame": "world",
+   "units": "unit quaternion",
+   "quat_order": "xyzw",
+   "per_step_layout": "[4]",
+   "source": "deployment/test_tracker_mujoco.py:364-402,747-750; docs/source/tutorials/workflows/g1_deployment.rst 'Sensor Requirements'"
+  },
+  "prev_joint_pos_target": {
+   "what": "the joint_pos_targets output of the previous policy call as returned (before any clamp) = default_joint_pos + action_scale * last_action; zeros (not default pose) until one call has run since reset",
+   "frame": "joint, absolute rad",
+   "units": "rad",
+   "per_step_layout": "[29] policy joint order, 1 slot ([1,1,29])",
+   "source": "unified_pipeline.yaml processed_action_history (output_key joint_pos_targets, steps_back [1], fill zeros); deployment/tracker_inputs.py:229-353"
+  }
+ },
+ "runtime_notes": "ref_joint_pos is absolute (not minus default); base_ang_vel = pelvis angular velocity in pelvis frame (MuJoCo qvel[3:6]); joint_pos absolute. Runner must keep a per-motion-start yaw offset for the reference torso quaternion.",
+ "measured": {
+  "how": "onnx.load graph + onnxruntime CPU, 1 thread, batch 1, random inputs, 200 runs on the dev laptop (2026-11-03). TorchScript archives are not loaded; params estimated from tensor blobs.",
+  "files": [
+   {
+    "file": "g1_bones_seed_mini.pt",
+    "sha256": "fa36ece31f99c56f218e51d0db54def318fae163f05c4b66eb7b41649336ef5e",
+    "bytes": 24555451,
+    "format": "torch_state",
+    "params": 6443610,
+    "params_est": null,
+    "inputs": null,
+    "outputs": null,
+    "arch": null,
+    "widest_layers": null,
+    "activations": null,
+    "opset": null,
+    "cpu_ms": null
+   },
+   {
+    "file": "unified_pipeline.onnx",
+    "sha256": "fbbcf33a3fbcc939a5765161947f390b7911800011ca535ab896acf9f40e12a3",
+    "bytes": 22603610,
+    "format": "onnx",
+    "params": 5636939,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "mimic_future_anchor_rot",
+      "shape": [
+       "batch_size",
+       4,
+       4
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "mimic_future_dof_pos",
+      "shape": [
+       "batch_size",
+       4,
+       29
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "mimic_future_dof_vel",
+      "shape": [
+       "batch_size",
+       4,
+       29
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "current_anchor_rot",
+      "shape": [
+       "batch_size",
+       4
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "current_dof_pos",
+      "shape": [
+       "batch_size",
+       29
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "current_dof_vel",
+      "shape": [
+       "batch_size",
+       29
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "current_root_local_ang_vel",
+      "shape": [
+       "batch_size",
+       3
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "processed_action_history",
+      "shape": [
+       "batch_size",
+       1,
+       29
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "actions",
+      "shape": [
+       "batch_size",
+       29
+      ]
+     },
+     {
+      "name": "joint_pos_targets",
+      "shape": [
+       "batch_size",
+       29
+      ]
+     },
+     {
+      "name": "stiffness_targets",
+      "shape": [
+       "batch_size",
+       "Expandstiffness_targets_dim_1"
+      ]
+     },
+     {
+      "name": "damping_targets",
+      "shape": [
+       "batch_size",
+       "Expanddamping_targets_dim_1"
+      ]
+     }
+    ],
+    "arch": [
+     "mlp"
+    ],
+    "widest_layers": [
+     1024,
+     29
+    ],
+    "activations": [
+     "Relu"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      17
+     ]
+    ],
+    "cpu_ms": {
+     "median": 1.6066999996837694,
+     "p95": 2.08810999902198
+    }
+   },
+   {
+    "file": "inference_last.ckpt",
+    "sha256": "fd285ee0a1b1127bfd86efbd2a9fe53d32d163dbd135207241c0847dd263f68b",
+    "bytes": 50336905,
+    "format": "torch_state",
+    "params": 12573643,
+    "params_est": null,
+    "inputs": null,
+    "outputs": null,
+    "arch": null,
+    "widest_layers": null,
+    "activations": null,
+    "opset": null,
+    "cpu_ms": null
+   }
+  ]
+ }
+}

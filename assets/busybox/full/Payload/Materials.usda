@@ -1,0 +1,4456 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.6.1"
+    }
+    defaultPrim = "palette_cell"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "palette_cell"
+{
+    def Scope "Materials"
+    {
+        def Material "col_a19485ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_a19485ff>
+        )
+        {
+        }
+
+        def Material "col_c7c9cfff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_c7c9cfff>
+        )
+        {
+        }
+
+        def Material "col_8c8f94ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_8c8f94ff>
+        )
+        {
+        }
+
+        def Material "col_b2b5baff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_b2b5baff>
+        )
+        {
+        }
+
+        def Material "col_141417ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_141417ff>
+        )
+        {
+        }
+
+        def Material "col_1f1f1fff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_1f1f1fff>
+        )
+        {
+        }
+
+        def Material "col_525459ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_525459ff>
+        )
+        {
+        }
+
+        def Material "col_ccd1d6ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_ccd1d6ff>
+        )
+        {
+        }
+
+        def Material "col_33363bff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_33363bff>
+        )
+        {
+        }
+
+        def Material "col_26262aff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_26262aff>
+        )
+        {
+        }
+
+        def Material "col_d6b284ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_d6b284ff>
+        )
+        {
+        }
+
+        def Material "col_a8acb2ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_a8acb2ff>
+        )
+        {
+        }
+
+        def Material "col_2c2c30ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_2c2c30ff>
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "floor" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </palette_cell/Materials/col_a19485ff>
+        }
+
+        over "palette"
+        {
+            over "ots1" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots2" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots3" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots4" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots5" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots6" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots7" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots8" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots9" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots10" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots11" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots12" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots13" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots14" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots15" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots16" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots17" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots18" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots19" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots20" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots21" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots22" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots23" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots24" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots25" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots26" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots27" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots28" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots29" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots30" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots31" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots32" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots33" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots34" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots35" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots36" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots37" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots38" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots39" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots40" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots41" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots42" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots43" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots44" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots45" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots46" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots47" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots48" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots49" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots50" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots51" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots52" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots53" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots54" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots55" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots56" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots57" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots58" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots59" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots60" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots61" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots62" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots63" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots64" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots65" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots66" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots67" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots68" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots69" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots70" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots71" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots72" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots73" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots74" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots75" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots76" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots77" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots78" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots79" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots80" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots81" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots82" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots83" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots84" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots85" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots86" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots87" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots88" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots89" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots90" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots91" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots92" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots93" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots94" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots95" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots96" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots97" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots98" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots99" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots100" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots101" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots102" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots103" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_1f1f1fff>
+            }
+
+            over "ots104" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots105" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots106" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots107" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots108" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots109" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots110" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots111" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots112" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots113" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots114" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots115" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots116" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots117" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots118" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots119" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots120" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots121" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots122" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots123" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots124" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots125" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots126" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots127" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots128" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots129" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots130" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots131" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots132" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots133" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots134" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots135" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots136" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots137" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots138" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots139" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots140" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots141" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots142" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots143" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots144" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots145" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots146" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots147" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots148" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots149" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots150" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots151" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots152" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots153" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots154" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots155" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots156" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots157" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots158" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots159" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots160" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots161" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots162" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots163" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots164" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots165" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots166" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots167" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots168" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots169" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots170" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots171" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots172" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots173" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots174" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots175" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots176" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots177" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots178" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots179" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots180" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots181" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots182" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots183" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots184" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots185" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots186" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots187" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots188" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots189" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots190" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots191" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots192" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots193" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots194" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots195" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots196" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_1f1f1fff>
+            }
+
+            over "ots197" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots198" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots199" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots200" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots201" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots202" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots203" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots204" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots205" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots206" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots207" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots208" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots209" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots210" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots211" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots212" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots213" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots214" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots215" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots216" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots217" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots218" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots219" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots220" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots221" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots222" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots223" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots224" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots225" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots226" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots227" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots228" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots229" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots230" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots231" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots232" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots233" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots234" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots235" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots236" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots237" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots238" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots239" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots240" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots241" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots242" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots243" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots244" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots245" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots246" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots247" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots248" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots249" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots250" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots251" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots252" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots253" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots254" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots255" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots256" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots257" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots258" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots259" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots260" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots261" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots262" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots263" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots264" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots265" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots266" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots267" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots268" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots269" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots270" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots271" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots272" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots273" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots274" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots275" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots276" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots277" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots278" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots279" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots280" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots281" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots282" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots283" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots284" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots285" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots286" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots287" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots288" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots289" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_1f1f1fff>
+            }
+
+            over "ots290" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots291" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots292" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots293" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_8c8f94ff>
+            }
+
+            over "ots294" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots295" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots296" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots297" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots298" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots299" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots300" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots301" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots302" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots303" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots304" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots305" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots306" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots307" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots308" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots309" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots310" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots311" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots312" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots313" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots314" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots315" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots316" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots317" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots318" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots319" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots320" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots321" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots322" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots323" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots324" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots325" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots326" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots327" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots328" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots329" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots330" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots331" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots332" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots333" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots334" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots335" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots336" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots337" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots338" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots339" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots340" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots341" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots342" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots343" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots344" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots345" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots346" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots347" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots348" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots349" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots350" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots351" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots352" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots353" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots354" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots355" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots356" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots357" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots358" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots359" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots360" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots361" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots362" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots363" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots364" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots365" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots366" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots367" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots368" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots369" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots370" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots371" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots372" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots373" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots374" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots375" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots376" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots377" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots378" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots379" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots380" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots381" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots382" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_1f1f1fff>
+            }
+
+            over "ots383" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_525459ff>
+            }
+
+            over "ots384" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots385" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots386" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots387" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots388" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_525459ff>
+            }
+
+            over "ots389" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots390" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots391" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots392" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots393" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots394" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots395" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots396" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots397" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots398" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots399" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots400" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots401" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots402" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_c7c9cfff>
+            }
+
+            over "ots403" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_ccd1d6ff>
+            }
+
+            over "ots404" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots405" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots406" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots407" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots408" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots409" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots410" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots411" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots412" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots413" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots423" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots424" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots425" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots426" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots427" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots428" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots429" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots430" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots431" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots432" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots433" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots434" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots435" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots436" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots437" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots438" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots439" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots440" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots441" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots442" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots443" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots444" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots445" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots446" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots447" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots448" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots449" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots450" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots451" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots452" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots453" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots454" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots455" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots456" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots457" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots458" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots459" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots460" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots461" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots462" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots463" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots464" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots465" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots466" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots467" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots468" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_141417ff>
+            }
+
+            over "ots469" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_33363bff>
+            }
+
+            over "ots470" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots471" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots472" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots473" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots474" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots475" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots476" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots477" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots478" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots479" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots480" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots481" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots482" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots483" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots484" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots485" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots486" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots487" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots488" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots489" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ots490" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_b2b5baff>
+            }
+
+            over "ls_drawer4_F2_mov0"
+            {
+                over "ots414" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots415" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_b2b5baff>
+                }
+
+                over "ots416" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_b2b5baff>
+                }
+
+                over "ots417" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_b2b5baff>
+                }
+
+                over "ots418" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_b2b5baff>
+                }
+
+                over "ots419" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_525459ff>
+                }
+
+                over "ots420" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_525459ff>
+                }
+
+                over "ots421" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_525459ff>
+                }
+
+                over "ots422" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_525459ff>
+                }
+            }
+
+            over "ls_slide410_F15_mov0"
+            {
+                over "ots491" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots492" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots493" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots494" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots495" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_33363bff>
+                }
+
+                over "ots496" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_141417ff>
+                }
+            }
+        }
+
+        over "bror_cart"
+        {
+            over "bror_cart_g0" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g1" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g2" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g3" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g4" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g5" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g6" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g7" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g8" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_d6b284ff>
+            }
+
+            over "bror_cart_g9" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g10" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g11" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g12" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g13" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g14" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g15" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g16" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g17" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g18" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g19" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g20" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g21" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g22" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g23" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g28" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g33" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g38" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_caster_br"
+            {
+                over "bror_cart_fork_br0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_br1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_br" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_br"
+                {
+                    over "bror_cart_wheelv_br" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_br" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_bl"
+            {
+                over "bror_cart_fork_bl0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_bl1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_bl" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_bl"
+                {
+                    over "bror_cart_wheelv_bl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_bl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fr"
+            {
+                over "bror_cart_fork_fr0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_fr1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_fr" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_fr"
+                {
+                    over "bror_cart_wheelv_fr" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_fr" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fl"
+            {
+                over "bror_cart_fork_fl0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_fl1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_fl" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_fl"
+                {
+                    over "bror_cart_wheelv_fl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_fl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+        }
+
+        over "basingen_stool"
+        {
+            over "basingen_stool_g0" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g1" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g2" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g3" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g4" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g5" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g6" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g7" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g8" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g9" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g10" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g11" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g12" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g13" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g14" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g15" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g16" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g17" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g18" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g19" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g20" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g21" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g22" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g23" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g24" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g25" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g26" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g27" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g28" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g29" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+
+            over "basingen_stool_g30" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+
+            over "basingen_stool_g31" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g32" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g33" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g34" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g35" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g36" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g37" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g38" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g39" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g40" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g41" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g42" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g43" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g44" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g45" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g46" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g47" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g48" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g49" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g50" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g51" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g52" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g53" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g54" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g55" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g56" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g57" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g58" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g59" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g60" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g61" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g62" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g63" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g64" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g65" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g66" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g67" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g68" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "basingen_stool_g69" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+
+            over "basingen_stool_g70" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+
+            over "basingen_stool_g71" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+
+            over "basingen_stool_g72" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+            }
+        }
+    }
+}
+

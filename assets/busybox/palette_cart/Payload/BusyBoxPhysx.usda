@@ -1,0 +1,190 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "busybox_lab tools/usd_export/cell_fixes.py"
+    }
+    defaultPrim = "palette_cell"
+    doc = "PhysX fixes for the busy box cell (Isaac Sim 6.2 / Isaac Lab 3.0)."
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "palette_cell"
+{
+    over "Geometry"
+    {
+        over "palette" (
+            delete apiSchemas = ["NewtonArticulationRootAPI", "PhysicsArticulationRootAPI"]
+        )
+        {
+            uniform bool newton:jointsAddMobility = None
+
+            over "PhysicsFixedJoint" (
+                prepend apiSchemas = ["PhysicsArticulationRootAPI", "NewtonArticulationRootAPI", "PhysxArticulationAPI"]
+            )
+            {
+                uniform bool newton:jointsAddMobility = 1
+                bool physxArticulation:enabledSelfCollisions = 1
+            }
+
+            over "ls_drawer4_F2_mov0"
+            {
+                over "ls_drawer4_F2_slide0" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:linear"]
+                )
+                {
+                    float drive:linear:physics:damping = 5
+                    float drive:linear:physics:stiffness = 0
+                    float drive:linear:physics:targetVelocity = 0
+                    uniform token drive:linear:physics:type = "force"
+                    float physxJoint:armature = 0.01
+                    float physxJoint:jointFriction = 2
+                }
+            }
+
+            over "ls_slide410_F15_mov0"
+            {
+                over "ls_slide410_F15_slide0" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:linear"]
+                )
+                {
+                    float drive:linear:physics:damping = 5
+                    float drive:linear:physics:stiffness = 0
+                    float drive:linear:physics:targetVelocity = 0
+                    uniform token drive:linear:physics:type = "force"
+                    float physxJoint:armature = 0.01
+                    float physxJoint:jointFriction = 2
+                }
+            }
+        }
+
+        over "bror_cart" (
+            prepend apiSchemas = ["PhysxArticulationAPI"]
+        )
+        {
+            bool physxArticulation:enabledSelfCollisions = 1
+
+            over "bror_cart_caster_br"
+            {
+                over "bror_cart_swivel_br" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                )
+                {
+                    float drive:angular:physics:damping = 0.000034906585
+                    float drive:angular:physics:stiffness = 0
+                    float drive:angular:physics:targetVelocity = 0
+                    uniform token drive:angular:physics:type = "force"
+                    float physxJoint:armature = 0.0005
+                    float physxJoint:jointFriction = 0.002
+                }
+
+                over "bror_cart_wheel_br"
+                {
+                    over "bror_cart_roll_br" (
+                        prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                    )
+                    {
+                        float drive:angular:physics:damping = 0.00017453292
+                        float drive:angular:physics:stiffness = 0
+                        float drive:angular:physics:targetVelocity = 0
+                        uniform token drive:angular:physics:type = "force"
+                        float physxJoint:armature = 0.0005
+                        float physxJoint:jointFriction = 0.001
+                    }
+                }
+            }
+
+            over "bror_cart_caster_bl"
+            {
+                over "bror_cart_swivel_bl" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                )
+                {
+                    float drive:angular:physics:damping = 0.000034906585
+                    float drive:angular:physics:stiffness = 0
+                    float drive:angular:physics:targetVelocity = 0
+                    uniform token drive:angular:physics:type = "force"
+                    float physxJoint:armature = 0.0005
+                    float physxJoint:jointFriction = 0.002
+                }
+
+                over "bror_cart_wheel_bl"
+                {
+                    over "bror_cart_roll_bl" (
+                        prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                    )
+                    {
+                        float drive:angular:physics:damping = 0.00017453292
+                        float drive:angular:physics:stiffness = 0
+                        float drive:angular:physics:targetVelocity = 0
+                        uniform token drive:angular:physics:type = "force"
+                        float physxJoint:armature = 0.0005
+                        float physxJoint:jointFriction = 0.001
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fr"
+            {
+                over "bror_cart_swivel_fr" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                )
+                {
+                    float drive:angular:physics:damping = 0.000034906585
+                    float drive:angular:physics:stiffness = 0
+                    float drive:angular:physics:targetVelocity = 0
+                    uniform token drive:angular:physics:type = "force"
+                    float physxJoint:armature = 0.0005
+                    float physxJoint:jointFriction = 0.002
+                }
+
+                over "bror_cart_wheel_fr"
+                {
+                    over "bror_cart_roll_fr" (
+                        prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                    )
+                    {
+                        float drive:angular:physics:damping = 0.00017453292
+                        float drive:angular:physics:stiffness = 0
+                        float drive:angular:physics:targetVelocity = 0
+                        uniform token drive:angular:physics:type = "force"
+                        float physxJoint:armature = 0.0005
+                        float physxJoint:jointFriction = 0.001
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fl"
+            {
+                over "bror_cart_swivel_fl" (
+                    prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                )
+                {
+                    float drive:angular:physics:damping = 0.000034906585
+                    float drive:angular:physics:stiffness = 0
+                    float drive:angular:physics:targetVelocity = 0
+                    uniform token drive:angular:physics:type = "force"
+                    float physxJoint:armature = 0.0005
+                    float physxJoint:jointFriction = 0.002
+                }
+
+                over "bror_cart_wheel_fl"
+                {
+                    over "bror_cart_roll_fl" (
+                        prepend apiSchemas = ["PhysxJointAPI", "PhysicsDriveAPI:angular"]
+                    )
+                    {
+                        float drive:angular:physics:damping = 0.00017453292
+                        float drive:angular:physics:stiffness = 0
+                        float drive:angular:physics:targetVelocity = 0
+                        uniform token drive:angular:physics:type = "force"
+                        float physxJoint:armature = 0.0005
+                        float physxJoint:jointFriction = 0.001
+                    }
+                }
+            }
+        }
+    }
+}
+

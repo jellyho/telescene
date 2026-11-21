@@ -1,0 +1,1130 @@
+{
+ "slug": "mimiclite",
+ "name": "MimicLite v1.1 (G1, PPO-ROA student, Finetune stage)",
+ "paper": "MimicLite technical report (mimic-lite.pdf in roboparty/mimiclite)",
+ "repo": "https://github.com/roboparty/mimiclite (landing, submodules) + https://github.com/EGalahad/mimic-lite (training) + https://github.com/EGalahad/sim2real (deploy) + https://github.com/Agent-3154/active-adaptation (framework)",
+ "repo_commit": {
+  "roboparty/mimiclite": "897624097e9385f4a1112ee62f15f4497f07a66b",
+  "EGalahad/mimic-lite": "3253810ce21dbcc05d8f4942a017ea3eaffc6cf1 (= submodule pin)",
+  "EGalahad/sim2real": "287ac157e6a7143340da7a9fc2fa5ff552031bc8 (HEAD 2026-10-20; landing repo pins older d1833cfb 2026-07-03, which predates the v1_1 release)",
+  "Agent-3154/active-adaptation": "b6a6b3f101344dfe8d5bdd6a06e921f4333127eb (= submodule pin)"
+ },
+ "license_code": "roboparty/mimiclite: GPL-3.0-or-later (README.md License section); EGalahad/mimic-lite and EGalahad/sim2real: no LICENSE file found in the clones",
+ "license_weights": "not stated (Drive release has no license file)",
+ "files": [
+  {
+   "path": "v1_1/policy.onnx",
+   "bytes": 8226938,
+   "sha256": "f647b2674a593cdc9e3b661f653b3f0f120238523a79f3ec7765bc480af22f48",
+   "source_url": "https://drive.google.com/file/d/1TR5L_eAMzT8OWg4Afes4OpTU8YjS0HyA/view (downloaded via https://drive.usercontent.google.com/download?id=1TR5L_eAMzT8OWg4Afes4OpTU8YjS0HyA&export=download&confirm=t)",
+   "what": "policy (ONNX, PPO-ROA student, Finetune stage, MimicLite v1.1 for G1); inputs command[304], policy[535]; outputs action[29], latent[512]; VecNorm obs normalization baked in"
+  },
+  {
+   "path": "v1_1/policy.yaml",
+   "bytes": 7652,
+   "sha256": "4cc74220a3aa565baa02a21b725e2de89c7c333d52b06b18b21ddd1f46bb34db",
+   "source_url": "https://drive.google.com/file/d/10A0Wr151QNXLkjQIAoa_C7z-5HUSEhMn/view (downloaded via https://drive.usercontent.google.com/download?id=10A0Wr151QNXLkjQIAoa_C7z-5HUSEhMn&export=download&confirm=t)",
+   "what": "config: deploy spec exported with the ONNX (obs terms, joint orders, kp/kd, default pose, action scale, motion future steps)"
+  },
+  {
+   "path": "v1_1/README.md",
+   "bytes": 1323,
+   "sha256": "4f69bf740155ea53afffcd17146dc33c591d9213efc269185698261f3351ac69",
+   "source_url": "https://drive.google.com/file/d/1YF5du0dBT1qwcH2uVPvgMr-Kr2YtsfsS/view (downloaded via https://drive.usercontent.google.com/download?id=1YF5du0dBT1qwcH2uVPvgMr-Kr2YtsfsS&export=download&confirm=t)",
+   "what": "release README (interface + training summary + eval)"
+  },
+  {
+   "path": "v1_1/SHA256SUMS.txt",
+   "bytes": 232,
+   "sha256": "4e2b87beabdd755c84d1acabf4751c81c3a61a5178abed367b90c32acc940ab6",
+   "source_url": "https://drive.google.com/file/d/1dODpVlCK6UDJAZCV35-R2sVKxl9O9GUz/view (downloaded via https://drive.usercontent.google.com/download?id=1dODpVlCK6UDJAZCV35-R2sVKxl9O9GUz&export=download&confirm=t)",
+   "what": "upstream checksums (policy.onnx, policy.yaml, README.md all verified OK)"
+  },
+  {
+   "path": "robot/g1-mode_13_15.xml",
+   "bytes": 23368,
+   "sha256": "44e5334426c21890759f5f43ff5e3b33b9afabdff2ec4285fb459dfcd09313b4",
+   "source_url": "https://huggingface.co/elijahgalahad/g1_xmls/resolve/1c1d082f299126b9272e81c04121ff347c97fa8f/g1-mode_13_15.xml",
+   "what": "config: training MJCF for G1 mode 15 (pinned revision used by mimic_lite/assets/g1.py:16-24); meshes not downloaded"
+  }
+ ],
+ "skipped": [
+  {
+   "what": "finetune.pt / training-config.yaml for G1 v1.1",
+   "why": "not present in the v1_1 Drive folder (only policy.onnx, policy.yaml, README.md, SHA256SUMS.txt); docs/checkpoints.md bundle description applies to H2/A3/RP1"
+  },
+  {
+   "what": "other Drive folders (roa/, ppo/, archive/, multi-robot-20261010/, and other trackers' checkpoints in the shared sim2real Drive)",
+   "why": "older or non-G1-v1.1 releases; not requested"
+  },
+  {
+   "what": "G1 meshes from elijahgalahad/g1_xmls",
+   "why": "only the MJCF text was needed for the interface"
+  }
+ ],
+ "format": "onnx (inputs 'command' [304], 'policy' [535]; outputs 'action' [29], 'latent' [512]) - names from v1_1/README.md:9-10",
+ "robot": "G1 29DoF (Unitree 'mode 15' actuator set: hip pitch 7520-22, wrist pitch/yaw 5010)",
+ "hands": "none (rubber hands: visual mesh + one capsule collision per hand, fixed on wrist_yaw_link; palm_link body used only for rewards)",
+ "control_hz": 50,
+ "sim_dt_trained": 0.005,
+ "decimation": 4,
+ "joint_order": [
+  "left_hip_pitch_joint",
+  "right_hip_pitch_joint",
+  "waist_yaw_joint",
+  "left_hip_roll_joint",
+  "right_hip_roll_joint",
+  "waist_roll_joint",
+  "left_hip_yaw_joint",
+  "right_hip_yaw_joint",
+  "waist_pitch_joint",
+  "left_knee_joint",
+  "right_knee_joint",
+  "left_shoulder_pitch_joint",
+  "right_shoulder_pitch_joint",
+  "left_ankle_pitch_joint",
+  "right_ankle_pitch_joint",
+  "left_shoulder_roll_joint",
+  "right_shoulder_roll_joint",
+  "left_ankle_roll_joint",
+  "right_ankle_roll_joint",
+  "left_shoulder_yaw_joint",
+  "right_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "right_elbow_joint",
+  "left_wrist_roll_joint",
+  "right_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "right_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_wrist_yaw_joint"
+ ],
+ "default_joint_pos": {
+  "left_hip_pitch_joint": -0.31200000643730164,
+  "right_hip_pitch_joint": -0.31200000643730164,
+  "waist_yaw_joint": 0.0,
+  "left_hip_roll_joint": 0.0,
+  "right_hip_roll_joint": 0.0,
+  "waist_roll_joint": 0.0,
+  "left_hip_yaw_joint": 0.0,
+  "right_hip_yaw_joint": 0.0,
+  "waist_pitch_joint": 0.0,
+  "left_knee_joint": 0.6690000295639038,
+  "right_knee_joint": 0.6690000295639038,
+  "left_shoulder_pitch_joint": 0.20000000298023224,
+  "right_shoulder_pitch_joint": 0.20000000298023224,
+  "left_ankle_pitch_joint": -0.3630000054836273,
+  "right_ankle_pitch_joint": -0.3630000054836273,
+  "left_shoulder_roll_joint": 0.20000000298023224,
+  "right_shoulder_roll_joint": -0.20000000298023224,
+  "left_ankle_roll_joint": 0.0,
+  "right_ankle_roll_joint": 0.0,
+  "left_shoulder_yaw_joint": 0.0,
+  "right_shoulder_yaw_joint": 0.0,
+  "left_elbow_joint": 0.6000000238418579,
+  "right_elbow_joint": 0.6000000238418579,
+  "left_wrist_roll_joint": 0.0,
+  "right_wrist_roll_joint": 0.0,
+  "left_wrist_pitch_joint": 0.0,
+  "right_wrist_pitch_joint": 0.0,
+  "left_wrist_yaw_joint": 0.0,
+  "right_wrist_yaw_joint": 0.0
+ },
+ "kp": {
+  "left_hip_pitch_joint": 99.098427777,
+  "right_hip_pitch_joint": 99.098427777,
+  "waist_yaw_joint": 40.179238635,
+  "left_hip_roll_joint": 99.098427777,
+  "right_hip_roll_joint": 99.098427777,
+  "waist_roll_joint": 28.501246196,
+  "left_hip_yaw_joint": 40.179238635,
+  "right_hip_yaw_joint": 40.179238635,
+  "waist_pitch_joint": 28.501246196,
+  "left_knee_joint": 99.098427777,
+  "right_knee_joint": 99.098427777,
+  "left_shoulder_pitch_joint": 14.250623098,
+  "right_shoulder_pitch_joint": 14.250623098,
+  "left_ankle_pitch_joint": 28.501246196,
+  "right_ankle_pitch_joint": 28.501246196,
+  "left_shoulder_roll_joint": 14.250623098,
+  "right_shoulder_roll_joint": 14.250623098,
+  "left_ankle_roll_joint": 28.501246196,
+  "right_ankle_roll_joint": 28.501246196,
+  "left_shoulder_yaw_joint": 14.250623098,
+  "right_shoulder_yaw_joint": 14.250623098,
+  "left_elbow_joint": 14.250623098,
+  "right_elbow_joint": 14.250623098,
+  "left_wrist_roll_joint": 14.250623098,
+  "right_wrist_roll_joint": 14.250623098,
+  "left_wrist_pitch_joint": 8.611032447,
+  "right_wrist_pitch_joint": 8.611032447,
+  "left_wrist_yaw_joint": 8.611032447,
+  "right_wrist_yaw_joint": 8.611032447
+ },
+ "kd": {
+  "left_hip_pitch_joint": 6.308801853,
+  "right_hip_pitch_joint": 6.308801853,
+  "waist_yaw_joint": 2.557889775,
+  "left_hip_roll_joint": 6.308801853,
+  "right_hip_roll_joint": 6.308801853,
+  "waist_roll_joint": 1.814445687,
+  "left_hip_yaw_joint": 2.557889775,
+  "right_hip_yaw_joint": 2.557889775,
+  "waist_pitch_joint": 1.814445687,
+  "left_knee_joint": 6.308801853,
+  "right_knee_joint": 6.308801853,
+  "left_shoulder_pitch_joint": 0.907222843,
+  "right_shoulder_pitch_joint": 0.907222843,
+  "left_ankle_pitch_joint": 1.814445687,
+  "right_ankle_pitch_joint": 1.814445687,
+  "left_shoulder_roll_joint": 0.907222843,
+  "right_shoulder_roll_joint": 0.907222843,
+  "left_ankle_roll_joint": 1.814445687,
+  "right_ankle_roll_joint": 1.814445687,
+  "left_shoulder_yaw_joint": 0.907222843,
+  "right_shoulder_yaw_joint": 0.907222843,
+  "left_elbow_joint": 0.907222843,
+  "right_elbow_joint": 0.907222843,
+  "left_wrist_roll_joint": 0.907222843,
+  "right_wrist_roll_joint": 0.907222843,
+  "left_wrist_pitch_joint": 0.548195352,
+  "right_wrist_pitch_joint": 0.548195352,
+  "left_wrist_yaw_joint": 0.548195352,
+  "right_wrist_yaw_joint": 0.548195352
+ },
+ "armature": {
+  "left_hip_pitch_joint": 0.025101925,
+  "right_hip_pitch_joint": 0.025101925,
+  "waist_yaw_joint": 0.010177520041,
+  "left_hip_roll_joint": 0.025101925,
+  "right_hip_roll_joint": 0.025101925,
+  "waist_roll_joint": 0.00721945,
+  "left_hip_yaw_joint": 0.010177520041,
+  "right_hip_yaw_joint": 0.010177520041,
+  "waist_pitch_joint": 0.00721945,
+  "left_knee_joint": 0.025101925,
+  "right_knee_joint": 0.025101925,
+  "left_shoulder_pitch_joint": 0.003609725,
+  "right_shoulder_pitch_joint": 0.003609725,
+  "left_ankle_pitch_joint": 0.00721945,
+  "right_ankle_pitch_joint": 0.00721945,
+  "left_shoulder_roll_joint": 0.003609725,
+  "right_shoulder_roll_joint": 0.003609725,
+  "left_ankle_roll_joint": 0.00721945,
+  "right_ankle_roll_joint": 0.00721945,
+  "left_shoulder_yaw_joint": 0.003609725,
+  "right_shoulder_yaw_joint": 0.003609725,
+  "left_elbow_joint": 0.003609725,
+  "right_elbow_joint": 0.003609725,
+  "left_wrist_roll_joint": 0.003609725,
+  "right_wrist_roll_joint": 0.003609725,
+  "left_wrist_pitch_joint": 0.0021812,
+  "right_wrist_pitch_joint": 0.0021812,
+  "left_wrist_yaw_joint": 0.0021812,
+  "right_wrist_yaw_joint": 0.0021812
+ },
+ "effort_limit": {
+  "left_hip_pitch_joint": 139.0,
+  "right_hip_pitch_joint": 139.0,
+  "waist_yaw_joint": 88.0,
+  "left_hip_roll_joint": 139.0,
+  "right_hip_roll_joint": 139.0,
+  "waist_roll_joint": 50.0,
+  "left_hip_yaw_joint": 88.0,
+  "right_hip_yaw_joint": 88.0,
+  "waist_pitch_joint": 50.0,
+  "left_knee_joint": 139.0,
+  "right_knee_joint": 139.0,
+  "left_shoulder_pitch_joint": 25.0,
+  "right_shoulder_pitch_joint": 25.0,
+  "left_ankle_pitch_joint": 50.0,
+  "right_ankle_pitch_joint": 50.0,
+  "left_shoulder_roll_joint": 25.0,
+  "right_shoulder_roll_joint": 25.0,
+  "left_ankle_roll_joint": 50.0,
+  "right_ankle_roll_joint": 50.0,
+  "left_shoulder_yaw_joint": 25.0,
+  "right_shoulder_yaw_joint": 25.0,
+  "left_elbow_joint": 25.0,
+  "right_elbow_joint": 25.0,
+  "left_wrist_roll_joint": 25.0,
+  "right_wrist_roll_joint": 25.0,
+  "left_wrist_pitch_joint": 13.4,
+  "right_wrist_pitch_joint": 13.4,
+  "left_wrist_yaw_joint": 13.4,
+  "right_wrist_yaw_joint": 13.4
+ },
+ "velocity_limit": {
+  "left_hip_pitch_joint": 20.0,
+  "right_hip_pitch_joint": 20.0,
+  "waist_yaw_joint": 32.0,
+  "left_hip_roll_joint": 20.0,
+  "right_hip_roll_joint": 20.0,
+  "waist_roll_joint": 37.0,
+  "left_hip_yaw_joint": 32.0,
+  "right_hip_yaw_joint": 32.0,
+  "waist_pitch_joint": 37.0,
+  "left_knee_joint": 20.0,
+  "right_knee_joint": 20.0,
+  "left_shoulder_pitch_joint": 37.0,
+  "right_shoulder_pitch_joint": 37.0,
+  "left_ankle_pitch_joint": 37.0,
+  "right_ankle_pitch_joint": 37.0,
+  "left_shoulder_roll_joint": 37.0,
+  "right_shoulder_roll_joint": 37.0,
+  "left_ankle_roll_joint": 37.0,
+  "right_ankle_roll_joint": 37.0,
+  "left_shoulder_yaw_joint": 37.0,
+  "right_shoulder_yaw_joint": 37.0,
+  "left_elbow_joint": 37.0,
+  "right_elbow_joint": 37.0,
+  "left_wrist_roll_joint": 37.0,
+  "right_wrist_roll_joint": 37.0,
+  "left_wrist_pitch_joint": 27.0,
+  "right_wrist_pitch_joint": 27.0,
+  "left_wrist_yaw_joint": 27.0,
+  "right_wrist_yaw_joint": 27.0
+ },
+ "frictionloss": {
+  "left_hip_pitch_joint": 0.01,
+  "right_hip_pitch_joint": 0.01,
+  "waist_yaw_joint": 0.01,
+  "left_hip_roll_joint": 0.01,
+  "right_hip_roll_joint": 0.01,
+  "waist_roll_joint": 0.01,
+  "left_hip_yaw_joint": 0.01,
+  "right_hip_yaw_joint": 0.01,
+  "waist_pitch_joint": 0.01,
+  "left_knee_joint": 0.01,
+  "right_knee_joint": 0.01,
+  "left_shoulder_pitch_joint": 0.01,
+  "right_shoulder_pitch_joint": 0.01,
+  "left_ankle_pitch_joint": 0.01,
+  "right_ankle_pitch_joint": 0.01,
+  "left_shoulder_roll_joint": 0.01,
+  "right_shoulder_roll_joint": 0.01,
+  "left_ankle_roll_joint": 0.01,
+  "right_ankle_roll_joint": 0.01,
+  "left_shoulder_yaw_joint": 0.01,
+  "right_shoulder_yaw_joint": 0.01,
+  "left_elbow_joint": 0.01,
+  "right_elbow_joint": 0.01,
+  "left_wrist_roll_joint": 0.01,
+  "right_wrist_roll_joint": 0.01,
+  "left_wrist_pitch_joint": 0.01,
+  "right_wrist_pitch_joint": 0.01,
+  "left_wrist_yaw_joint": 0.01,
+  "right_wrist_yaw_joint": 0.01
+ },
+ "action": {
+  "dim": 29,
+  "meaning": "joint pos offset: q* = default + scale * a (policy order)",
+  "scale": {
+   "left_hip_pitch_joint": 0.550000011920929,
+   "right_hip_pitch_joint": 0.550000011920929,
+   "waist_yaw_joint": 0.550000011920929,
+   "left_hip_roll_joint": 0.3499999940395355,
+   "right_hip_roll_joint": 0.3499999940395355,
+   "waist_roll_joint": 0.4399999976158142,
+   "left_hip_yaw_joint": 0.550000011920929,
+   "right_hip_yaw_joint": 0.550000011920929,
+   "waist_pitch_joint": 0.4399999976158142,
+   "left_knee_joint": 0.3499999940395355,
+   "right_knee_joint": 0.3499999940395355,
+   "left_shoulder_pitch_joint": 0.4399999976158142,
+   "right_shoulder_pitch_joint": 0.4399999976158142,
+   "left_ankle_pitch_joint": 0.4399999976158142,
+   "right_ankle_pitch_joint": 0.4399999976158142,
+   "left_shoulder_roll_joint": 0.4399999976158142,
+   "right_shoulder_roll_joint": 0.4399999976158142,
+   "left_ankle_roll_joint": 0.4399999976158142,
+   "right_ankle_roll_joint": 0.4399999976158142,
+   "left_shoulder_yaw_joint": 0.4399999976158142,
+   "right_shoulder_yaw_joint": 0.4399999976158142,
+   "left_elbow_joint": 0.4399999976158142,
+   "right_elbow_joint": 0.4399999976158142,
+   "left_wrist_roll_joint": 0.4399999976158142,
+   "right_wrist_roll_joint": 0.4399999976158142,
+   "left_wrist_pitch_joint": 0.4399999976158142,
+   "right_wrist_pitch_joint": 0.4399999976158142,
+   "left_wrist_yaw_joint": 0.4399999976158142,
+   "right_wrist_yaw_joint": 0.4399999976158142
+  },
+  "offset": "default pose",
+  "clip": null,
+  "notes": "deploy: base_policy.py:231 (clip commented out at 553-554). Training adds a random 1-3 physics-substep action delay and an EMA (alpha U(0.8,1.0)) per substep (mimic_lite/tasks/actions.py:79-99, tracking-base.yaml:41-46); deploy applies neither."
+ },
+ "obs": {
+  "total_dim": 839,
+  "groups": {
+   "command": 304,
+   "policy": 535
+  },
+  "terms": [
+   {
+    "name": "command/ref_root_pos_future_local",
+    "dim": 24,
+    "scale": 1.0,
+    "history": "ref frames t+k, k in [-8,-4,-2,0,1,2,3,4] (8 x 3, frame-major: [k0 xyz, k1 xyz, ...])",
+    "frame": "heading: reference PELVIS position p_ref(t+k) expressed in the projected-yaw frame of the CURRENT reference pelvis, origin = current ref pelvis xy with z=0 (so z component = absolute ref pelvis height)",
+    "noise": "train: spherical noise std 0.002 m (student, tracking-base.yaml:82-83 overrides 0.005); deploy noise_std 0",
+    "source_ref": "sim2real/rl_policy/observations/mimic_lite.py:79-104 (sim2real), mimic_lite/tasks/observations/track.py:203-221, mimic_lite/tasks/transforms.py:73-85,205-219, mimic_lite/tasks/command.py:532-538, policy.yaml:3-15"
+   },
+   {
+    "name": "command/ref_root_ori_future_b",
+    "dim": 48,
+    "scale": 1.0,
+    "history": "8 frames as above, frame-major, 6 per frame",
+    "frame": "body (robot pelvis): R = R(q_robot_pelvis_w)^T R(q_ref_pelvis_w(t+k)); 6d = R[:2, :] flattened = first two ROWS [r00,r01,r02,r10,r11,r12]. Deploy pre-multiplies the robot quat by a fixed yaw offset yaw(ref_root(t0)) * yaw(robot_root(t0))^-1 computed at reset (projected-yaw), training shares one world frame",
+    "noise": "train: quaternion perturbation std 0.02 rad; deploy 0",
+    "source_ref": "sim2real/rl_policy/observations/mimic_lite.py:133-168, mimic_lite/tasks/observations/track.py:123-140, mimic_lite/tasks/transforms.py:183-201, mimic_lite/tasks/command.py:522-530, policy.yaml:16-27"
+   },
+   {
+    "name": "command/ref_joint_pos_future",
+    "dim": 232,
+    "scale": 1.0,
+    "history": "8 frames as above, frame-major, 29 per frame (policy order)",
+    "frame": "joint space, ABSOLUTE reference joint angles",
+    "noise": "train: gaussian std 0.01 rad; deploy 0",
+    "source_ref": "sim2real/rl_policy/observations/mimic_lite.py:28-30, sim2real/rl_policy/observations/motion.py:180,253-277, mimic_lite/tasks/observations/track.py:64-75, policy.yaml:28-39"
+   },
+   {
+    "name": "policy/root_ang_vel_history",
+    "dim": 21,
+    "scale": 1.0,
+    "history": "ticks t-0,t-1,t-2,t-3,t-4,t-8,t-16 (newest first), 3 per tick",
+    "frame": "body (pelvis); deploy = MuJoCo free-joint qvel[3:6]; train = root_com_ang_vel_b",
+    "noise": "train: spherical std 0.2",
+    "source_ref": "sim2real/rl_policy/observations/common.py:42-57, mimic_lite/tasks/observations/common.py:48-77, sim2real/sim_env/utils/bridge.py:187-190, policy.yaml:41-51"
+   },
+   {
+    "name": "policy/projected_gravity_history",
+    "dim": 21,
+    "scale": 1.0,
+    "history": "same ticks, newest first",
+    "frame": "body (pelvis), gravity (0,0,-1)",
+    "noise": "train: std 0.01 + per-episode quat bias std 0.03",
+    "source_ref": "sim2real/rl_policy/observations/common.py:59-82, mimic_lite/tasks/observations/common.py:80-120, policy.yaml:52-63"
+   },
+   {
+    "name": "policy/joint_pos_history",
+    "dim": 203,
+    "scale": 1.0,
+    "history": "same ticks, newest first, 29 per tick (policy order)",
+    "frame": "joint space, ABSOLUTE joint angles (training subtracts action_manager.offset which is zero for this release: no joint episode bias)",
+    "noise": "train: std 0.01",
+    "source_ref": "sim2real/rl_policy/observations/common.py:84-104, mimic_lite/tasks/observations/common.py:122-171, v1_1/README.md:21, policy.yaml:64-74"
+   },
+   {
+    "name": "policy/joint_vel_history",
+    "dim": 203,
+    "scale": 1.0,
+    "history": "same ticks, newest first",
+    "frame": "joint space, raw rad/s",
+    "noise": "train: std 0.5",
+    "source_ref": "sim2real/rl_policy/observations/common.py:106-126, mimic_lite/tasks/observations/common.py:174-225, policy.yaml:75-85"
+   },
+   {
+    "name": "policy/prev_actions",
+    "dim": 87,
+    "scale": 1.0,
+    "history": "[a(t-1), a(t-2), a(t-3)] newest first, 29 each; raw network outputs (no scale/clip); zeros at reset",
+    "frame": "action space (policy order)",
+    "noise": null,
+    "source_ref": "sim2real/rl_policy/observations/common.py:128-143, mimic_lite/tasks/observations/common.py:227-235, mimic_lite/tasks/actions.py:79-81, sim2real/rl_policy/base_policy.py:538-555, policy.yaml:86-88"
+   }
+  ],
+  "history_layout": "per-term, NEWEST-first: robot histories at ticks [0,1,2,3,4,8,16] back, reference windows at frames [-8,-4,-2,0,1,2,3,4]; each term flattened tick-major; terms concatenated in yaml order within each group",
+  "normalization": "running mean/std (VecNorm, frozen) per input key baked into the ONNX graph (mimic_lite_learning/ppo_roa.py:606-636, scripts/play.py:113-131); feed raw values",
+  "reset_behaviour": "robot history buffers filled with the current value at reset; prev_actions zeros (common.py:49-50,67-70,96-97,118-119,134-135)"
+ },
+ "reference": {
+  "type": "root+joints window: reference pelvis position (heading frame of current ref pelvis), pelvis orientation relative to robot, 29 joint angles",
+  "future_frames": [
+   -8,
+   -4,
+   -2,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "frame_dt": 0.02,
+  "lookahead_s": 0.08,
+  "includes_root": "pos yes (relative xy in ref heading frame, absolute z), rot yes (relative to robot pelvis, yaw-offset aligned at reset), vel no",
+  "coordinate frame": "anchor body = pelvis (policy.yaml:327-328, cfg/task/robot/g1.yaml:4-5); quats wxyz; projected_yaw_quat uses body x-axis heading (z-axis fallback when |x_xy|<0.1) (sim2real/utils/math.py:44-77)",
+  "motion_file_format": "any4hdmi motion datasets (body_pos_w, body_quat_w, body_lin_vel_w, body_ang_vel_w, joint_pos, joint_vel per frame; resampled to 50 Hz = 1/step_dt, mimic_lite/tasks/command.py:186); training data = LAFAN1 G1 from any4hdmi (policy.yaml:260-267). Deploy needs pelvis body pose + joint pos for frames t-8..t+4."
+ },
+ "inputs_supported": [
+  "full-body motion file (npz publisher)",
+  "PICO / XRoboToolkit full-body via GMR (pico_retarget_pub)",
+  "SMPL stream"
+ ],
+ "example_motions": [],
+ "how_they_run_it": "sim2real runtime (MuJoCo sim2sim or real G1): sim at 200 Hz (base_sim.py:22,72) with explicit PD torques tau = kp*(q*-q) + kd*(0-qd) clipped to the deploy effort limits (bridge.py:103-128), kp/kd from policy.yaml (command_sender.py:19-37). Policy loop at 50 Hz (base_policy.py:636): read low state (qpos/qvel; ang vel = free-joint qvel[3:6]); update every observation object (push current robot values into newest-first ring buffers, prev_actions gets the previous raw action) and the motion buffer (reference frames at t+[-8..4] steps; live streams are delayed by max_future_step*dt + 0.04 s tolerance, motion_buffer.py:334,911-912); concatenate 'command' and 'policy' groups; ONNX -> action; q* = default + action*action_scale (base_policy.py:220-233); send q*, dq*=0, tau=0. At reset ref_root_ori_future_b computes a yaw offset between motion root and robot root.",
+ "code_refs": [
+  "ckpt/mimiclite/v1_1/policy.yaml:1-328",
+  "ckpt/mimiclite/v1_1/README.md:7-21",
+  "src/mimiclite_sim2real/sim2real/rl_policy/observations/mimic_lite.py:28-30,79-104,133-168",
+  "src/mimiclite_sim2real/sim2real/rl_policy/observations/common.py:42-143",
+  "src/mimiclite_sim2real/sim2real/rl_policy/observations/motion.py:149-223,253-277",
+  "src/mimiclite_sim2real/sim2real/rl_policy/base_policy.py:97-128,220-233,262-280,538-556,636",
+  "src/mimiclite_sim2real/sim2real/rl_policy/utils/command_sender.py:19-37,65-75",
+  "src/mimiclite_sim2real/sim2real/rl_policy/utils/motion_buffer.py:302-336,905-912",
+  "src/mimiclite_sim2real/sim2real/rl_policy/inference/onnx_module.py:99-150",
+  "src/mimiclite_sim2real/sim2real/sim_env/base_sim.py:22,72,153-170",
+  "src/mimiclite_sim2real/sim2real/sim_env/utils/bridge.py:103-128,187-190",
+  "src/mimiclite_sim2real/sim2real/utils/math.py:44-77,127-163",
+  "src/mimiclite_egalahad/mimic_lite/assets/g1.py:16-24,51-120,124-260",
+  "src/mimiclite_egalahad/mimic_lite/tasks/observations/track.py:64-75,123-140,203-221",
+  "src/mimiclite_egalahad/mimic_lite/tasks/observations/common.py:48-235",
+  "src/mimiclite_egalahad/mimic_lite/tasks/transforms.py:73-85,183-219",
+  "src/mimiclite_egalahad/mimic_lite/tasks/actions.py:17-99",
+  "src/mimiclite_egalahad/mimic_lite/tasks/command.py:186,481-538",
+  "src/mimiclite_egalahad/cfg/task/tracking-base.yaml:30-46,80-108",
+  "src/mimiclite_egalahad/cfg/task/robot/g1.yaml:1-147",
+  "src/mimiclite_egalahad/cfg/task/observation/command/joint.yaml:1-16",
+  "src/mimiclite_egalahad/cfg/stages/v1_1.yaml:1-24",
+  "src/mimiclite_egalahad/mimic_lite_learning/ppo_roa.py:606-636",
+  "src/mimiclite_active_adaptation/active_adaptation/assets/humanoids/g1.py:91-121",
+  "src/mimiclite_active_adaptation/active_adaptation/envs/backends/mjlab/env.py:141-152",
+  "src/mimiclite_active_adaptation/active_adaptation/envs/env_base.py:458-459",
+  "ckpt/mimiclite/robot/g1-mode_13_15.xml:7-10,61-69,241-245,293-320"
+ ],
+ "confidence": "high",
+ "open_questions": [
+  "ONNX input/output names and the absence of a batch dim come from v1_1/README.md and the sim2real ONNXModule (which squeezes a leading batch dim if the model has none); confirm shapes ([304] vs [1,304]) in static inspection without running.",
+  "Deploy effort limits in sim2real/config/robots/g1.py:235-265 (hip roll 88, hip pitch 88, wrist 5) differ from the training mode-15 motor specs (hip pitch/roll 139, wrist 13.4); spec uses the TRAINING values.",
+  "velocity_limit values are from the training motor specs but the mjlab backend's BuiltinPositionActuatorCfg is built without them (g1.py:240-247), so velocity limits were not enforced in mjlab training.",
+  "Training action delay (1-3 physics substeps) + EMA filter is not reproduced at deploy; an Isaac attachment may optionally add a 1-substep delay.",
+  "Training ref_root_ori_future_b uses robot and motion in one world frame (no yaw offset); the deploy yaw-offset at reset is a deploy convenience - our runner should align motion yaw/xy to the robot at start and then use the deploy formula.",
+  "sim2real HEAD (287ac15) was used rather than the landing-repo pin (d1833cf, older than the v1_1 release); the mimic_lite observation classes may differ at the pin."
+ ],
+ "runtime": {
+  "onnx_url": "https://drive.google.com/file/d/1TR5L_eAMzT8OWg4Afes4OpTU8YjS0HyA/view (downloaded via https://drive.usercontent.google.com/download?id=1TR5L_eAMzT8OWg4Afes4OpTU8YjS0HyA&export=download&confirm=t)",
+  "sha256": "f647b2674a593cdc9e3b661f653b3f0f120238523a79f3ec7765bc480af22f48",
+  "inputs": {
+   "command": [
+    {
+     "terms": [
+      "ref_pelvis_pos_heading_local"
+     ],
+     "steps": [
+      -8,
+      -4,
+      -2,
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_root_ori_6d_rows"
+     ],
+     "steps": [
+      -8,
+      -4,
+      -2,
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_joint_pos"
+     ],
+     "steps": [
+      -8,
+      -4,
+      -2,
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "policy": [
+    {
+     "terms": [
+      "base_ang_vel"
+     ],
+     "steps": [
+      0,
+      -1,
+      -2,
+      -3,
+      -4,
+      -8,
+      -16
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "projected_gravity"
+     ],
+     "steps": [
+      0,
+      -1,
+      -2,
+      -3,
+      -4,
+      -8,
+      -16
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "joint_pos"
+     ],
+     "steps": [
+      0,
+      -1,
+      -2,
+      -3,
+      -4,
+      -8,
+      -16
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "joint_vel"
+     ],
+     "steps": [
+      0,
+      -1,
+      -2,
+      -3,
+      -4,
+      -8,
+      -16
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "last_action"
+     ],
+     "steps": [
+      0,
+      -1,
+      -2
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ]
+  },
+  "steps_note": "Robot-term steps are listed in the REAL order of the vector, which is NEWEST first (0 = now, -16 = 16 ticks ago). last_action step 0 = the action output at the previous control tick (a(t-1)), step -2 = a(t-3). Reference frames are oldest-to-newest (-8..+4).",
+  "term_defs": {
+   "ref_pelvis_pos_heading_local": {
+    "dim_per_step": 3,
+    "frame": "projected-yaw frame of the CURRENT (frame 0) reference pelvis, origin at current ref pelvis (x, y, 0)",
+    "definition": "d = p_ref_pelvis_w(t+k) - [p_ref_pelvis_w(t).x, p_ref_pelvis_w(t).y, 0]; out = [cos*dx + sin*dy, -sin*dx + cos*dy, dz] with yaw from projected_yaw_quat(q_ref_pelvis_w(t)) (body x-axis heading, z-axis fallback if |x_xy| < 0.1). Frame 0 therefore = (0, 0, ref pelvis height).",
+    "units": "m",
+    "quat_order": "wxyz",
+    "source": "sim2real/rl_policy/observations/mimic_lite.py:79-104; mimic_lite/tasks/transforms.py:73-85; sim2real/utils/math.py:44-77"
+   },
+   "ref_root_ori_6d_rows": {
+    "dim_per_step": 6,
+    "frame": "robot pelvis body frame (with deploy yaw offset)",
+    "definition": "q_rel = conj(q_off * q_robot_pelvis_w) * q_ref_pelvis_w(t+k), q_off = yaw(q_ref_pelvis_w(t_reset)) * conj(yaw(q_robot_pelvis_w(t_reset))) fixed at reset (projected yaw); R = matrix(q_rel); 6d = R[0:2, 0:3] flattened row-major = [r00, r01, r02, r10, r11, r12] (first two ROWS - differs from runner's ref_root_ori_6d which uses first two columns)",
+    "units": "unitless",
+    "quat_order": "wxyz",
+    "source": "sim2real/rl_policy/observations/mimic_lite.py:133-168; mimic_lite/tasks/observations/track.py:123-140; mimic_lite/tasks/transforms.py:183-201"
+   }
+  },
+  "term_notes": {
+   "ref_joint_pos": "absolute reference joint angles, policy order (mimic_lite.py:28-30)",
+   "base_ang_vel": "pelvis body-frame angular velocity (MuJoCo free-joint qvel[3:6]), no scale (bridge.py:187-190)",
+   "projected_gravity": "pelvis quat, gravity (0,0,-1) (common.py:59-82)",
+   "joint_pos": "ABSOLUTE joint angles, not minus default (common.py:84-104)",
+   "joint_vel": "raw (common.py:106-126)",
+   "last_action": "raw network output (no scale/clip), zeros at reset (common.py:128-143)",
+   "reset": "all robot history rows are set to the current value at reset (not zeros)"
+  },
+  "constant_inputs": {},
+  "output": "action",
+  "extra_outputs": [
+   "latent"
+  ],
+  "joint_names": [
+   "left_hip_pitch_joint",
+   "right_hip_pitch_joint",
+   "waist_yaw_joint",
+   "left_hip_roll_joint",
+   "right_hip_roll_joint",
+   "waist_roll_joint",
+   "left_hip_yaw_joint",
+   "right_hip_yaw_joint",
+   "waist_pitch_joint",
+   "left_knee_joint",
+   "right_knee_joint",
+   "left_shoulder_pitch_joint",
+   "right_shoulder_pitch_joint",
+   "left_ankle_pitch_joint",
+   "right_ankle_pitch_joint",
+   "left_shoulder_roll_joint",
+   "right_shoulder_roll_joint",
+   "left_ankle_roll_joint",
+   "right_ankle_roll_joint",
+   "left_shoulder_yaw_joint",
+   "right_shoulder_yaw_joint",
+   "left_elbow_joint",
+   "right_elbow_joint",
+   "left_wrist_roll_joint",
+   "right_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "right_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "default_joint_pos": [
+   -0.31200000643730164,
+   -0.31200000643730164,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.6690000295639038,
+   0.6690000295639038,
+   0.20000000298023224,
+   0.20000000298023224,
+   -0.3630000054836273,
+   -0.3630000054836273,
+   0.20000000298023224,
+   -0.20000000298023224,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.6000000238418579,
+   0.6000000238418579,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "action_scale": [
+   0.550000011920929,
+   0.550000011920929,
+   0.550000011920929,
+   0.3499999940395355,
+   0.3499999940395355,
+   0.4399999976158142,
+   0.550000011920929,
+   0.550000011920929,
+   0.4399999976158142,
+   0.3499999940395355,
+   0.3499999940395355,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142,
+   0.4399999976158142
+  ],
+  "action_offset": "default",
+  "action_clip": null,
+  "control_dt": 0.02,
+  "sim_dt": 0.005,
+  "decimation": 4,
+  "kp": [
+   99.098427777,
+   99.098427777,
+   40.179238635,
+   99.098427777,
+   99.098427777,
+   28.501246196,
+   40.179238635,
+   40.179238635,
+   28.501246196,
+   99.098427777,
+   99.098427777,
+   14.250623098,
+   14.250623098,
+   28.501246196,
+   28.501246196,
+   14.250623098,
+   14.250623098,
+   28.501246196,
+   28.501246196,
+   14.250623098,
+   14.250623098,
+   14.250623098,
+   14.250623098,
+   14.250623098,
+   14.250623098,
+   8.611032447,
+   8.611032447,
+   8.611032447,
+   8.611032447
+  ],
+  "kd": [
+   6.308801853,
+   6.308801853,
+   2.557889775,
+   6.308801853,
+   6.308801853,
+   1.814445687,
+   2.557889775,
+   2.557889775,
+   1.814445687,
+   6.308801853,
+   6.308801853,
+   0.907222843,
+   0.907222843,
+   1.814445687,
+   1.814445687,
+   0.907222843,
+   0.907222843,
+   1.814445687,
+   1.814445687,
+   0.907222843,
+   0.907222843,
+   0.907222843,
+   0.907222843,
+   0.907222843,
+   0.907222843,
+   0.548195352,
+   0.548195352,
+   0.548195352,
+   0.548195352
+  ],
+  "armature": [
+   0.025101925,
+   0.025101925,
+   0.010177520041,
+   0.025101925,
+   0.025101925,
+   0.00721945,
+   0.010177520041,
+   0.010177520041,
+   0.00721945,
+   0.025101925,
+   0.025101925,
+   0.003609725,
+   0.003609725,
+   0.00721945,
+   0.00721945,
+   0.003609725,
+   0.003609725,
+   0.00721945,
+   0.00721945,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.0021812,
+   0.0021812,
+   0.0021812,
+   0.0021812
+  ],
+  "effort": [
+   139.0,
+   139.0,
+   88.0,
+   139.0,
+   139.0,
+   50.0,
+   88.0,
+   88.0,
+   50.0,
+   139.0,
+   139.0,
+   25.0,
+   25.0,
+   50.0,
+   50.0,
+   25.0,
+   25.0,
+   50.0,
+   50.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   13.4,
+   13.4,
+   13.4,
+   13.4
+  ],
+  "velocity_limit": [
+   20.0,
+   20.0,
+   32.0,
+   20.0,
+   20.0,
+   37.0,
+   32.0,
+   32.0,
+   37.0,
+   20.0,
+   20.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   27.0,
+   27.0,
+   27.0,
+   27.0
+  ],
+  "obs_normalization": "in_graph",
+  "reference": {
+   "source": "gmr",
+   "frames": [
+    -8,
+    -4,
+    -2,
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "lookahead_s": 0.08
+  },
+  "source_refs": [
+   "input/output names: v1_1/README.md:9-10; sim2real/rl_policy/base_policy.py:220-222 (reads output 'action'), 262-280 (obs dict keyed by group names 'command','policy'); sim2real/rl_policy/inference/onnx_module.py:99-150",
+   "group/term order: v1_1/policy.yaml:1-88",
+   "kp/kd: v1_1/policy.yaml:154-169 (recomputed from mimic_lite/assets/g1.py:88-120 and matched to 1e-6)"
+  ]
+ },
+ "isaac": {
+  "trained_in": {
+   "value": "MuJoCo Warp via mjlab==1.6.0 (active-adaptation backend=mjlab); 8 x 8192 envs; Train/Adapt/Finetune 4000/1000/2000 iters",
+   "refs": [
+    "src/mimiclite_egalahad/cfg/train.yaml:10",
+    "src/mimiclite_active_adaptation/venv/mjlab/uv.lock:30",
+    "ckpt/mimiclite/v1_1/README.md:13-16",
+    "src/mimiclite_egalahad/cfg/stages/v1_1.yaml:1-24"
+   ]
+  },
+  "actuator_model": {
+   "value": "implicit PD (mjlab BuiltinPositionActuatorCfg: stiffness = armature*(2pi*10)^2, damping = 4*armature*2pi*10, effort_limit, armature, frictionloss 0.01). Action delay randomised 1-3 physics substeps (5-15 ms) + per-substep EMA alpha U(0.8,1.0). DR: kp/kd x[0.8,1.2] legs/waist, x[0.9,1.1] arms; armature x[0.75,1.25]; friction_range [0.05,0.25]; pelvis/torso mass x[0.9,1.1], COM +-3 cm; obs noise. Deploy uses explicit PD torques in MuJoCo with no delay.",
+   "refs": [
+    "src/mimiclite_egalahad/mimic_lite/assets/g1.py:88-120,233-250",
+    "src/mimiclite_egalahad/cfg/task/tracking-base.yaml:41-46",
+    "src/mimiclite_egalahad/mimic_lite/tasks/actions.py:66-99",
+    "src/mimiclite_egalahad/cfg/task/robot/g1.yaml:93-147",
+    "src/mimiclite_sim2real/sim2real/sim_env/utils/bridge.py:103-128"
+   ]
+  },
+  "velocity_limit": {
+   "value": {
+    "left_hip_pitch_joint": 20.0,
+    "right_hip_pitch_joint": 20.0,
+    "waist_yaw_joint": 32.0,
+    "left_hip_roll_joint": 20.0,
+    "right_hip_roll_joint": 20.0,
+    "waist_roll_joint": 37.0,
+    "left_hip_yaw_joint": 32.0,
+    "right_hip_yaw_joint": 32.0,
+    "waist_pitch_joint": 37.0,
+    "left_knee_joint": 20.0,
+    "right_knee_joint": 20.0,
+    "left_shoulder_pitch_joint": 37.0,
+    "right_shoulder_pitch_joint": 37.0,
+    "left_ankle_pitch_joint": 37.0,
+    "right_ankle_pitch_joint": 37.0,
+    "left_shoulder_roll_joint": 37.0,
+    "right_shoulder_roll_joint": 37.0,
+    "left_ankle_roll_joint": 37.0,
+    "right_ankle_roll_joint": 37.0,
+    "left_shoulder_yaw_joint": 37.0,
+    "right_shoulder_yaw_joint": 37.0,
+    "left_elbow_joint": 37.0,
+    "right_elbow_joint": 37.0,
+    "left_wrist_roll_joint": 37.0,
+    "right_wrist_roll_joint": 37.0,
+    "left_wrist_pitch_joint": 27.0,
+    "right_wrist_pitch_joint": 27.0,
+    "left_wrist_yaw_joint": 27.0,
+    "right_wrist_yaw_joint": 27.0
+   },
+   "note": "motor-spec values; NOT applied by the mjlab actuator (only passed to Isaac Lab's ImplicitActuatorCfg velocity_limit_sim in the isaaclab backend)",
+   "refs": [
+    "src/mimiclite_egalahad/mimic_lite/assets/g1.py:134-189,240-247,299-307"
+   ]
+  },
+  "self_collision": {
+   "value": true,
+   "note": "collision geoms (.*_collision) contype=1 conaffinity=1 condim 3 for robot; XML excludes pelvis-hip_roll pairs; a self_collisions penalty (weight -1) uses a pelvis-subtree self-contact sensor",
+   "refs": [
+    "src/mimiclite_egalahad/mimic_lite/assets/g1.py:251-258,281-289",
+    "ckpt/mimiclite/robot/g1-mode_13_15.xml:10,313-314",
+    "src/mimiclite_egalahad/cfg/task/tracking-base.yaml:194-199"
+   ]
+  },
+  "default_root_height": {
+   "value": 0.76,
+   "note": "training init pos (episodes actually reset onto the motion pose + pose noise); MJCF pelvis pos 0.793; sim2real deploy default_qpos z 0.8",
+   "refs": [
+    "src/mimiclite_egalahad/mimic_lite/assets/g1.py:192",
+    "ckpt/mimiclite/robot/g1-mode_13_15.xml:61",
+    "src/mimiclite_sim2real/sim2real/config/robots/g1.py:284-287"
+   ]
+  },
+  "terrain_friction": {
+   "value": "flat plane; materials of ankle_roll and wrist_yaw bodies randomised: static friction U(0.3,1.6), dynamic U(0.3,1.2), restitution U(0,0.5), solref timeconst U(0.015,0.03), dampratio U(0.5,2.0)",
+   "refs": [
+    "src/mimiclite_egalahad/cfg/task/tracking-base.yaml:27",
+    "src/mimiclite_egalahad/cfg/task/robot/g1.yaml:94-113"
+   ]
+  },
+  "hands": {
+   "value": "fixed rubber hands (visual mesh + capsule collision on wrist_yaw_link, palm_link marker body at +0.1 m used for rewards); no hand DoF",
+   "refs": [
+    "ckpt/mimiclite/robot/g1-mode_13_15.xml:241-245,293-297"
+   ]
+  },
+  "teleop_reference": {
+   "value": "GMR (General Motion Retargeting) on XRoboToolkit / PICO body data (XRobotStreamer) -> G1 qpos -> MuJoCo FK -> body poses published to the policy; also SMPL stream and npz publishers",
+   "refs": [
+    "src/mimiclite_sim2real/sim2real/teleop/pico_retarget_pub.py:5-6,24-25",
+    "src/mimiclite_sim2real/sim2real/teleop/smpl_stream.py",
+    "src/mimiclite_sim2real/sim2real/teleop/npz_pub.py"
+   ]
+  },
+  "realtime_lookahead": {
+   "value": "needs frames up to +4 ticks (0.08 s) and back to -8; live stream is not faked: the motion buffer samples at (now - (4*0.02 + 0.04 s tolerance)) so the operator is delayed by ~0.12 s; past frames come from the buffer history",
+   "refs": [
+    "src/mimiclite_sim2real/sim2real/rl_policy/utils/motion_buffer.py:302-336,905-912",
+    "ckpt/mimiclite/v1_1/policy.yaml:268-279"
+   ]
+  },
+  "deploy_rate": {
+   "value": "policy 50 Hz (rl_rate), MuJoCo sim2sim 200 Hz (sim_dt 0.005); real G1 lowcmd from the same 50 Hz loop",
+   "refs": [
+    "src/mimiclite_sim2real/sim2real/rl_policy/base_policy.py:636",
+    "src/mimiclite_sim2real/sim2real/sim_env/base_sim.py:22,225"
+   ]
+  }
+ },
+ "measured": {
+  "how": "onnx.load graph + onnxruntime CPU, 1 thread, batch 1, random inputs, 200 runs on the dev laptop (2026-11-03). TorchScript archives are not loaded; params estimated from tensor blobs.",
+  "files": [
+   {
+    "file": "policy.onnx",
+    "sha256": "f647b2674a593cdc9e3b661f653b3f0f120238523a79f3ec7765bc480af22f48",
+    "bytes": 8226938,
+    "format": "onnx",
+    "params": 2038955,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "command",
+      "shape": [
+       304
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "policy",
+      "shape": [
+       535
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "action",
+      "shape": [
+       29
+      ]
+     },
+     {
+      "name": "priv_student",
+      "shape": [
+       512
+      ]
+     }
+    ],
+    "arch": [
+     "mlp"
+    ],
+    "widest_layers": [
+     1047,
+     839,
+     512
+    ],
+    "activations": [
+     "Mish"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      20
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.6616499977099011,
+     "p95": 0.8787900003881075
+    }
+   }
+  ]
+ }
+}

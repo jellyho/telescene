@@ -1,0 +1,1322 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.6.1"
+    }
+    defaultPrim = "palette_cell"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "palette_cell"
+{
+    def Scope "Physics"
+    {
+        def Material "PhysicsMaterial" (
+            prepend apiSchemas = ["PhysicsMaterialAPI", "NewtonMaterialAPI"]
+        )
+        {
+            float newton:contactDamping = 100
+            float newton:contactStiffness = 2500
+            float newton:rollingFriction = 0.0001
+            float newton:torsionalFriction = 0.005
+            float physics:dynamicFriction = 1
+            float physics:staticFriction = 1
+        }
+    }
+
+    def "Geometry"
+    {
+        over "floor" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+            uniform double[] mjc:solref = [0.02, 1]
+            float newton:contactGap = 0
+            float physics:density = 1000
+        }
+
+        def "bror_cart" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsArticulationRootAPI", "NewtonArticulationRootAPI"]
+        )
+        {
+            uniform bool newton:jointsAddMobility = 1
+
+            over "bror_cart_g0" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g1" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g2" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g3" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g4" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g5" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g6" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g7" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g8" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 499.109
+            }
+
+            over "bror_cart_g9" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g10" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g11" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g12" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g13" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g14" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g15" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g16" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g17" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g18" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g19" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g20" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g21" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g22" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g23" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g28" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g33" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            over "bror_cart_g38" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 3420.42
+            }
+
+            def "bror_cart_caster_br" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.013998912, 0, -0.029250024)
+                float3 physics:diagonalInertia = (0.00007697855, 0.000054033884, 0.000045456087)
+                float physics:mass = 0.15000486
+                quatf physics:principalAxes = (1, 0, -0.000001941416, 0)
+
+                def PhysicsRevoluteJoint "bror_cart_swivel_br" (
+                    prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                )
+                {
+                    uniform double mjc:damping = 0.002
+                    float newton:armature = 0.0005
+                    float newton:damping = 0.000034906585
+                    float newton:friction = 0.002
+                    uniform token physics:axis = "Z"
+                    rel physics:body0 = </palette_cell/Geometry/bror_cart>
+                    rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_br>
+                    point3f physics:localPos0 = (-0.405, -0.255, 0.096)
+                    point3f physics:localPos1 = (0, 0, 0)
+                    quatf physics:localRot0 = (1, 0, 0, 0)
+                    quatf physics:localRot1 = (1, 0, 0, 0)
+                }
+
+                def "bror_cart_wheel_br" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0, 0, 0)
+                    float3 physics:diagonalInertia = (0.00005878435, 0.00005878435, 0.0001054687)
+                    float physics:mass = 0.14999993
+                    quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                    over "bror_cart_wheelc_br" (
+                        prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                        uniform int mjc:group = 3
+                        uniform double[] mjc:solref = [0.02, 1]
+                        float newton:contactGap = 0
+                    }
+
+                    def PhysicsRevoluteJoint "bror_cart_roll_br" (
+                        prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                    )
+                    {
+                        uniform double mjc:damping = 0.01
+                        float newton:armature = 0.0005
+                        float newton:damping = 0.00017453292
+                        float newton:friction = 0.001
+                        uniform token physics:axis = "Y"
+                        rel physics:body0 = </palette_cell/Geometry/bror_cart/bror_cart_caster_br>
+                        rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br>
+                        point3f physics:localPos0 = (-0.028, 0, -0.0585)
+                        point3f physics:localPos1 = (0, 0, 0)
+                        quatf physics:localRot0 = (1, 0, 0, 0)
+                        quatf physics:localRot1 = (1, 0, 0, 0)
+                    }
+                }
+            }
+
+            def "bror_cart_caster_bl" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.013998912, 0, -0.029250024)
+                float3 physics:diagonalInertia = (0.00007697855, 0.000054033884, 0.000045456087)
+                float physics:mass = 0.15000486
+                quatf physics:principalAxes = (1, 0, -0.000001941416, 0)
+
+                def PhysicsRevoluteJoint "bror_cart_swivel_bl" (
+                    prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                )
+                {
+                    uniform double mjc:damping = 0.002
+                    float newton:armature = 0.0005
+                    float newton:damping = 0.000034906585
+                    float newton:friction = 0.002
+                    uniform token physics:axis = "Z"
+                    rel physics:body0 = </palette_cell/Geometry/bror_cart>
+                    rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_bl>
+                    point3f physics:localPos0 = (-0.405, 0.255, 0.096)
+                    point3f physics:localPos1 = (0, 0, 0)
+                    quatf physics:localRot0 = (1, 0, 0, 0)
+                    quatf physics:localRot1 = (1, 0, 0, 0)
+                }
+
+                def "bror_cart_wheel_bl" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0, 0, 0)
+                    float3 physics:diagonalInertia = (0.00005878435, 0.00005878435, 0.0001054687)
+                    float physics:mass = 0.14999993
+                    quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                    over "bror_cart_wheelc_bl" (
+                        prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                        uniform int mjc:group = 3
+                        uniform double[] mjc:solref = [0.02, 1]
+                        float newton:contactGap = 0
+                    }
+
+                    def PhysicsRevoluteJoint "bror_cart_roll_bl" (
+                        prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                    )
+                    {
+                        uniform double mjc:damping = 0.01
+                        float newton:armature = 0.0005
+                        float newton:damping = 0.00017453292
+                        float newton:friction = 0.001
+                        uniform token physics:axis = "Y"
+                        rel physics:body0 = </palette_cell/Geometry/bror_cart/bror_cart_caster_bl>
+                        rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl>
+                        point3f physics:localPos0 = (-0.028, 0, -0.0585)
+                        point3f physics:localPos1 = (0, 0, 0)
+                        quatf physics:localRot0 = (1, 0, 0, 0)
+                        quatf physics:localRot1 = (1, 0, 0, 0)
+                    }
+                }
+            }
+
+            def "bror_cart_caster_fr" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.013998912, 0, -0.029250024)
+                float3 physics:diagonalInertia = (0.00007697855, 0.000054033884, 0.000045456087)
+                float physics:mass = 0.15000486
+                quatf physics:principalAxes = (1, 0, -0.000001941416, 0)
+
+                def PhysicsRevoluteJoint "bror_cart_swivel_fr" (
+                    prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                )
+                {
+                    uniform double mjc:damping = 0.002
+                    float newton:armature = 0.0005
+                    float newton:damping = 0.000034906585
+                    float newton:friction = 0.002
+                    uniform token physics:axis = "Z"
+                    rel physics:body0 = </palette_cell/Geometry/bror_cart>
+                    rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fr>
+                    point3f physics:localPos0 = (0.405, -0.255, 0.096)
+                    point3f physics:localPos1 = (0, 0, 0)
+                    quatf physics:localRot0 = (1, 0, 0, 0)
+                    quatf physics:localRot1 = (1, 0, 0, 0)
+                }
+
+                def "bror_cart_wheel_fr" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0, 0, 0)
+                    float3 physics:diagonalInertia = (0.00005878435, 0.00005878435, 0.0001054687)
+                    float physics:mass = 0.14999993
+                    quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                    over "bror_cart_wheelc_fr" (
+                        prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                        uniform int mjc:group = 3
+                        uniform double[] mjc:solref = [0.02, 1]
+                        float newton:contactGap = 0
+                    }
+
+                    def PhysicsRevoluteJoint "bror_cart_roll_fr" (
+                        prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                    )
+                    {
+                        uniform double mjc:damping = 0.01
+                        float newton:armature = 0.0005
+                        float newton:damping = 0.00017453292
+                        float newton:friction = 0.001
+                        uniform token physics:axis = "Y"
+                        rel physics:body0 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fr>
+                        rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr>
+                        point3f physics:localPos0 = (-0.028, 0, -0.0585)
+                        point3f physics:localPos1 = (0, 0, 0)
+                        quatf physics:localRot0 = (1, 0, 0, 0)
+                        quatf physics:localRot1 = (1, 0, 0, 0)
+                    }
+                }
+            }
+
+            def "bror_cart_caster_fl" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.013998912, 0, -0.029250024)
+                float3 physics:diagonalInertia = (0.00007697855, 0.000054033884, 0.000045456087)
+                float physics:mass = 0.15000486
+                quatf physics:principalAxes = (1, 0, -0.000001941416, 0)
+
+                def PhysicsRevoluteJoint "bror_cart_swivel_fl" (
+                    prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                )
+                {
+                    uniform double mjc:damping = 0.002
+                    float newton:armature = 0.0005
+                    float newton:damping = 0.000034906585
+                    float newton:friction = 0.002
+                    uniform token physics:axis = "Z"
+                    rel physics:body0 = </palette_cell/Geometry/bror_cart>
+                    rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fl>
+                    point3f physics:localPos0 = (0.405, 0.255, 0.096)
+                    point3f physics:localPos1 = (0, 0, 0)
+                    quatf physics:localRot0 = (1, 0, 0, 0)
+                    quatf physics:localRot1 = (1, 0, 0, 0)
+                }
+
+                def "bror_cart_wheel_fl" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0, 0, 0)
+                    float3 physics:diagonalInertia = (0.00005878435, 0.00005878435, 0.0001054687)
+                    float physics:mass = 0.14999993
+                    quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                    over "bror_cart_wheelc_fl" (
+                        prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                        uniform int mjc:group = 3
+                        uniform double[] mjc:solref = [0.02, 1]
+                        float newton:contactGap = 0
+                    }
+
+                    def PhysicsRevoluteJoint "bror_cart_roll_fl" (
+                        prepend apiSchemas = ["MjcJointAPI", "NewtonJointAPI"]
+                    )
+                    {
+                        uniform double mjc:damping = 0.01
+                        float newton:armature = 0.0005
+                        float newton:damping = 0.00017453292
+                        float newton:friction = 0.001
+                        uniform token physics:axis = "Y"
+                        rel physics:body0 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fl>
+                        rel physics:body1 = </palette_cell/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl>
+                        point3f physics:localPos0 = (-0.028, 0, -0.0585)
+                        point3f physics:localPos1 = (0, 0, 0)
+                        quatf physics:localRot0 = (1, 0, 0, 0)
+                        quatf physics:localRot1 = (1, 0, 0, 0)
+                    }
+                }
+            }
+        }
+
+        over "basingen_stool" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI"]
+        )
+        {
+            over "basingen_stool_g0" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g1" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g2" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g3" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g4" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g5" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g6" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g7" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g8" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g9" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g10" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g11" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g12" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g13" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g14" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g15" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g16" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g17" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g18" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g19" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g20" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g21" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g22" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g23" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g24" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g25" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g26" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g27" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g28" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g29" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g30" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g31" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g32" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g33" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g34" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g35" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g36" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g37" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g38" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g39" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g40" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g41" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g42" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g43" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g44" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g45" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g46" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g47" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g48" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g49" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g50" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g51" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g52" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g53" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g54" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g55" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g56" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g57" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g58" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g59" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g60" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g61" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g62" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g63" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g64" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g65" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g66" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g67" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g68" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g69" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g70" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g71" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+
+            over "basingen_stool_g72" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </palette_cell/Physics/PhysicsMaterial>
+                uniform double[] mjc:solref = [0.02, 1]
+                float newton:contactGap = 0
+                float physics:density = 662.87
+            }
+        }
+    }
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["NewtonSceneAPI", "MjcSceneAPI"]
+)
+{
+    uniform token mjc:compiler:angle = "radian"
+    uniform token mjc:option:integrator = "implicitfast"
+    uniform int newton:maxSolverIterations = 100
+    uniform int newton:timeStepsPerSecond = 500
+    vector3f physics:gravityDirection = (0, 0, -1)
+    float physics:gravityMagnitude = 9.81
+}
+

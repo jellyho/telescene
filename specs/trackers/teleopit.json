@@ -1,0 +1,1087 @@
+{
+ "slug": "teleopit",
+ "name": "Teleopit General-Tracking-G1 (track_g1 / track_g1_neck_o6)",
+ "paper": "none found in repo (project/docs site only); training code is mjlab 1.4.0 BeyondMimic-style motion tracking ('General-Tracking-G1')",
+ "repo": "https://github.com/BotRunner64/Teleopit",
+ "repo_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+ "license_code": "Apache-2.0 (LICENSE, pyproject.toml:14)",
+ "license_weights": "MIT (HF model card tag of 12e21/Teleopit-models); robot assets carry their own LICENSE (robot_assets/unitree_g1/LICENSE)",
+ "files": [
+  {
+   "path": "track_g1.onnx",
+   "bytes": 14077633,
+   "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+   "what": "policy (ONNX, base G1 29DoF model g1_29dof.xml); inputs obs[1,167] + obs_history[1,10,167], output actions[1,29]; obs normalizers baked in"
+  },
+  {
+   "path": "track_g1.pt",
+   "bytes": 88903327,
+   "sha256": "1bc9e13aab7c98a6cc1e3f0d145515a47d1265fe41d255db9a64ed662fcc26e1",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.pt",
+   "what": "policy training checkpoint (rsl_rl/mjlab state dict, matches track_g1.onnx)"
+  },
+  {
+   "path": "track_g1_neck_o6.onnx",
+   "bytes": 14077633,
+   "sha256": "a5e35691fc09c9098d4495bd46bb8f8fa37e568a600d6d6b0a48c9e859cf27cb",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1_neck_o6.onnx",
+   "what": "policy variant (ONNX) for g1_29dof_neck_o6.xml (fixed O6 hands + neck camera module, same 29 joints, same obs/action interface)"
+  },
+  {
+   "path": "track_g1_neck_o6.pt",
+   "bytes": 88903327,
+   "sha256": "94427c18554cbd4a432542a6c596a6e2b92342576a91fc7d06b3948a80aa43b9",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1_neck_o6.pt",
+   "what": "training checkpoint for the neck_o6 variant"
+  },
+  {
+   "path": "hf_README.md",
+   "bytes": 540,
+   "sha256": "399f9526c4f9cdf997201307b032b93d39bb4c8d7c753bb6d7352268c66e8d3c",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/README.md",
+   "what": "HF model card"
+  },
+  {
+   "path": "robot_assets/unitree_g1/g1_29dof.xml",
+   "bytes": 28686,
+   "sha256": "512ccfe8b811e2bfaec0c2fc57960941371e189b365db5c1ff874474166800a3",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/archives/robot_assets.tar.gz",
+   "what": "config: MuJoCo robot model used for training/deploy of track_g1 (from archives/robot_assets.tar.gz; meshes not extracted)"
+  },
+  {
+   "path": "robot_assets/unitree_g1/g1_29dof_neck_o6.xml",
+   "bytes": 37761,
+   "sha256": "84469d60b48bb19804fa67b813ed126eeaae0cadfb31fe772c60300b5c1aa923",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/archives/robot_assets.tar.gz",
+   "what": "config: MuJoCo robot model paired with track_g1_neck_o6 (from archives/robot_assets.tar.gz)"
+  },
+  {
+   "path": "robot_assets/unitree_g1/README.md",
+   "bytes": 1004,
+   "sha256": "793c6f377e96936d699f835682790c9c9911cf022abc5d324fa29cfe26bdf666",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/archives/robot_assets.tar.gz",
+   "what": "robot asset README (from archive)"
+  },
+  {
+   "path": "robot_assets/unitree_g1/LICENSE",
+   "bytes": 1558,
+   "sha256": "84aac59fd3246e3ddc49d1387644e8fcf43b0def4f0b9fe687f372e90446df2d",
+   "source_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/archives/robot_assets.tar.gz",
+   "what": "robot asset LICENSE (from archive)"
+  }
+ ],
+ "skipped": [
+  {
+   "what": "checkpoints/track.{onnx,pt} on HF",
+   "why": "legacy v0.4 root-level names replaced by track_g1 per README.md:81; not requested"
+  },
+  {
+   "what": "archives/gmr_assets.tar.gz, archives/sample_bvh.tar.gz, Teleopit-datasets",
+   "why": "retargeting assets / sample BVH / training data not needed for the policy interface"
+  },
+  {
+   "what": "meshes inside robot_assets.tar.gz",
+   "why": "only XMLs extracted (archive deleted after extracting 4 files); re-download the archive from source_url if meshes are needed for collision geometry"
+  }
+ ],
+ "format": "onnx (2 inputs: 'obs' [1,167] and 'obs_history' [1,10,167]; output 'actions' [1,29]); .pt = rsl_rl training checkpoint (state dict)",
+ "robot": "G1 29DoF",
+ "hands": "none (track_g1: g1_29dof.xml rubber hands); neck_o6 variant: fixed LinkerHand O6 hands + neck camera module as rigid bodies, no hand DoF in policy",
+ "control_hz": 50,
+ "sim_dt_trained": 0.005,
+ "decimation": 4,
+ "joint_order": [
+  "left_hip_pitch_joint",
+  "left_hip_roll_joint",
+  "left_hip_yaw_joint",
+  "left_knee_joint",
+  "left_ankle_pitch_joint",
+  "left_ankle_roll_joint",
+  "right_hip_pitch_joint",
+  "right_hip_roll_joint",
+  "right_hip_yaw_joint",
+  "right_knee_joint",
+  "right_ankle_pitch_joint",
+  "right_ankle_roll_joint",
+  "waist_yaw_joint",
+  "waist_roll_joint",
+  "waist_pitch_joint",
+  "left_shoulder_pitch_joint",
+  "left_shoulder_roll_joint",
+  "left_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "left_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_shoulder_pitch_joint",
+  "right_shoulder_roll_joint",
+  "right_shoulder_yaw_joint",
+  "right_elbow_joint",
+  "right_wrist_roll_joint",
+  "right_wrist_pitch_joint",
+  "right_wrist_yaw_joint"
+ ],
+ "default_joint_pos": {
+  "left_hip_pitch_joint": -0.312,
+  "left_hip_roll_joint": 0,
+  "left_hip_yaw_joint": 0,
+  "left_knee_joint": 0.669,
+  "left_ankle_pitch_joint": -0.363,
+  "left_ankle_roll_joint": 0,
+  "right_hip_pitch_joint": -0.312,
+  "right_hip_roll_joint": 0,
+  "right_hip_yaw_joint": 0,
+  "right_knee_joint": 0.669,
+  "right_ankle_pitch_joint": -0.363,
+  "right_ankle_roll_joint": 0,
+  "waist_yaw_joint": 0,
+  "waist_roll_joint": 0,
+  "waist_pitch_joint": 0,
+  "left_shoulder_pitch_joint": 0.2,
+  "left_shoulder_roll_joint": 0.2,
+  "left_shoulder_yaw_joint": 0,
+  "left_elbow_joint": 0.6,
+  "left_wrist_roll_joint": 0,
+  "left_wrist_pitch_joint": 0,
+  "left_wrist_yaw_joint": 0,
+  "right_shoulder_pitch_joint": 0.2,
+  "right_shoulder_roll_joint": -0.2,
+  "right_shoulder_yaw_joint": 0,
+  "right_elbow_joint": 0.6,
+  "right_wrist_roll_joint": 0,
+  "right_wrist_pitch_joint": 0,
+  "right_wrist_yaw_joint": 0
+ },
+ "kp": {
+  "left_hip_pitch_joint": 40.2,
+  "left_hip_roll_joint": 99.1,
+  "left_hip_yaw_joint": 40.2,
+  "left_knee_joint": 99.1,
+  "left_ankle_pitch_joint": 28.5,
+  "left_ankle_roll_joint": 28.5,
+  "right_hip_pitch_joint": 40.2,
+  "right_hip_roll_joint": 99.1,
+  "right_hip_yaw_joint": 40.2,
+  "right_knee_joint": 99.1,
+  "right_ankle_pitch_joint": 28.5,
+  "right_ankle_roll_joint": 28.5,
+  "waist_yaw_joint": 40.2,
+  "waist_roll_joint": 28.5,
+  "waist_pitch_joint": 28.5,
+  "left_shoulder_pitch_joint": 14.3,
+  "left_shoulder_roll_joint": 14.3,
+  "left_shoulder_yaw_joint": 14.3,
+  "left_elbow_joint": 14.3,
+  "left_wrist_roll_joint": 14.3,
+  "left_wrist_pitch_joint": 16.8,
+  "left_wrist_yaw_joint": 16.8,
+  "right_shoulder_pitch_joint": 14.3,
+  "right_shoulder_roll_joint": 14.3,
+  "right_shoulder_yaw_joint": 14.3,
+  "right_elbow_joint": 14.3,
+  "right_wrist_roll_joint": 14.3,
+  "right_wrist_pitch_joint": 16.8,
+  "right_wrist_yaw_joint": 16.8
+ },
+ "kd": {
+  "left_hip_pitch_joint": 2.6,
+  "left_hip_roll_joint": 6.3,
+  "left_hip_yaw_joint": 2.6,
+  "left_knee_joint": 6.3,
+  "left_ankle_pitch_joint": 1.8,
+  "left_ankle_roll_joint": 1.8,
+  "right_hip_pitch_joint": 2.6,
+  "right_hip_roll_joint": 6.3,
+  "right_hip_yaw_joint": 2.6,
+  "right_knee_joint": 6.3,
+  "right_ankle_pitch_joint": 1.8,
+  "right_ankle_roll_joint": 1.8,
+  "waist_yaw_joint": 2.6,
+  "waist_roll_joint": 1.8,
+  "waist_pitch_joint": 1.8,
+  "left_shoulder_pitch_joint": 0.9,
+  "left_shoulder_roll_joint": 0.9,
+  "left_shoulder_yaw_joint": 0.9,
+  "left_elbow_joint": 0.9,
+  "left_wrist_roll_joint": 0.9,
+  "left_wrist_pitch_joint": 1.1,
+  "left_wrist_yaw_joint": 1.1,
+  "right_shoulder_pitch_joint": 0.9,
+  "right_shoulder_roll_joint": 0.9,
+  "right_shoulder_yaw_joint": 0.9,
+  "right_elbow_joint": 0.9,
+  "right_wrist_roll_joint": 0.9,
+  "right_wrist_pitch_joint": 1.1,
+  "right_wrist_yaw_joint": 1.1
+ },
+ "armature": {
+  "left_hip_pitch_joint": 0.010178,
+  "left_hip_roll_joint": 0.025102,
+  "left_hip_yaw_joint": 0.010178,
+  "left_knee_joint": 0.025102,
+  "left_ankle_pitch_joint": 0.00722,
+  "left_ankle_roll_joint": 0.00722,
+  "right_hip_pitch_joint": 0.010178,
+  "right_hip_roll_joint": 0.025102,
+  "right_hip_yaw_joint": 0.010178,
+  "right_knee_joint": 0.025102,
+  "right_ankle_pitch_joint": 0.00722,
+  "right_ankle_roll_joint": 0.00722,
+  "waist_yaw_joint": 0.010178,
+  "waist_roll_joint": 0.00722,
+  "waist_pitch_joint": 0.00722,
+  "left_shoulder_pitch_joint": 0.00361,
+  "left_shoulder_roll_joint": 0.00361,
+  "left_shoulder_yaw_joint": 0.00361,
+  "left_elbow_joint": 0.00361,
+  "left_wrist_roll_joint": 0.00361,
+  "left_wrist_pitch_joint": 0.00425,
+  "left_wrist_yaw_joint": 0.00425,
+  "right_shoulder_pitch_joint": 0.00361,
+  "right_shoulder_roll_joint": 0.00361,
+  "right_shoulder_yaw_joint": 0.00361,
+  "right_elbow_joint": 0.00361,
+  "right_wrist_roll_joint": 0.00361,
+  "right_wrist_pitch_joint": 0.00425,
+  "right_wrist_yaw_joint": 0.00425
+ },
+ "effort_limit": {
+  "left_hip_pitch_joint": 88,
+  "left_hip_roll_joint": 139,
+  "left_hip_yaw_joint": 88,
+  "left_knee_joint": 139,
+  "left_ankle_pitch_joint": 50,
+  "left_ankle_roll_joint": 50,
+  "right_hip_pitch_joint": 88,
+  "right_hip_roll_joint": 139,
+  "right_hip_yaw_joint": 88,
+  "right_knee_joint": 139,
+  "right_ankle_pitch_joint": 50,
+  "right_ankle_roll_joint": 50,
+  "waist_yaw_joint": 88,
+  "waist_roll_joint": 50,
+  "waist_pitch_joint": 50,
+  "left_shoulder_pitch_joint": 25,
+  "left_shoulder_roll_joint": 25,
+  "left_shoulder_yaw_joint": 25,
+  "left_elbow_joint": 25,
+  "left_wrist_roll_joint": 25,
+  "left_wrist_pitch_joint": 5,
+  "left_wrist_yaw_joint": 5,
+  "right_shoulder_pitch_joint": 25,
+  "right_shoulder_roll_joint": 25,
+  "right_shoulder_yaw_joint": 25,
+  "right_elbow_joint": 25,
+  "right_wrist_roll_joint": 25,
+  "right_wrist_pitch_joint": 5,
+  "right_wrist_yaw_joint": 5
+ },
+ "action": {
+  "dim": 29,
+  "meaning": "joint pos offset -> PD target q* = default + scale * clip(a)",
+  "scale": {
+   "left_hip_pitch_joint": 0.5475,
+   "left_hip_roll_joint": 0.3507,
+   "left_hip_yaw_joint": 0.5475,
+   "left_knee_joint": 0.3507,
+   "left_ankle_pitch_joint": 0.4386,
+   "left_ankle_roll_joint": 0.4386,
+   "right_hip_pitch_joint": 0.5475,
+   "right_hip_roll_joint": 0.3507,
+   "right_hip_yaw_joint": 0.5475,
+   "right_knee_joint": 0.3507,
+   "right_ankle_pitch_joint": 0.4386,
+   "right_ankle_roll_joint": 0.4386,
+   "waist_yaw_joint": 0.5475,
+   "waist_roll_joint": 0.4386,
+   "waist_pitch_joint": 0.4386,
+   "left_shoulder_pitch_joint": 0.4386,
+   "left_shoulder_roll_joint": 0.4386,
+   "left_shoulder_yaw_joint": 0.4386,
+   "left_elbow_joint": 0.4386,
+   "left_wrist_roll_joint": 0.4386,
+   "left_wrist_pitch_joint": 0.0745,
+   "left_wrist_yaw_joint": 0.0745,
+   "right_shoulder_pitch_joint": 0.4386,
+   "right_shoulder_roll_joint": 0.4386,
+   "right_shoulder_yaw_joint": 0.4386,
+   "right_elbow_joint": 0.4386,
+   "right_wrist_roll_joint": 0.4386,
+   "right_wrist_pitch_joint": 0.0745,
+   "right_wrist_yaw_joint": 0.0745
+  },
+  "offset": "default pose",
+  "clip": [
+   -10.0,
+   10.0
+  ],
+  "notes": "scale = 0.25*effort_limit/kp (mjlab G1_ACTION_SCALE; g1.yaml:2,27-31). Deploy uses MuJoCo built-in position actuators (gainprm=kp, biasprm=[0,-kp,-kd]) stepped 4x at 200 Hz; training clip is none (mjlab JointPositionAction), the [-10,10] clip is deploy-only."
+ },
+ "obs": {
+  "total_dim": 167,
+  "terms": [
+   {
+    "name": "ref_joint_pos",
+    "dim": 29,
+    "scale": 1.0,
+    "history": "current frame in 'obs'; also in obs_history",
+    "frame": "joint space (absolute ref joint angles, NOT minus default)",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:198,205; train: train_mimic/tasks/tracking/tracking_env_cfg.py:45-47, train_mimic/tasks/tracking/mdp/observations.py:21-23"
+   },
+   {
+    "name": "ref_joint_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "joint space; deploy = finite diff of consecutive retargeted ref joint pos * policy_hz (zeros on first step); training uses motion-file joint_vel",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:199,206; teleopit/sim/runtime_components.py:265-279; train: train_mimic/tasks/tracking/tracking_env_cfg.py:48-50"
+   },
+   {
+    "name": "ref_anchor_ori_b",
+    "dim": 6,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "body (robot torso_link); rot6d of R = R(robot_torso)^T R(ref_torso), first two COLUMNS flattened row-major: [r00,r01,r10,r11,r20,r21]",
+    "noise": "U(-0.05,0.05) in training",
+    "source_ref": "teleopit/controllers/observation.py:189-201,207, teleopit/controllers/observation.py:98-106; train: train_mimic/tasks/tracking/tracking_env_cfg.py:56-60, train_mimic/tasks/tracking/mdp/observations.py:44-54"
+   },
+   {
+    "name": "robot_base_ang_vel_b",
+    "dim": 3,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "body (gyro at site imu_in_pelvis)",
+    "noise": "U(-0.2,0.2) in training",
+    "source_ref": "teleopit/controllers/observation.py:169,208; teleopit/robots/mujoco_robot.py:96-106,184-200; train: train_mimic/tasks/tracking/tracking_env_cfg.py:66-70; robot_assets/unitree_g1/g1_29dof.xml:303"
+   },
+   {
+    "name": "robot_joint_pos_rel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "joint space, q - default_joint_pos",
+    "noise": "U(-0.01,0.01) in training (+ startup default-pos DR +-0.01)",
+    "source_ref": "teleopit/controllers/observation.py:202,209; train: train_mimic/tasks/tracking/tracking_env_cfg.py:71-75,188-196"
+   },
+   {
+    "name": "robot_joint_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "joint space, raw qvel (no 0.05 scale despite dof_vel_scale in g1.yaml:55 - that field is unused by this builder)",
+    "noise": "U(-0.5,0.5) in training",
+    "source_ref": "teleopit/controllers/observation.py:167,210; train: train_mimic/tasks/tracking/tracking_env_cfg.py:76-78"
+   },
+   {
+    "name": "prev_action",
+    "dim": 29,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "raw network output of previous step (before clip/scale)",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:211; teleopit/sim/runtime_components.py:323-325; train: train_mimic/tasks/tracking/tracking_env_cfg.py:79"
+   },
+   {
+    "name": "robot_projected_gravity_b",
+    "dim": 3,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "body (pelvis root quat), gravity unit (0,0,-1)",
+    "noise": "U(-0.05,0.05) in training",
+    "source_ref": "teleopit/controllers/observation.py:256,264; train: train_mimic/tasks/tracking/config/env.py:117-120"
+   },
+   {
+    "name": "ref_anchor_lin_vel_b",
+    "dim": 3,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "ref torso_link world lin vel rotated into ROBOT torso_link frame (full 3D rotation); deploy = finite diff of FK torso position between consecutive policy steps",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:254,257-258,265; teleopit/controllers/reference_processing.py:152-186; train: train_mimic/tasks/tracking/config/env.py:121-124, train_mimic/tasks/tracking/mdp/observations.py:90-93"
+   },
+   {
+    "name": "ref_anchor_ang_vel_b",
+    "dim": 3,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "ref torso_link world ang vel rotated into ROBOT torso_link frame; deploy = axis-angle of q_cur*q_prev^-1 / dt",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:255,259,266; teleopit/controllers/reference_processing.py:188-204; train: train_mimic/tasks/tracking/config/env.py:125-128, train_mimic/tasks/tracking/mdp/observations.py:96-99"
+   },
+   {
+    "name": "ref_projected_gravity_b",
+    "dim": 3,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "gravity in REFERENCE torso_link frame",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:260,267; train: train_mimic/tasks/tracking/config/env.py:129-132, train_mimic/tasks/tracking/mdp/observations.py:102-110"
+   },
+   {
+    "name": "ref_anchor_height",
+    "dim": 1,
+    "scale": 1.0,
+    "history": "as above",
+    "frame": "world z of reference torso_link (m), from FK of yaw-aligned ref root+joints",
+    "noise": null,
+    "source_ref": "teleopit/controllers/observation.py:244,261,268; train: train_mimic/tasks/tracking/config/env.py:133-136, train_mimic/tasks/tracking/mdp/observations.py:113-116"
+   }
+  ],
+  "history_layout": "oldest-first: 'obs_history' [1,10,167] is a deque of the last 10 full 167-D obs frames INCLUDING the current one as the last row; on first call/reset it is filled with 10 copies of the first obs. 'obs' = the current 167-D frame. Training: mjlab ObservationGroup history_length=10, flatten_history_dim=False.",
+  "normalization": "running mean/std (rsl_rl EmpiricalNormalization) for both 'obs' and 'obs_history' is baked into the ONNX graph; feed raw values",
+  "history_source_ref": "teleopit/controllers/rl_policy.py:72-78,119-135; train_mimic/tasks/tracking/config/env.py:97-113,278; train_mimic/tasks/tracking/rl/temporal_cnn_model.py:216-222,287-293; train_mimic/scripts/save_onnx.py:356 (history_length=10)",
+  "anchor_body": "torso_link (env.py:230; runtime/factory.py:115)"
+ },
+ "reference": {
+  "type": "root+joints (single current frame: 7-D root pose wxyz + 29 joint angles; policy derives torso anchor via FK)",
+  "future_frames": [
+   0
+  ],
+  "frame_dt": 0.02,
+  "lookahead_s": 0.0,
+  "includes_root": "rot yes (torso orientation relative to robot, ref gravity), height yes (ref torso z world), lin/ang vel yes (ref torso, in robot torso frame); root xy position NOT observed (ref_anchor_pos_b removed, env.py:264-268)",
+  "coordinate frame": "reference qpos is yaw-aligned once at start: fixed yaw offset = yaw(robot_quat * ref_quat^-1) about pivot = first ref root pos, optional xy offset; then FK on the policy's own MJCF (torso_link). Quaternions wxyz.",
+  "motion_file_format": "training: NPZ with keys fps, root_pos, root_quat_w (wxyz), joint_pos, joint_vel, body_pos_w, body_quat_w, body_lin_vel_w, body_ang_vel_w, body_names (train_mimic/data/dataset_lib.py:15-26), precomputed to HDF5 shards; LAFAN1 resampled to 30 fps (train_mimic/configs/datasets/lafan1.yaml:2). Deploy: BVH (lafan1/hc_mocap/etc.) retargeted online by bundled GMR, linearly interpolated (root slerp) to 50 Hz (teleopit/sim/reference_motion.py:154-182)."
+ },
+ "inputs_supported": [
+  "full-body BVH (offline file, UDP stream)",
+  "Pico 4 full-body tracking VR (pico_bridge)",
+  "ARMS mode (upper body from mocap, lower body held)",
+  "standing hold pose"
+ ],
+ "example_motions": [],
+ "how_they_run_it": "MuJoCo sim at 200 Hz (dt 0.005, newton/implicitfast, 10 iters / 20 ls iters) with built-in PD position actuators set from kp/kd; policy at 50 Hz (decimation 4). Each policy step (teleopit/sim/session.py:652-721): read robot state (joint qpos/qvel, pelvis quat, gyro at imu_in_pelvis); retarget the current human frame to a 36-D G1 qpos (offline BVH: retarget each source frame, interpolate at policy time); yaw-align the reference to the robot's heading (fixed at the first step); compute ref joint vel by finite difference vs previous ref (x50) and ref torso lin/ang vel by FK finite difference; build the 167-D obs (base 154-D + velcmd 13-D); push into a 10-frame history deque; run ONNX(obs, obs_history); target = default + action_scale * clip(action,-10,10); set ctrl and step MuJoCo 4 times; store raw action as prev_action. Robot initialised at mujoco_default_qpos (pelvis z 0.76, default joints).",
+ "code_refs": [
+  "teleopit/configs/robot/g1.yaml:9-39,53-64",
+  "teleopit/configs/default.yaml:7-8",
+  "teleopit/configs/controller/rl_policy.yaml:3,6",
+  "teleopit/constants.py:11-41",
+  "teleopit/controllers/observation.py:98-106,136,159-215,222-277",
+  "teleopit/controllers/rl_policy.py:72-78,100-157,174-180",
+  "teleopit/controllers/reference_processing.py:47-81,152-215",
+  "teleopit/sim/runtime_components.py:153-186,214-226,265-279,300-325",
+  "teleopit/sim/session.py:652-721",
+  "teleopit/sim/reference_motion.py:154-199",
+  "teleopit/robots/mujoco_robot.py:96-129,176-200",
+  "teleopit/runtime/factory.py:100-127",
+  "train_mimic/tasks/tracking/tracking_env_cfg.py:44-80,129-136,329-339",
+  "train_mimic/tasks/tracking/config/env.py:26-41,97-137,216-285",
+  "train_mimic/tasks/tracking/mdp/observations.py:21-116",
+  "train_mimic/tasks/tracking/rl/temporal_cnn_model.py:177-293",
+  "train_mimic/tasks/tracking/config/rl.py:25-60",
+  "train_mimic/scripts/save_onnx.py:176-284,356",
+  "train_mimic/data/dataset_lib.py:15-26",
+  "ckpt/teleopit/robot_assets/unitree_g1/g1_29dof.xml:73-248,302-305"
+ ],
+ "confidence": "high",
+ "open_questions": [
+  "ONNX input names/shapes (obs [1,167], obs_history [1,10,167]) are inferred from the export/deploy code, not read from the file: confirm in static inspection (onnx graph inputs + any metadata_props).",
+  "Joint order is the MJCF/actuator order of g1_29dof.xml (constants.py:9-11 states it is the canonical policy order); mjlab training resolves actuators by regex '.*' in entity order - assumed identical to XML order.",
+  "Training ref_joint_vel / anchor velocities come from the motion file (30 fps data interpolated) while deploy uses 50 Hz finite differences; our runner should use the deploy convention (finite diff at 50 Hz) for parity with their sim2sim.",
+  "Whether track_g1_neck_o6 was trained with --robot_xml g1_29dof_neck_o6.xml (inertia differs) is not recorded in code; README/CHANGELOG only say it must be paired with that XML.",
+  "Ref anchor height is world z of the ref torso; the LAFAN1 G1 csv root height must match the policy's ground plane (Teleopit preprocess uses normalize_root_xy and ground_align none for lafan1).",
+  "runtime.velocity_limit is null: no velocity limit found in repo code.",
+  "Teleopit's anchor terms are torso_link-based, so they are given as term_defs (ref_torso_*) rather than the runner's root-based ref_root_* terms.",
+  "isaac.self_collision: mjlab's own G1 collision configuration is not vendored in the repo; on/off for specific pairs unverified."
+ ],
+ "runtime": {
+  "onnx_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+  "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "inputs": {
+   "obs": [
+    {
+     "terms": [
+      "ref_joint_pos",
+      "ref_joint_vel",
+      "ref_torso_ori_6d_rel",
+      "base_ang_vel",
+      "joint_pos_rel",
+      "joint_vel",
+      "last_action",
+      "projected_gravity",
+      "ref_torso_lin_vel_in_robot_torso",
+      "ref_torso_ang_vel_in_robot_torso",
+      "ref_torso_gravity",
+      "ref_torso_height"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    }
+   ],
+   "obs_history": [
+    {
+     "terms": [
+      "ref_joint_pos",
+      "ref_joint_vel",
+      "ref_torso_ori_6d_rel",
+      "base_ang_vel",
+      "joint_pos_rel",
+      "joint_vel",
+      "last_action",
+      "projected_gravity",
+      "ref_torso_lin_vel_in_robot_torso",
+      "ref_torso_ang_vel_in_robot_torso",
+      "ref_torso_gravity",
+      "ref_torso_height"
+     ],
+     "steps": [
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null,
+     "layout": "tensor [1,10,167]; row k = full 167-D obs frame at tick k-9 (oldest first, last row = current obs, identical to 'obs'); on reset all 10 rows = first obs"
+    }
+   ]
+  },
+  "input_shapes": {
+   "obs": [
+    1,
+    167
+   ],
+   "obs_history": [
+    1,
+    10,
+    167
+   ]
+  },
+  "term_defs": {
+   "ref_torso_ori_6d_rel": {
+    "dim": 6,
+    "frame": "robot torso_link body frame (NOT pelvis/root)",
+    "definition": "R = R(q_robot_torso_w)^T R(q_ref_torso_w) where torso quats come from FK (robot: pelvis world quat + measured joints with zero base pos; ref: yaw-aligned ref root pose + ref joints); 6d = R[:, :2] flattened row-major = [r00, r01, r10, r11, r20, r21] (first two COLUMNS)",
+    "quat_order": "wxyz",
+    "units": "unitless",
+    "source": "teleopit/controllers/observation.py:98-106,189-201; train_mimic/tasks/tracking/mdp/observations.py:44-54; anchor torso_link train_mimic/tasks/tracking/config/env.py:230"
+   },
+   "ref_torso_lin_vel_in_robot_torso": {
+    "dim": 3,
+    "frame": "robot torso_link body frame (full 3D rotation by inverse of robot torso world quat)",
+    "definition": "v = R(q_robot_torso_w)^T * v_ref_torso_w; deploy v_ref_torso_w = (p_ref_torso(t) - p_ref_torso(t-1)) * 50 from FK of consecutive yaw-aligned reference frames; 0 on the first step",
+    "units": "m/s",
+    "quat_order": "wxyz",
+    "source": "teleopit/controllers/observation.py:254,257-258; teleopit/controllers/reference_processing.py:152-186; train_mimic/tasks/tracking/mdp/observations.py:90-93"
+   },
+   "ref_torso_ang_vel_in_robot_torso": {
+    "dim": 3,
+    "frame": "robot torso_link body frame",
+    "definition": "w = R(q_robot_torso_w)^T * w_ref_torso_w; deploy w_ref_torso_w = axis*angle of q_ref_torso(t) * q_ref_torso(t-1)^-1 (w made >=0) divided by 0.02; 0 on first step",
+    "units": "rad/s",
+    "quat_order": "wxyz",
+    "source": "teleopit/controllers/observation.py:255,259; teleopit/controllers/reference_processing.py:188-204; train_mimic/tasks/tracking/mdp/observations.py:96-99"
+   },
+   "ref_torso_gravity": {
+    "dim": 3,
+    "frame": "reference torso_link body frame",
+    "definition": "R(q_ref_torso_w)^T * (0,0,-1)",
+    "units": "unit vector",
+    "source": "teleopit/controllers/observation.py:260; train_mimic/tasks/tracking/mdp/observations.py:102-110"
+   },
+   "ref_torso_height": {
+    "dim": 1,
+    "frame": "world",
+    "definition": "z of reference torso_link origin from FK of the yaw-aligned reference root pose + joints (world ground at z=0)",
+    "units": "m",
+    "source": "teleopit/controllers/observation.py:244,261; train_mimic/tasks/tracking/mdp/observations.py:113-116"
+   }
+  },
+  "term_notes": {
+   "ref_joint_pos": "absolute reference joint angles (not minus default) teleopit/controllers/observation.py:198,205",
+   "ref_joint_vel": "deploy: finite difference of consecutive reference joint pos * 50 Hz (runtime_components.py:265-279)",
+   "base_ang_vel": "gyro at site imu_in_pelvis (pelvis body frame), no scale teleopit/robots/mujoco_robot.py:184-200",
+   "joint_pos_rel": "q - default_joint_pos teleopit/controllers/observation.py:202",
+   "joint_vel": "raw qvel, no scale teleopit/controllers/observation.py:167,210",
+   "last_action": "raw network output of the previous control step (before clip/scale); zeros at reset (runtime_components.py:96-97,323-325)",
+   "projected_gravity": "pelvis (root) quat, gravity (0,0,-1) teleopit/controllers/observation.py:256"
+  },
+  "constant_inputs": {},
+  "output": "actions",
+  "joint_names": [
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint",
+   "waist_yaw_joint",
+   "waist_roll_joint",
+   "waist_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_shoulder_yaw_joint",
+   "left_elbow_joint",
+   "left_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_shoulder_yaw_joint",
+   "right_elbow_joint",
+   "right_wrist_roll_joint",
+   "right_wrist_pitch_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "default_joint_pos": [
+   -0.312,
+   0,
+   0,
+   0.669,
+   -0.363,
+   0,
+   -0.312,
+   0,
+   0,
+   0.669,
+   -0.363,
+   0,
+   0,
+   0,
+   0,
+   0.2,
+   0.2,
+   0,
+   0.6,
+   0,
+   0,
+   0,
+   0.2,
+   -0.2,
+   0,
+   0.6,
+   0,
+   0,
+   0
+  ],
+  "action_scale": [
+   0.5475,
+   0.3507,
+   0.5475,
+   0.3507,
+   0.4386,
+   0.4386,
+   0.5475,
+   0.3507,
+   0.5475,
+   0.3507,
+   0.4386,
+   0.4386,
+   0.5475,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.0745,
+   0.0745,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.4386,
+   0.0745,
+   0.0745
+  ],
+  "action_offset": "default",
+  "action_clip": 10.0,
+  "control_dt": 0.02,
+  "sim_dt": 0.005,
+  "decimation": 4,
+  "kp": [
+   40.2,
+   99.1,
+   40.2,
+   99.1,
+   28.5,
+   28.5,
+   40.2,
+   99.1,
+   40.2,
+   99.1,
+   28.5,
+   28.5,
+   40.2,
+   28.5,
+   28.5,
+   14.3,
+   14.3,
+   14.3,
+   14.3,
+   14.3,
+   16.8,
+   16.8,
+   14.3,
+   14.3,
+   14.3,
+   14.3,
+   14.3,
+   16.8,
+   16.8
+  ],
+  "kd": [
+   2.6,
+   6.3,
+   2.6,
+   6.3,
+   1.8,
+   1.8,
+   2.6,
+   6.3,
+   2.6,
+   6.3,
+   1.8,
+   1.8,
+   2.6,
+   1.8,
+   1.8,
+   0.9,
+   0.9,
+   0.9,
+   0.9,
+   0.9,
+   1.1,
+   1.1,
+   0.9,
+   0.9,
+   0.9,
+   0.9,
+   0.9,
+   1.1,
+   1.1
+  ],
+  "armature": [
+   0.010178,
+   0.025102,
+   0.010178,
+   0.025102,
+   0.00722,
+   0.00722,
+   0.010178,
+   0.025102,
+   0.010178,
+   0.025102,
+   0.00722,
+   0.00722,
+   0.010178,
+   0.00722,
+   0.00722,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00425,
+   0.00425,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00361,
+   0.00425,
+   0.00425
+  ],
+  "effort": [
+   88,
+   139,
+   88,
+   139,
+   50,
+   50,
+   88,
+   139,
+   88,
+   139,
+   50,
+   50,
+   88,
+   50,
+   50,
+   25,
+   25,
+   25,
+   25,
+   25,
+   5,
+   5,
+   25,
+   25,
+   25,
+   25,
+   25,
+   5,
+   5
+  ],
+  "velocity_limit": null,
+  "obs_normalization": "in_graph",
+  "reference": {
+   "source": "gmr",
+   "frames": [
+    0
+   ],
+   "lookahead_s": 0.0
+  },
+  "source_refs": [
+   "names: train_mimic/tasks/tracking/rl/temporal_cnn_model.py:22-28 (actor->obs, actor_history->obs_history), 290-296 (input_names ['obs', ...], output_names ['actions']); teleopit/controllers/rl_policy.py:64-78,132-141 (deploy reads inputs[0] and requires inputs[1].name=='obs_history', output = get_outputs()[0])",
+   "history: teleopit/controllers/rl_policy.py:119-125; train_mimic/scripts/save_onnx.py:356",
+   "clip: teleopit/configs/controller/rl_policy.yaml:6 (deploy only, symmetric +-10)"
+  ]
+ },
+ "isaac": {
+  "trained_in": {
+   "value": "MuJoCo Warp via mjlab==1.4.0 (General-Tracking-G1 task, rsl_rl PPO with TemporalCNN actor)",
+   "refs": [
+    "pyproject.toml:48",
+    "train_mimic/tasks/tracking/tracking_env_cfg.py:1-5",
+    "train_mimic/tasks/tracking/config/rl.py:25-60"
+   ]
+  },
+  "actuator_model": {
+   "value": "implicit PD: mjlab G1 robot cfg (get_g1_robot_cfg, mjlab built-in position actuators: force = kp*(q*-q) - kd*qd, effort-limited) - deploy mirrors it with MuJoCo built-in PD (gainprm=kp, biasprm=[0,-kp,-kd]). No action delay, no obs latency, no action filtering in training; DR = push, base COM offset (torso), joint default pos +-0.01, geom friction 0.3-1.6, pseudo-inertia (torso, wrists), obs noise (U ranges).",
+   "refs": [
+    "train_mimic/tasks/tracking/config/env.py:11,76-81",
+    "teleopit/configs/robot/g1.yaml:47-48",
+    "teleopit/robots/mujoco_robot.py:110-129",
+    "train_mimic/tasks/tracking/tracking_env_cfg.py:129-136,168-214"
+   ]
+  },
+  "velocity_limit": {
+   "value": null,
+   "note": "no joint velocity limit is set anywhere in the repo code (mjlab G1 actuator cfg not vendored; deploy does not clip velocity)",
+   "refs": [
+    "teleopit/configs/robot/g1.yaml:1-64"
+   ]
+  },
+  "self_collision": {
+   "value": "likely on: G1 MJCF collision class capsules use MuJoCo default contype=conaffinity=1, and training adds a self_collision ContactSensor (primary all bodies except wrist_yaw links, secondary pelvis subtree) with a -0.1 penalty reward; whether mjlab's G1 collision cfg (not vendored) disables some pairs is unknown",
+   "refs": [
+    "ckpt/teleopit/robot_assets/unitree_g1/g1_29dof.xml:11-13,72-252",
+    "train_mimic/tasks/tracking/config/env.py:160-190"
+   ]
+  },
+  "default_root_height": {
+   "value": 0.76,
+   "note": "pelvis z at reset in deploy; training resets to the reference motion pose (+ pose_range noise)",
+   "refs": [
+    "teleopit/configs/robot/g1.yaml:58-64",
+    "train_mimic/tasks/tracking/tracking_env_cfg.py:147-156"
+   ]
+  },
+  "terrain_friction": {
+   "value": "flat plane only; robot collision-geom friction randomized absolute U(0.3,1.6) at startup (geoms matching .*_collision); foot capsules friction 0.6 in XML",
+   "refs": [
+    "train_mimic/tasks/tracking/tracking_env_cfg.py:197-205,313",
+    "train_mimic/tasks/tracking/config/env.py:236-238",
+    "ckpt/teleopit/robot_assets/unitree_g1/g1_29dof.xml:13-14,63"
+   ]
+  },
+  "hands": {
+   "value": "track_g1: fixed rubber hands (visual mesh + one capsule collision per hand on wrist_yaw_link, no hand DoF). track_g1_neck_o6: fixed LinkerHand O6 hands + neck camera module as rigid bodies (g1_29dof_neck_o6.xml), still 29 DoF",
+   "refs": [
+    "ckpt/teleopit/robot_assets/unitree_g1/g1_29dof.xml:209-211,250-252",
+    "ckpt/teleopit/robot_assets/unitree_g1/README.md:4-9"
+   ]
+  },
+  "teleop_reference": {
+   "value": "bundled GMR (General Motion Retargeting, IK) maps BVH (offline/UDP) or Pico 4 full-body tracking (pico_bridge, human_format pico_bridge) to a 36-D G1 qpos per input frame; reference then yaw-aligned to the robot and finite-differenced for velocities",
+   "refs": [
+    "teleopit/retargeting/gmr/motion_retarget.py",
+    "teleopit/configs/input/pico4.yaml:1-4",
+    "teleopit/sim/reference_motion.py:113-199",
+    "teleopit/controllers/reference_processing.py:47-81"
+   ]
+  },
+  "realtime_lookahead": {
+   "value": "0 future frames (reference_steps [0]); live stream is buffered (0.5 s window) and sampled with one input-frame delay (retarget_buffer_delay_s null = auto), interpolated to 50 Hz; nothing needs to be faked",
+   "refs": [
+    "teleopit/configs/pico4_sim.yaml:14-20",
+    "teleopit/configs/online.yaml:9-15",
+    "train_mimic/tasks/tracking/config/env.py:234"
+   ]
+  },
+  "deploy_rate": {
+   "value": "policy 50 Hz, PD/sim 200 Hz (sim2sim); real robot via Unitree lowcmd at the same 50 Hz policy rate",
+   "refs": [
+    "teleopit/configs/default.yaml:7-8",
+    "teleopit/configs/robot/g1.yaml:39"
+   ]
+  }
+ },
+ "measured": {
+  "how": "onnx.load graph + onnxruntime CPU, 1 thread, batch 1, random inputs, 200 runs on the dev laptop (2026-11-03). TorchScript archives are not loaded; params estimated from tensor blobs.",
+  "files": [
+   {
+    "file": "track_g1.pt",
+    "sha256": "1bc9e13aab7c98a6cc1e3f0d145515a47d1265fe41d255db9a64ed662fcc26e1",
+    "bytes": 88903327,
+    "format": "torch_state",
+    "params": 22213190,
+    "params_est": null,
+    "inputs": null,
+    "outputs": null,
+    "arch": null,
+    "widest_layers": null,
+    "activations": null,
+    "opset": null,
+    "cpu_ms": null
+   },
+   {
+    "file": "track_g1.onnx",
+    "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+    "bytes": 14077633,
+    "format": "onnx",
+    "params": 3518329,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       1,
+       167
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "obs_history",
+      "shape": [
+       1,
+       10,
+       167
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "actions",
+      "shape": [
+       1,
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "conv"
+    ],
+    "widest_layers": [
+     2048,
+     1024,
+     512,
+     256,
+     167,
+     128
+    ],
+    "activations": [
+     "Elu"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      18
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.9568499990564305,
+     "p95": 1.2755149986332976
+    }
+   },
+   {
+    "file": "track_g1_neck_o6.pt",
+    "sha256": "94427c18554cbd4a432542a6c596a6e2b92342576a91fc7d06b3948a80aa43b9",
+    "bytes": 88903327,
+    "format": "torch_state",
+    "params": 22213190,
+    "params_est": null,
+    "inputs": null,
+    "outputs": null,
+    "arch": null,
+    "widest_layers": null,
+    "activations": null,
+    "opset": null,
+    "cpu_ms": null
+   },
+   {
+    "file": "track_g1_neck_o6.onnx",
+    "sha256": "a5e35691fc09c9098d4495bd46bb8f8fa37e568a600d6d6b0a48c9e859cf27cb",
+    "bytes": 14077633,
+    "format": "onnx",
+    "params": 3518329,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       1,
+       167
+      ],
+      "dtype": "FLOAT"
+     },
+     {
+      "name": "obs_history",
+      "shape": [
+       1,
+       10,
+       167
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "actions",
+      "shape": [
+       1,
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "conv"
+    ],
+    "widest_layers": [
+     2048,
+     1024,
+     512,
+     256,
+     167,
+     128
+    ],
+    "activations": [
+     "Elu"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      18
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.9535999997751787,
+     "p95": 1.2732049995975103
+    }
+   }
+  ]
+ }
+}

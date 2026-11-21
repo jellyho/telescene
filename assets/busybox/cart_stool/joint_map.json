@@ -1,0 +1,606 @@
+{
+ "schema_version": 1,
+ "generator": "tools/usd_export/convert_cell.py",
+ "source": {
+  "mjcf": "garage_layout/mj/scenes/cart_stool/scene.xml",
+  "mjcf_sha256": "6700305924970f1b90d84b725d08e894dea603a8be9d5a8e33e9adfb7fc21b9a",
+  "model_name": "palette_cell",
+  "mujoco": "3.12.0",
+  "mujoco_usd_converter": "0.6.1",
+  "init_key": "layout",
+  "init_key_equals_qpos0": true,
+  "timestep": 0.002
+ },
+ "usd": {
+  "file": "palette_cell.usda",
+  "default_prim": "/palette_cell",
+  "geometry_scope": "/palette_cell/Geometry",
+  "physics_scope": "/palette_cell/Physics",
+  "overlays": [
+   "Payload/BusyBoxPhysx.usda",
+   "Payload/BusyBoxNotes.usda"
+  ],
+  "meters_per_unit": 1.0,
+  "up_axis": "Z"
+ },
+ "units": {
+  "range": "rad (hinge), m (slide); null when unlimited",
+  "usd_range": "as authored in USD: deg (revolute), m (prismatic)",
+  "damping": "N*m*s/rad (hinge, ball), N*s/m (slide)",
+  "frictionloss": "N*m (hinge, ball), N (slide)",
+  "armature": "kg*m^2 (hinge, ball), kg (slide)",
+  "stiffness": "N*m/rad (hinge), N/m (slide)",
+  "springref": "rad (hinge), m (slide)",
+  "init": "hinge/slide: qpos value; ball: quaternion; free: position [m] + quaternion",
+  "quaternions": "quat_wxyz = MuJoCo/USD order, quat_xyzw = Isaac Lab 3.0 order",
+  "positions": "metres in the cell frame (the asset's default prim)"
+ },
+ "joints": {
+  "bror_cart_free": {
+   "type": "free",
+   "usd_prim_path": null,
+   "usd_rel_path": null,
+   "usd_joint_name": null,
+   "usd_joint_type": null,
+   "usd_axis": null,
+   "body": "bror_cart",
+   "parent_body": "world",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart",
+   "articulation": null,
+   "range": null,
+   "usd_range": null,
+   "damping": 0.0,
+   "frictionloss": 0.0,
+   "armature": 0.0,
+   "init": {
+    "pos": [
+     0.0,
+     -0.62,
+     0.0
+    ],
+    "quat_wxyz": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "quat_xyzw": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "renamed": false
+  },
+  "bror_cart_swivel_br": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br/bror_cart_swivel_br",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_br/bror_cart_swivel_br",
+   "usd_joint_name": "bror_cart_swivel_br",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Z",
+   "body": "bror_cart_caster_br",
+   "parent_body": "bror_cart",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.002,
+   "frictionloss": 0.002,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_roll_br": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br/bror_cart_roll_br",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br/bror_cart_roll_br",
+   "usd_joint_name": "bror_cart_roll_br",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Y",
+   "body": "bror_cart_wheel_br",
+   "parent_body": "bror_cart_caster_br",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.01,
+   "frictionloss": 0.001,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_swivel_bl": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_swivel_bl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_swivel_bl",
+   "usd_joint_name": "bror_cart_swivel_bl",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Z",
+   "body": "bror_cart_caster_bl",
+   "parent_body": "bror_cart",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.002,
+   "frictionloss": 0.002,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_roll_bl": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl/bror_cart_roll_bl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl/bror_cart_roll_bl",
+   "usd_joint_name": "bror_cart_roll_bl",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Y",
+   "body": "bror_cart_wheel_bl",
+   "parent_body": "bror_cart_caster_bl",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.01,
+   "frictionloss": 0.001,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_swivel_fr": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_swivel_fr",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_swivel_fr",
+   "usd_joint_name": "bror_cart_swivel_fr",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Z",
+   "body": "bror_cart_caster_fr",
+   "parent_body": "bror_cart",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.002,
+   "frictionloss": 0.002,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_roll_fr": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr/bror_cart_roll_fr",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr/bror_cart_roll_fr",
+   "usd_joint_name": "bror_cart_roll_fr",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Y",
+   "body": "bror_cart_wheel_fr",
+   "parent_body": "bror_cart_caster_fr",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.01,
+   "frictionloss": 0.001,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_swivel_fl": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_swivel_fl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_swivel_fl",
+   "usd_joint_name": "bror_cart_swivel_fl",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Z",
+   "body": "bror_cart_caster_fl",
+   "parent_body": "bror_cart",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.002,
+   "frictionloss": 0.002,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "bror_cart_roll_fl": {
+   "type": "hinge",
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl/bror_cart_roll_fl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl/bror_cart_roll_fl",
+   "usd_joint_name": "bror_cart_roll_fl",
+   "usd_joint_type": "PhysicsRevoluteJoint",
+   "usd_axis": "Y",
+   "body": "bror_cart_wheel_fl",
+   "parent_body": "bror_cart_caster_fl",
+   "usd_body_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl",
+   "articulation": "bror_cart",
+   "range": null,
+   "usd_range": null,
+   "damping": 0.01,
+   "frictionloss": 0.001,
+   "armature": 0.0005,
+   "init": 0.0,
+   "renamed": false
+  },
+  "basingen_stool_free": {
+   "type": "free",
+   "usd_prim_path": null,
+   "usd_rel_path": null,
+   "usd_joint_name": null,
+   "usd_joint_type": null,
+   "usd_axis": null,
+   "body": "basingen_stool",
+   "parent_body": "world",
+   "usd_body_path": "/palette_cell/Geometry/basingen_stool",
+   "articulation": null,
+   "range": null,
+   "usd_range": null,
+   "damping": 0.0,
+   "frictionloss": 0.0,
+   "armature": 0.0,
+   "init": {
+    "pos": [
+     0.0,
+     1.06,
+     0.0
+    ],
+    "quat_wxyz": [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "quat_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "renamed": false
+  }
+ },
+ "bodies": {
+  "bror_cart": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart",
+   "usd_rel_path": "/Geometry/bror_cart",
+   "usd_name": "bror_cart",
+   "kind": "floating_root",
+   "parent": null,
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_free"
+   ],
+   "mass": 15.50000274396,
+   "n_colliders": 27,
+   "init_pos": [
+    0.0,
+    -0.62,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_caster_br": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_br",
+   "usd_name": "bror_cart_caster_br",
+   "kind": "link",
+   "parent": "bror_cart",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_swivel_br"
+   ],
+   "mass": 0.15000486059999998,
+   "n_colliders": 0,
+   "init_pos": [
+    -0.405,
+    -0.875,
+    0.096
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_wheel_br": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_br/bror_cart_wheel_br",
+   "usd_name": "bror_cart_wheel_br",
+   "kind": "link",
+   "parent": "bror_cart_caster_br",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_roll_br"
+   ],
+   "mass": 0.14999993582490054,
+   "n_colliders": 1,
+   "init_pos": [
+    -0.43300000000000005,
+    -0.875,
+    0.0375
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_caster_bl": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_bl",
+   "usd_name": "bror_cart_caster_bl",
+   "kind": "link",
+   "parent": "bror_cart",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_swivel_bl"
+   ],
+   "mass": 0.15000486059999998,
+   "n_colliders": 0,
+   "init_pos": [
+    -0.405,
+    -0.365,
+    0.096
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_wheel_bl": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_bl/bror_cart_wheel_bl",
+   "usd_name": "bror_cart_wheel_bl",
+   "kind": "link",
+   "parent": "bror_cart_caster_bl",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_roll_bl"
+   ],
+   "mass": 0.14999993582490054,
+   "n_colliders": 1,
+   "init_pos": [
+    -0.43300000000000005,
+    -0.365,
+    0.0375
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_caster_fr": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fr",
+   "usd_name": "bror_cart_caster_fr",
+   "kind": "link",
+   "parent": "bror_cart",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_swivel_fr"
+   ],
+   "mass": 0.15000486059999998,
+   "n_colliders": 0,
+   "init_pos": [
+    0.405,
+    -0.875,
+    0.096
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_wheel_fr": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fr/bror_cart_wheel_fr",
+   "usd_name": "bror_cart_wheel_fr",
+   "kind": "link",
+   "parent": "bror_cart_caster_fr",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_roll_fr"
+   ],
+   "mass": 0.14999993582490054,
+   "n_colliders": 1,
+   "init_pos": [
+    0.377,
+    -0.875,
+    0.0375
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_caster_fl": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fl",
+   "usd_name": "bror_cart_caster_fl",
+   "kind": "link",
+   "parent": "bror_cart",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_swivel_fl"
+   ],
+   "mass": 0.15000486059999998,
+   "n_colliders": 0,
+   "init_pos": [
+    0.405,
+    -0.365,
+    0.096
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "bror_cart_wheel_fl": {
+   "usd_prim_path": "/palette_cell/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl",
+   "usd_rel_path": "/Geometry/bror_cart/bror_cart_caster_fl/bror_cart_wheel_fl",
+   "usd_name": "bror_cart_wheel_fl",
+   "kind": "link",
+   "parent": "bror_cart_caster_fl",
+   "articulation": "bror_cart",
+   "joints": [
+    "bror_cart_roll_fl"
+   ],
+   "mass": 0.14999993582490054,
+   "n_colliders": 1,
+   "init_pos": [
+    0.377,
+    -0.365,
+    0.0375
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "basingen_stool": {
+   "usd_prim_path": "/palette_cell/Geometry/basingen_stool",
+   "usd_rel_path": "/Geometry/basingen_stool",
+   "usd_name": "basingen_stool",
+   "kind": "rigid_object",
+   "parent": null,
+   "articulation": null,
+   "joints": [
+    "basingen_stool_free"
+   ],
+   "mass": 4.839996058250838,
+   "n_colliders": 73,
+   "init_pos": [
+    0.0,
+    1.06,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    1.0,
+    0.0
+   ]
+  }
+ },
+ "articulations": {
+  "bror_cart": {
+   "root_body": "bror_cart",
+   "root_body_path": "/palette_cell/Geometry/bror_cart",
+   "articulation_root_prim": "/palette_cell/Geometry/bror_cart",
+   "articulation_root_rel_path": "/Geometry/bror_cart",
+   "fixed_base": false,
+   "bodies": [
+    "bror_cart",
+    "bror_cart_caster_br",
+    "bror_cart_wheel_br",
+    "bror_cart_caster_bl",
+    "bror_cart_wheel_bl",
+    "bror_cart_caster_fr",
+    "bror_cart_wheel_fr",
+    "bror_cart_caster_fl",
+    "bror_cart_wheel_fl"
+   ],
+   "joints": [
+    "bror_cart_swivel_br",
+    "bror_cart_roll_br",
+    "bror_cart_swivel_bl",
+    "bror_cart_roll_bl",
+    "bror_cart_swivel_fr",
+    "bror_cart_roll_fr",
+    "bror_cart_swivel_fl",
+    "bror_cart_roll_fl"
+   ]
+  }
+ },
+ "rigid_objects": [
+  "basingen_stool"
+ ],
+ "static_bodies": [],
+ "sites": {},
+ "equalities": {},
+ "excludes": [],
+ "cables": []
+}

@@ -1,0 +1,33 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.6.1"
+    }
+    defaultPrim = "palette_cell"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "palette_cell"
+{
+    def Scope "Materials"
+    {
+        def Material "col_a19485ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_a19485ff>
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "floor" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </palette_cell/Materials/col_a19485ff>
+        }
+    }
+}
+

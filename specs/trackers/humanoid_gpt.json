@@ -1,0 +1,1769 @@
+{
+ "slug": "humanoid_gpt",
+ "name": "Humanoid-GPT tracking policy (pns_wo_priv264 MLP; also pns_wo_priv216 MLP and pns_wo_priv216_trans Transformer)",
+ "paper": "Qi et al., 'Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking', CVPR 2026, arXiv:2606.03985",
+ "repo": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT",
+ "repo_commit": "9f9e7b74ecadb532abbb34b6a779d87191a9bbb6",
+ "license_code": "Apache-2.0 (LICENSE)",
+ "license_weights": "Apache-2.0 (checkpoints are committed in the same repo, README 'License' section)",
+ "files": [
+  {
+   "path": "ckpts/pns_wo_priv216.onnx",
+   "bytes": 11688332,
+   "sha256": "1ca1f475dc647afb736f4cdbd55d45103c36b7f5059d830b05d6aef3a5fc3a1e",
+   "source_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv216.onnx",
+   "what": "policy (ONNX MLP, variant; not referenced by any script)"
+  },
+  {
+   "path": "ckpts/pns_wo_priv216_trans.onnx",
+   "bytes": 42977083,
+   "sha256": "82313c76869ca796395abf80ee4288cced424d25087e74e32f9ec739ff59c853",
+   "source_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv216_trans.onnx",
+   "what": "policy (ONNX Transformer variant; input (B,K,136), K presumably 4)"
+  },
+  {
+   "path": "ckpts/pns_wo_priv264.onnx",
+   "bytes": 11675419,
+   "sha256": "bbaac94ba08d30bd96879e0c5878d60a38180f1cb819a9336cc6b56d49f333f9",
+   "source_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv264.onnx",
+   "what": "policy (ONNX MLP, default checkpoint used by every script)"
+  },
+  {
+   "path": "test/human_walking_50Hz_29dof.npz",
+   "bytes": 11715208,
+   "sha256": "4ab95256ec8987bea42ae416d949993124ed73ba93763a83b639ff093456e44d",
+   "source_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/test/human_walking_50Hz_29dof.npz",
+   "what": "sample reference trajectory (qpos 36-wide, 9379 frames @50 Hz, old kpt field names)"
+  }
+ ],
+ "skipped": [
+  {
+   "what": "storage/ckpts/G1-Walk/07140632_G1-Walk_v2.0.0_baseline.onnx",
+   "why": "locomotion fallback for deploy, not a tracker"
+  },
+  {
+   "what": "training code and training data",
+   "why": "not released (README TODO)"
+  }
+ ],
+ "format": "onnx",
+ "robot": "G1 29DoF, hardware variant selected by G1_VERSION (default 5010 = mode_15 'black pelvis', 5010 wrist motors); 4010 assets also shipped",
+ "hands": "Default = rubber dummy hand baked into the model (HAND env var; None/Default/Dex3/BrainCo supported by the loader) - utils/hand.py:3-12,41-43",
+ "control_hz": 50,
+ "sim_dt_trained": null,
+ "sim_dt_inference": 0.001,
+ "decimation": 20,
+ "joint_order": [
+  "left_hip_pitch_joint",
+  "left_hip_roll_joint",
+  "left_hip_yaw_joint",
+  "left_knee_joint",
+  "left_ankle_pitch_joint",
+  "left_ankle_roll_joint",
+  "right_hip_pitch_joint",
+  "right_hip_roll_joint",
+  "right_hip_yaw_joint",
+  "right_knee_joint",
+  "right_ankle_pitch_joint",
+  "right_ankle_roll_joint",
+  "waist_yaw_joint",
+  "waist_roll_joint",
+  "waist_pitch_joint",
+  "left_shoulder_pitch_joint",
+  "left_shoulder_roll_joint",
+  "left_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "left_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_shoulder_pitch_joint",
+  "right_shoulder_roll_joint",
+  "right_shoulder_yaw_joint",
+  "right_elbow_joint",
+  "right_wrist_roll_joint",
+  "right_wrist_pitch_joint",
+  "right_wrist_yaw_joint"
+ ],
+ "joint_order_ref": [
+  "tracking/constants.py:272-309 (ACTION_JOINT_NAMES = OBS_JOINT_NAMES)",
+  "tracking/constants.py:80-120 (MotorName.FULL, same order)",
+  "tracking/infer_utils.py:124-135"
+ ],
+ "default_joint_pos": {
+  "left_hip_pitch_joint": -0.1,
+  "left_hip_roll_joint": 0,
+  "left_hip_yaw_joint": 0,
+  "left_knee_joint": 0.3,
+  "left_ankle_pitch_joint": -0.2,
+  "left_ankle_roll_joint": 0,
+  "right_hip_pitch_joint": -0.1,
+  "right_hip_roll_joint": 0,
+  "right_hip_yaw_joint": 0,
+  "right_knee_joint": 0.3,
+  "right_ankle_pitch_joint": -0.2,
+  "right_ankle_roll_joint": 0,
+  "waist_yaw_joint": 0,
+  "waist_roll_joint": 0,
+  "waist_pitch_joint": 0,
+  "left_shoulder_pitch_joint": 0.2,
+  "left_shoulder_roll_joint": 0.3,
+  "left_shoulder_yaw_joint": 0,
+  "left_elbow_joint": 1.28,
+  "left_wrist_roll_joint": 0,
+  "left_wrist_pitch_joint": 0,
+  "left_wrist_yaw_joint": 0,
+  "right_shoulder_pitch_joint": 0.2,
+  "right_shoulder_roll_joint": -0.3,
+  "right_shoulder_yaw_joint": 0,
+  "right_elbow_joint": 1.28,
+  "right_wrist_roll_joint": 0,
+  "right_wrist_pitch_joint": 0,
+  "right_wrist_yaw_joint": 0
+ },
+ "default_joint_pos_ref": "tracking/constants.py:171-179 (root z 0.78)",
+ "kp": {
+  "left_hip_pitch_joint": 40.17923737,
+  "left_hip_roll_joint": 99.09842682,
+  "left_hip_yaw_joint": 40.17923737,
+  "left_knee_joint": 99.09842682,
+  "left_ankle_pitch_joint": 28.5012455,
+  "left_ankle_roll_joint": 28.5012455,
+  "right_hip_pitch_joint": 40.17923737,
+  "right_hip_roll_joint": 99.09842682,
+  "right_hip_yaw_joint": 40.17923737,
+  "right_knee_joint": 99.09842682,
+  "right_ankle_pitch_joint": 28.5012455,
+  "right_ankle_roll_joint": 28.5012455,
+  "waist_yaw_joint": 40.17923737,
+  "waist_roll_joint": 28.5012455,
+  "waist_pitch_joint": 28.5012455,
+  "left_shoulder_pitch_joint": 14.25062275,
+  "left_shoulder_roll_joint": 14.25062275,
+  "left_shoulder_yaw_joint": 14.25062275,
+  "left_elbow_joint": 14.25062275,
+  "left_wrist_roll_joint": 14.25062275,
+  "left_wrist_pitch_joint": 16.77832794,
+  "left_wrist_yaw_joint": 16.77832794,
+  "right_shoulder_pitch_joint": 14.25062275,
+  "right_shoulder_roll_joint": 14.25062275,
+  "right_shoulder_yaw_joint": 14.25062275,
+  "right_elbow_joint": 14.25062275,
+  "right_wrist_roll_joint": 14.25062275,
+  "right_wrist_pitch_joint": 16.77832794,
+  "right_wrist_yaw_joint": 16.77832794
+ },
+ "kd": {
+  "left_hip_pitch_joint": 2.5578897,
+  "left_hip_roll_joint": 6.30880165,
+  "left_hip_yaw_joint": 2.5578897,
+  "left_knee_joint": 6.30880165,
+  "left_ankle_pitch_joint": 1.81444573,
+  "left_ankle_roll_joint": 1.81444573,
+  "right_hip_pitch_joint": 2.5578897,
+  "right_hip_roll_joint": 6.30880165,
+  "right_hip_yaw_joint": 2.5578897,
+  "right_knee_joint": 6.30880165,
+  "right_ankle_pitch_joint": 1.81444573,
+  "right_ankle_roll_joint": 1.81444573,
+  "waist_yaw_joint": 2.5578897,
+  "waist_roll_joint": 1.81444573,
+  "waist_pitch_joint": 1.81444573,
+  "left_shoulder_pitch_joint": 0.90722287,
+  "left_shoulder_roll_joint": 0.90722287,
+  "left_shoulder_yaw_joint": 0.90722287,
+  "left_elbow_joint": 0.90722287,
+  "left_wrist_roll_joint": 0.90722287,
+  "left_wrist_pitch_joint": 1.06814146,
+  "left_wrist_yaw_joint": 1.06814146,
+  "right_shoulder_pitch_joint": 0.90722287,
+  "right_shoulder_roll_joint": 0.90722287,
+  "right_shoulder_yaw_joint": 0.90722287,
+  "right_elbow_joint": 0.90722287,
+  "right_wrist_roll_joint": 0.90722287,
+  "right_wrist_pitch_joint": 1.06814146,
+  "right_wrist_yaw_joint": 1.06814146
+ },
+ "gains_ref": "tracking/constants.py:182-198, 427-468 (BASE_KP_KD_SCALE env var default 1.0; per-joint scale all 1)",
+ "armature": {
+  "left_hip_pitch_joint": 0.025101925,
+  "left_hip_roll_joint": 0.025101925,
+  "left_hip_yaw_joint": 0.01017752004,
+  "left_knee_joint": 0.025101925,
+  "left_ankle_pitch_joint": 0.00721945,
+  "left_ankle_roll_joint": 0.00721945,
+  "right_hip_pitch_joint": 0.025101925,
+  "right_hip_roll_joint": 0.025101925,
+  "right_hip_yaw_joint": 0.01017752004,
+  "right_knee_joint": 0.025101925,
+  "right_ankle_pitch_joint": 0.00721945,
+  "right_ankle_roll_joint": 0.00721945,
+  "waist_yaw_joint": 0.01017752004,
+  "waist_roll_joint": 0.00721945,
+  "waist_pitch_joint": 0.00721945,
+  "left_shoulder_pitch_joint": 0.003609725,
+  "left_shoulder_roll_joint": 0.003609725,
+  "left_shoulder_yaw_joint": 0.003609725,
+  "left_elbow_joint": 0.003609725,
+  "left_wrist_roll_joint": 0.003609725,
+  "left_wrist_pitch_joint": 0.01,
+  "left_wrist_yaw_joint": 0.01,
+  "right_shoulder_pitch_joint": 0.003609725,
+  "right_shoulder_roll_joint": 0.003609725,
+  "right_shoulder_yaw_joint": 0.003609725,
+  "right_elbow_joint": 0.003609725,
+  "right_wrist_roll_joint": 0.003609725,
+  "right_wrist_pitch_joint": 0.01,
+  "right_wrist_yaw_joint": 0.01
+ },
+ "armature_ref": "storage/assets/unitree_g1_5010/g1_mjx_track.xml:25-90 (5010 classes; no joint damping, frictionloss 0.1)",
+ "effort_limit": {
+  "left_hip_pitch_joint": 88,
+  "left_hip_roll_joint": 139,
+  "left_hip_yaw_joint": 88,
+  "left_knee_joint": 139,
+  "left_ankle_pitch_joint": 35,
+  "left_ankle_roll_joint": 35,
+  "right_hip_pitch_joint": 88,
+  "right_hip_roll_joint": 139,
+  "right_hip_yaw_joint": 88,
+  "right_knee_joint": 139,
+  "right_ankle_pitch_joint": 35,
+  "right_ankle_roll_joint": 35,
+  "waist_yaw_joint": 88,
+  "waist_roll_joint": 35,
+  "waist_pitch_joint": 35,
+  "left_shoulder_pitch_joint": 25,
+  "left_shoulder_roll_joint": 25,
+  "left_shoulder_yaw_joint": 25,
+  "left_elbow_joint": 25,
+  "left_wrist_roll_joint": 25,
+  "left_wrist_pitch_joint": 5,
+  "left_wrist_yaw_joint": 5,
+  "right_shoulder_pitch_joint": 25,
+  "right_shoulder_roll_joint": 25,
+  "right_shoulder_yaw_joint": 25,
+  "right_elbow_joint": 25,
+  "right_wrist_roll_joint": 25,
+  "right_wrist_pitch_joint": 5,
+  "right_wrist_yaw_joint": 5
+ },
+ "effort_limit_ref": "tracking/constants.py:163-169 (TORQUE_LIMIT clip in utils/sim_mj.py:80-85) and storage/assets/unitree_g1_5010/g1_mjx_track.xml joint actuatorfrcrange",
+ "action": {
+  "dim": 29,
+  "meaning": "joint pos offset from default pose",
+  "scale": {
+   "left_hip_pitch_joint": 0.54754648,
+   "left_hip_roll_joint": 0.35066147,
+   "left_hip_yaw_joint": 0.54754648,
+   "left_knee_joint": 0.35066147,
+   "left_ankle_pitch_joint": 0.43857732,
+   "left_ankle_roll_joint": 0.43857732,
+   "right_hip_pitch_joint": 0.54754648,
+   "right_hip_roll_joint": 0.35066147,
+   "right_hip_yaw_joint": 0.54754648,
+   "right_knee_joint": 0.35066147,
+   "right_ankle_pitch_joint": 0.43857732,
+   "right_ankle_roll_joint": 0.43857732,
+   "waist_yaw_joint": 0.54754648,
+   "waist_roll_joint": 0.43857732,
+   "waist_pitch_joint": 0.43857732,
+   "left_shoulder_pitch_joint": 0.43857732,
+   "left_shoulder_roll_joint": 0.43857732,
+   "left_shoulder_yaw_joint": 0.43857732,
+   "left_elbow_joint": 0.43857732,
+   "left_wrist_roll_joint": 0.43857732,
+   "left_wrist_pitch_joint": 0.07450087,
+   "left_wrist_yaw_joint": 0.07450087,
+   "right_shoulder_pitch_joint": 0.43857732,
+   "right_shoulder_roll_joint": 0.43857732,
+   "right_shoulder_yaw_joint": 0.43857732,
+   "right_elbow_joint": 0.43857732,
+   "right_wrist_roll_joint": 0.43857732,
+   "right_wrist_pitch_joint": 0.07450087,
+   "right_wrist_yaw_joint": 0.07450087
+  },
+  "scale_formula": "env_config.action_scale 0.25 * TORQUE_LIMIT/KP",
+  "offset": "default pose",
+  "clip": "none in the caller (graph output head unknown)",
+  "source_ref": [
+   "tracking/infer_utils.py:31-37",
+   "tracking/infer_utils.py:140",
+   "tracking/infer_utils.py:696-704",
+   "tracking/constants.py:469"
+  ]
+ },
+ "obs": {
+  "total_dim": 136,
+  "terms": [
+   {
+    "name": "gyro_pelvis",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (gyro at imu_in_pelvis site)",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:437, 528 ; storage/assets/unitree_g1_5010/g1_mjx_track.xml:464"
+   },
+   {
+    "name": "gvec_pelvis",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (-R_pelvis^T e_z)",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:438, 544"
+   },
+   {
+    "name": "joint_pos - default",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:440"
+   },
+   {
+    "name": "joint_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:441 (comment says '* scale_vel' but no scale is applied)"
+   },
+   {
+    "name": "last_action (raw network output)",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "action space",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:442, 212"
+   },
+   {
+    "name": "ref_joint_pos - default (ref_next)",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:444"
+   },
+   {
+    "name": "ref root height (ref_next pelvis z)",
+    "dim": 1,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "world z",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:446"
+   },
+   {
+    "name": "ref gravity in ref pelvis frame (ref_next)",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "reference pelvis body",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:447"
+   },
+   {
+    "name": "ref pelvis cvel in gravity-view frame (ref_next)",
+    "dim": 6,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "reference yaw (gv) frame",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:448"
+   },
+   {
+    "name": "yaw error [cos, sin] (ref_curr)",
+    "dim": 2,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "heading",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:430, 449"
+   },
+   {
+    "name": "xy error in robot heading frame (ref_curr)",
+    "dim": 2,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "heading",
+    "noise": null,
+    "source_ref": "tracking/infer_utils.py:432, 451"
+   }
+  ],
+  "history_layout": "none for the MLPs; Transformer variant takes (B,K,136) oldest-first (projects/transformer/infer_utils.py:36-52)",
+  "normalization": "none in caller; in-graph unknown",
+  "dim_check": "3+3+29+29+29+29+1+3+6+2+2 = 136 (tracking/infer_utils.py:79, 302-318)"
+ },
+ "reference": {
+  "type": "root+joints+keypoint (29 ref joint pos, ref root height/gravity/pelvis velocity, heading and xy error)",
+  "future_frames": [
+   1
+  ],
+  "future_frames_note": "ref_next = frame t+1 (clipped at end) for joint/height/gravity/cvel; ref_curr = frame t for heading/xy (scripts/inference.py:175-181 ; tracking/infer_utils.py:197-203, 616-649)",
+  "frame_dt": 0.02,
+  "lookahead_s": 0.02,
+  "includes_root": "height (z), orientation via gravity vector + heading error, xy via heading-frame position error, pelvis spatial velocity",
+  "coordinate frame": "gravity-view (yaw-only) frame of the reference pelvis for velocity; heading frame of the robot for xy/yaw error",
+  "preprocessing": "reference qpos EMA-smoothed (alpha 0.8, quat sign-aligned, renormalised) before anything (tracking/infer_utils.py:28, 40-75 ; scripts/inference.py:108 ; deploy/play_track.py:307), resampled to 50 Hz (linear joints/xyz, SLERP quat) (tracking/convert_qpos2kpt.py:215-247, 558), qvel recomputed by finite differences (tracking/convert_qpos2kpt.py:250-318), FK keypoints/cvel (tracking/convert_qpos2kpt.py:435-531). deploy offline path also adds 0.5 s smooth ramps from/to the default pose (deploy/play_track.py:309-314); inference.py uses interp_sec 0 (scripts/inference.py:72-86).",
+  "motion_file_format": "npz with qpos (T,36) [xyz, quat wxyz, 29 joints in policy order] or root_pos/root_rot/dof_pos or joint_pos/body_pos_w/body_quat_w (mjlab style); optional 'frequency' (default 50). 23/22/... DoF variants are zero-padded (scripts/inference.py:56-69 ; tracking/convert_qpos2kpt.py:565-582). Converted dict fields: qpos, qvel, kpt2gv_pose (T,14,4,4), kpt_cvel_in_gv (T,14,6), gv_vel, gv2wrd_pose, foot_contact (tracking/convert_qpos2kpt.py:486-494)."
+ },
+ "inputs_supported": [
+  "full-body offline reference motion (qpos npz)",
+  "live full-body mocap (Noitom PNLink or Xsens MVN) retargeted by GMR"
+ ],
+ "example_motions": [
+  "test/human_walking_50Hz_29dof.npz (qpos (9379,36); its kpt fields use OLD names kpt_npose/kpt_cvel/navi_*, so it must be re-converted from qpos (scripts/inference.py --convert, or the deploy loader which always converts)"
+ ],
+ "how_they_run_it": "scripts/inference.py: load npz, EMA-smooth qpos, optionally convert to keypoints; init sim at reference frame 0 with xy zeroed (also zeroes frame-0 xy of the reference in place); G1TrackMjSim uses scene_mjx_track.xml with timestep overridden to 0.001 and 20 substeps per 0.02 s. Each step: ref_curr = frame t, ref_next = frame t+1; update_state reads gyro_pelvis sensor, root quat -> gravity, qpos/qvel, computes yaw_d/xy_d from ref_curr; obs (1,136) hstack -> ONNX 'obs' -> 'continuous_actions' (1,29); motor_targets = default + a*0.25*TORQUE_LIMIT/KP; last_action = a; sim step: 20 x [tau = KP*(target-q) - KD*qd clipped to TORQUE_LIMIT -> motor ctrl; mj_step]. Real robot (deploy/play_track.py run_real): the same obs from IMU quat/gyro and motor states with root pos fixed at (0,0,0.78), reference rebiased to the robot's initial yaw/xy, gains consts.KPs/KDs, 50 Hz loop.",
+ "code_refs": [
+  "scripts/inference.py:89-181",
+  "tracking/infer_utils.py:31-37, 90-213, 417-454, 507-649, 696-704",
+  "tracking/constants.py:10-29, 163-198, 272-309, 427-469",
+  "tracking/policy.py:188-208",
+  "utils/sim_mj.py:52-87",
+  "tracking/convert_qpos2kpt.py:215-318, 435-600",
+  "deploy/play_track.py:140-281, 284-323, 495-525, 690-719",
+  "projects/transformer/infer_utils.py:19-70",
+  "storage/assets/unitree_g1_5010/g1_mjx_track.xml:4, 20-95, 139-147, 423-472",
+  "storage/assets/unitree_g1_5010/scene_mjx_track.xml:20-125"
+ ],
+ "isaac": {
+  "trained_in": "MuJoCo MJX (GPU) per README ('GPU-accelerated simulation with MuJoCo-MJX', README.md:43) and utils/sim_mjx.py; training code unreleased, so engine version, sim dt and DR are unknown",
+  "actuator_model": "explicit PD torque in Python at the physics substep (tau = KP*(q_des-q) - KD*qd, clipped to TORQUE_LIMIT, MuJoCo <motor> actuators) in all released inference/deploy code (utils/sim_mj.py:77-85; deploy/play_track.py:495). KP = armature-based (BeyondMimic-style) values. Action/obs delay or latency randomisation in training: unknown (code not released). Isaac ImplicitActuatorCfg stiffness=KP, damping=KD, effort_limit_sim=effort is the closest match.",
+  "velocity_limit": "unknown for training; DOF_VEL_LIMITS (tracking/constants.py:264-270) is only used by projects/gqs/physics_filter.py:74 for data filtering, not in the controller",
+  "self_collision": "partial, via explicit MJCF <pair>s in scene_mjx_track.xml: foot-foot, foot-shin, shin-shin, thigh-thigh, hand-hip/thigh/torso/pelvis/head, torso-shoulder/elbow/wrist (condim 1, frictionless) plus body-floor pairs (storage/assets/unitree_g1_5010/scene_mjx_track.xml:40-125). Whether training used this exact scene is unconfirmed.",
+  "default_root_height": "0.78 m (tracking/constants.py:172); inference initialises from reference frame 0 qpos (scripts/inference.py:114-116, 146-156)",
+  "terrain_friction": "flat plane; foot-floor pairs friction 1.0, solref 0.008 1, condim 3 (storage/assets/unitree_g1_5010/scene_mjx_track.xml:26-39); other body-floor pairs MuJoCo default friction; training terrain/DR unknown",
+  "hands": "HAND=Default: rigid rubber dummy hand baked into unitree_g1_5010 model (utils/hand.py:3-12, 43); Dex3/BrainCo variants are mounted rigidly for tracking (nq stays 36, utils/sim_mj.py:56-57)",
+  "teleop_reference": "GMR (General Motion Retargeting, gmr/ package) running in a separate process on Noitom PNLink or Xsens MVN streams -> 29-DoF qpos in shared memory (deploy/retarget.py:46-130) -> LiveRefConverter: rebias to robot initial pose, FK keypoints, finite-difference twists/joint vel (deploy/play_track.py:140-281). onboard_deploy_wo_GMR streams retargeted qpos from a host.",
+  "realtime_lookahead": "none: online mode sets ref_next = newest retargeted frame and ref_curr = the previous one (deploy/play_track.py:501-509, 696-702); policy expects +1 frame, so the live stream effectively runs 1 tick behind. Optional jitter buffer buffer_ms delays the stream to smooth timing (deploy/retarget.py:94-130).",
+  "deploy_rate": "50 Hz (freq 50, ctrl_dt 0.02) - deploy/play_track.py:359-361, 590-592"
+ },
+ "runtime": {
+  "onnx_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv264.onnx",
+  "sha256": "bbaac94ba08d30bd96879e0c5878d60a38180f1cb819a9336cc6b56d49f333f9",
+  "local_path": "ckpts/pns_wo_priv264.onnx",
+  "inputs": {
+   "obs": [
+    {
+     "terms": [
+      "base_ang_vel"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "projected_gravity"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "joint_pos_rel"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "joint_vel"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "last_action"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_joint_pos_rel"
+     ],
+     "steps": [
+      1
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_root_height"
+     ],
+     "steps": [
+      1
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_root_gravity"
+     ],
+     "steps": [
+      1
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_pelvis_cvel_gv"
+     ],
+     "steps": [
+      1
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "heading_err_cos_sin"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "xy_err_heading"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "term",
+     "scale": 1.0,
+     "clip": null
+    }
+   ]
+  },
+  "constant_inputs": {},
+  "output": "continuous_actions",
+  "joint_names": [
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint",
+   "waist_yaw_joint",
+   "waist_roll_joint",
+   "waist_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_shoulder_yaw_joint",
+   "left_elbow_joint",
+   "left_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_shoulder_yaw_joint",
+   "right_elbow_joint",
+   "right_wrist_roll_joint",
+   "right_wrist_pitch_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "default_joint_pos": [
+   -0.1,
+   0,
+   0,
+   0.3,
+   -0.2,
+   0,
+   -0.1,
+   0,
+   0,
+   0.3,
+   -0.2,
+   0,
+   0,
+   0,
+   0,
+   0.2,
+   0.3,
+   0,
+   1.28,
+   0,
+   0,
+   0,
+   0.2,
+   -0.3,
+   0,
+   1.28,
+   0,
+   0,
+   0
+  ],
+  "action_scale": [
+   0.54754648,
+   0.35066147,
+   0.54754648,
+   0.35066147,
+   0.43857732,
+   0.43857732,
+   0.54754648,
+   0.35066147,
+   0.54754648,
+   0.35066147,
+   0.43857732,
+   0.43857732,
+   0.54754648,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.07450087,
+   0.07450087,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.43857732,
+   0.07450087,
+   0.07450087
+  ],
+  "action_scale_note": "0.25 * TORQUE_LIMIT / KP per joint (tracking/infer_utils.py:35, tracking/constants.py:469, tracking/infer_utils.py:696-704)",
+  "action_offset": "default",
+  "action_clip": null,
+  "control_dt": 0.02,
+  "sim_dt": 0.001,
+  "decimation": 20,
+  "kp": [
+   40.17923737,
+   99.09842682,
+   40.17923737,
+   99.09842682,
+   28.5012455,
+   28.5012455,
+   40.17923737,
+   99.09842682,
+   40.17923737,
+   99.09842682,
+   28.5012455,
+   28.5012455,
+   40.17923737,
+   28.5012455,
+   28.5012455,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   16.77832794,
+   16.77832794,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   14.25062275,
+   16.77832794,
+   16.77832794
+  ],
+  "kd": [
+   2.5578897,
+   6.30880165,
+   2.5578897,
+   6.30880165,
+   1.81444573,
+   1.81444573,
+   2.5578897,
+   6.30880165,
+   2.5578897,
+   6.30880165,
+   1.81444573,
+   1.81444573,
+   2.5578897,
+   1.81444573,
+   1.81444573,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   1.06814146,
+   1.06814146,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   0.90722287,
+   1.06814146,
+   1.06814146
+  ],
+  "armature": [
+   0.025101925,
+   0.025101925,
+   0.01017752004,
+   0.025101925,
+   0.00721945,
+   0.00721945,
+   0.025101925,
+   0.025101925,
+   0.01017752004,
+   0.025101925,
+   0.00721945,
+   0.00721945,
+   0.01017752004,
+   0.00721945,
+   0.00721945,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.01,
+   0.01,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.01,
+   0.01
+  ],
+  "effort": [
+   88,
+   139,
+   88,
+   139,
+   35,
+   35,
+   88,
+   139,
+   88,
+   139,
+   35,
+   35,
+   88,
+   35,
+   35,
+   25,
+   25,
+   25,
+   25,
+   25,
+   5,
+   5,
+   25,
+   25,
+   25,
+   25,
+   25,
+   5,
+   5
+  ],
+  "effort_note": "min(consts.TORQUE_LIMIT used for the explicit torque clip, 5010 MJCF joint actuatorfrcrange). TORQUE_LIMIT alone: [88, 139, 88, 139, 50, 50, 88, 139, 88, 139, 50, 50, 88, 50, 50, 25, 25, 25, 25, 25, 5, 5, 25, 25, 25, 25, 25, 5, 5]",
+  "velocity_limit": null,
+  "obs_normalization": null,
+  "obs_normalization_note": "No normalizer is applied in the Python caller (raw hstack fed to 'obs'); whether one is baked into the graph is unknown without opening the ONNX.",
+  "reference": {
+   "source": "gmr",
+   "frames": [
+    0,
+    1
+   ],
+   "lookahead_s": 0.02,
+   "note": "offline: frame +1 for joints/height/gravity/cvel, frame 0 for heading/xy; online (GMR from Noitom PNLink or Xsens): ref_next = newest retargeted frame, ref_curr = previous one, so no true lookahead."
+  },
+  "term_defs": {
+   "ref_root_gravity": {
+    "def": "-R_ref_pelvis^T @ e_z = unit gravity direction in the REFERENCE pelvis frame (gv frame is yaw-only, so the row-2 of R_kpt2gv equals that of R_pelvis2world). Same convention as projected_gravity. Taken from ref frame +1.",
+    "source_ref": [
+     "tracking/infer_utils.py:447",
+     "tracking/infer_utils.py:352-353",
+     "tracking/convert_qpos2kpt.py:470-475",
+     "tracking/convert_qpos2kpt.py:503-508"
+    ]
+   },
+   "ref_pelvis_cvel_gv": {
+    "def": "6 values [ang_xyz, lin_xyz] of the reference pelvis keypoint velocity rotated into the reference gravity-view (gv) frame (yaw-only frame of the ref pelvis, origin at ref pelvis xy on z=0). Offline path: MuJoCo mj_data.cvel[pelvis] after mj_forward of the reference qpos/qvel, i.e. com-based spatial velocity (translational part = velocity of the pelvis-attached point at the whole-robot subtree CoM, world axes); reference qvel comes from recompute_qvel(frame='world'), so qvel[3:6] carries a WORLD-frame angular velocity that MuJoCo interprets as body-frame. Online path (deploy LiveRefConverter): finite-difference twist of the pelvis body origin pose ([w_world, v_world] at the body origin) rotated into gv. Taken from ref frame +1. Units rad/s, m/s, unscaled.",
+    "source_ref": [
+     "tracking/infer_utils.py:448",
+     "tracking/infer_utils.py:354",
+     "tracking/convert_qpos2kpt.py:250-318",
+     "tracking/convert_qpos2kpt.py:253",
+     "tracking/convert_qpos2kpt.py:308",
+     "tracking/convert_qpos2kpt.py:506",
+     "tracking/convert_qpos2kpt.py:527-531",
+     "deploy/play_track.py:99-108",
+     "deploy/play_track.py:238-251"
+    ]
+   },
+   "heading_err_cos_sin": {
+    "def": "[cos(yaw_d), sin(yaw_d)], yaw_d = wrap(yaw(ref_qpos_root_quat) + yaw_cmd(=0) - yaw(robot_root_quat)), yaw = atan2(R10,R00) of wxyz quat. Uses ref frame 0 (ref_curr), not +1.",
+    "source_ref": [
+     "tracking/infer_utils.py:430",
+     "tracking/infer_utils.py:449-450",
+     "tracking/infer_utils.py:616-624",
+     "utils/transforms_np.py:9-25"
+    ]
+   },
+   "xy_err_heading": {
+    "def": "R(-yaw_robot) @ (ref_root_xy + xy_cmd(=0) - robot_root_xy), 2 values in the robot heading frame, metres, unclipped. Uses ref frame 0 (ref_curr). On the real robot robot xy is fixed to (0,0) and the reference is rebiased so its first frame sits at the robot's initial pose, so this becomes the reference displacement since start (open loop).",
+    "source_ref": [
+     "tracking/infer_utils.py:432",
+     "tracking/infer_utils.py:451",
+     "tracking/infer_utils.py:626-649",
+     "tracking/infer_utils.py:233-236",
+     "deploy/play_track.py:177-216"
+    ]
+   }
+  },
+  "obs_dim": 136
+ },
+ "runtime_variants": {
+  "pns_wo_priv216": {
+   "onnx_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv216.onnx",
+   "sha256": "1ca1f475dc647afb736f4cdbd55d45103c36b7f5059d830b05d6aef3a5fc3a1e",
+   "local_path": "ckpts/pns_wo_priv216.onnx",
+   "inputs": {
+    "obs": [
+     {
+      "terms": [
+       "base_ang_vel"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "projected_gravity"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "joint_pos_rel"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "joint_vel"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "last_action"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "ref_joint_pos_rel"
+      ],
+      "steps": [
+       1
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "ref_root_height"
+      ],
+      "steps": [
+       1
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "ref_root_gravity"
+      ],
+      "steps": [
+       1
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "ref_pelvis_cvel_gv"
+      ],
+      "steps": [
+       1
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "heading_err_cos_sin"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     },
+     {
+      "terms": [
+       "xy_err_heading"
+      ],
+      "steps": [
+       0
+      ],
+      "major": "term",
+      "scale": 1.0,
+      "clip": null
+     }
+    ]
+   },
+   "constant_inputs": {},
+   "output": "continuous_actions",
+   "joint_names": [
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint",
+    "waist_yaw_joint",
+    "waist_roll_joint",
+    "waist_pitch_joint",
+    "left_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_shoulder_yaw_joint",
+    "left_elbow_joint",
+    "left_wrist_roll_joint",
+    "left_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+    "right_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_shoulder_yaw_joint",
+    "right_elbow_joint",
+    "right_wrist_roll_joint",
+    "right_wrist_pitch_joint",
+    "right_wrist_yaw_joint"
+   ],
+   "default_joint_pos": [
+    -0.1,
+    0,
+    0,
+    0.3,
+    -0.2,
+    0,
+    -0.1,
+    0,
+    0,
+    0.3,
+    -0.2,
+    0,
+    0,
+    0,
+    0,
+    0.2,
+    0.3,
+    0,
+    1.28,
+    0,
+    0,
+    0,
+    0.2,
+    -0.3,
+    0,
+    1.28,
+    0,
+    0,
+    0
+   ],
+   "action_scale": [
+    0.54754648,
+    0.35066147,
+    0.54754648,
+    0.35066147,
+    0.43857732,
+    0.43857732,
+    0.54754648,
+    0.35066147,
+    0.54754648,
+    0.35066147,
+    0.43857732,
+    0.43857732,
+    0.54754648,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.07450087,
+    0.07450087,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.07450087,
+    0.07450087
+   ],
+   "action_scale_note": "0.25 * TORQUE_LIMIT / KP per joint (tracking/infer_utils.py:35, tracking/constants.py:469, tracking/infer_utils.py:696-704)",
+   "action_offset": "default",
+   "action_clip": null,
+   "control_dt": 0.02,
+   "sim_dt": 0.001,
+   "decimation": 20,
+   "kp": [
+    40.17923737,
+    99.09842682,
+    40.17923737,
+    99.09842682,
+    28.5012455,
+    28.5012455,
+    40.17923737,
+    99.09842682,
+    40.17923737,
+    99.09842682,
+    28.5012455,
+    28.5012455,
+    40.17923737,
+    28.5012455,
+    28.5012455,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    16.77832794,
+    16.77832794,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    16.77832794,
+    16.77832794
+   ],
+   "kd": [
+    2.5578897,
+    6.30880165,
+    2.5578897,
+    6.30880165,
+    1.81444573,
+    1.81444573,
+    2.5578897,
+    6.30880165,
+    2.5578897,
+    6.30880165,
+    1.81444573,
+    1.81444573,
+    2.5578897,
+    1.81444573,
+    1.81444573,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    1.06814146,
+    1.06814146,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    1.06814146,
+    1.06814146
+   ],
+   "armature": [
+    0.025101925,
+    0.025101925,
+    0.01017752004,
+    0.025101925,
+    0.00721945,
+    0.00721945,
+    0.025101925,
+    0.025101925,
+    0.01017752004,
+    0.025101925,
+    0.00721945,
+    0.00721945,
+    0.01017752004,
+    0.00721945,
+    0.00721945,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.01,
+    0.01,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.01,
+    0.01
+   ],
+   "effort": [
+    88,
+    139,
+    88,
+    139,
+    35,
+    35,
+    88,
+    139,
+    88,
+    139,
+    35,
+    35,
+    88,
+    35,
+    35,
+    25,
+    25,
+    25,
+    25,
+    25,
+    5,
+    5,
+    25,
+    25,
+    25,
+    25,
+    25,
+    5,
+    5
+   ],
+   "effort_note": "min(consts.TORQUE_LIMIT used for the explicit torque clip, 5010 MJCF joint actuatorfrcrange). TORQUE_LIMIT alone: [88, 139, 88, 139, 50, 50, 88, 139, 88, 139, 50, 50, 88, 50, 50, 25, 25, 25, 25, 25, 5, 5, 25, 25, 25, 25, 25, 5, 5]",
+   "velocity_limit": null,
+   "obs_normalization": null,
+   "obs_normalization_note": "No normalizer is applied in the Python caller (raw hstack fed to 'obs'); whether one is baked into the graph is unknown without opening the ONNX.",
+   "reference": {
+    "source": "gmr",
+    "frames": [
+     0,
+     1
+    ],
+    "lookahead_s": 0.02,
+    "note": "offline: frame +1 for joints/height/gravity/cvel, frame 0 for heading/xy; online (GMR from Noitom PNLink or Xsens): ref_next = newest retargeted frame, ref_curr = previous one, so no true lookahead."
+   },
+   "term_defs": {
+    "ref_root_gravity": {
+     "def": "-R_ref_pelvis^T @ e_z = unit gravity direction in the REFERENCE pelvis frame (gv frame is yaw-only, so the row-2 of R_kpt2gv equals that of R_pelvis2world). Same convention as projected_gravity. Taken from ref frame +1.",
+     "source_ref": [
+      "tracking/infer_utils.py:447",
+      "tracking/infer_utils.py:352-353",
+      "tracking/convert_qpos2kpt.py:470-475",
+      "tracking/convert_qpos2kpt.py:503-508"
+     ]
+    },
+    "ref_pelvis_cvel_gv": {
+     "def": "6 values [ang_xyz, lin_xyz] of the reference pelvis keypoint velocity rotated into the reference gravity-view (gv) frame (yaw-only frame of the ref pelvis, origin at ref pelvis xy on z=0). Offline path: MuJoCo mj_data.cvel[pelvis] after mj_forward of the reference qpos/qvel, i.e. com-based spatial velocity (translational part = velocity of the pelvis-attached point at the whole-robot subtree CoM, world axes); reference qvel comes from recompute_qvel(frame='world'), so qvel[3:6] carries a WORLD-frame angular velocity that MuJoCo interprets as body-frame. Online path (deploy LiveRefConverter): finite-difference twist of the pelvis body origin pose ([w_world, v_world] at the body origin) rotated into gv. Taken from ref frame +1. Units rad/s, m/s, unscaled.",
+     "source_ref": [
+      "tracking/infer_utils.py:448",
+      "tracking/infer_utils.py:354",
+      "tracking/convert_qpos2kpt.py:250-318",
+      "tracking/convert_qpos2kpt.py:253",
+      "tracking/convert_qpos2kpt.py:308",
+      "tracking/convert_qpos2kpt.py:506",
+      "tracking/convert_qpos2kpt.py:527-531",
+      "deploy/play_track.py:99-108",
+      "deploy/play_track.py:238-251"
+     ]
+    },
+    "heading_err_cos_sin": {
+     "def": "[cos(yaw_d), sin(yaw_d)], yaw_d = wrap(yaw(ref_qpos_root_quat) + yaw_cmd(=0) - yaw(robot_root_quat)), yaw = atan2(R10,R00) of wxyz quat. Uses ref frame 0 (ref_curr), not +1.",
+     "source_ref": [
+      "tracking/infer_utils.py:430",
+      "tracking/infer_utils.py:449-450",
+      "tracking/infer_utils.py:616-624",
+      "utils/transforms_np.py:9-25"
+     ]
+    },
+    "xy_err_heading": {
+     "def": "R(-yaw_robot) @ (ref_root_xy + xy_cmd(=0) - robot_root_xy), 2 values in the robot heading frame, metres, unclipped. Uses ref frame 0 (ref_curr). On the real robot robot xy is fixed to (0,0) and the reference is rebiased so its first frame sits at the robot's initial pose, so this becomes the reference displacement since start (open loop).",
+     "source_ref": [
+      "tracking/infer_utils.py:432",
+      "tracking/infer_utils.py:451",
+      "tracking/infer_utils.py:626-649",
+      "tracking/infer_utils.py:233-236",
+      "deploy/play_track.py:177-216"
+     ]
+    }
+   },
+   "obs_dim": 136
+  },
+  "pns_wo_priv216_trans": {
+   "onnx_url": "https://github.com/GalaxyGeneralRobotics/Humanoid-GPT/raw/9f9e7b74ecadb532abbb34b6a779d87191a9bbb6/storage/ckpts/pns_wo_priv216_trans.onnx",
+   "sha256": "82313c76869ca796395abf80ee4288cced424d25087e74e32f9ec739ff59c853",
+   "local_path": "ckpts/pns_wo_priv216_trans.onnx",
+   "inputs": {
+    "obs": [
+     {
+      "terms": [
+       "base_ang_vel",
+       "projected_gravity",
+       "joint_pos_rel",
+       "joint_vel",
+       "last_action",
+       "ref_joint_pos_rel",
+       "ref_root_height",
+       "ref_root_gravity",
+       "ref_pelvis_cvel_gv",
+       "heading_err_cos_sin",
+       "xy_err_heading"
+      ],
+      "steps": [
+       -3,
+       -2,
+       -1,
+       0
+      ],
+      "major": "time",
+      "scale": 1.0,
+      "clip": null,
+      "note": "input rank 3 (B,K,136): K whole 136-d obs vectors oldest-first (newest at index K-1), each built exactly as the MLP obs at that tick (so reference terms at history tick s use ref frame s+1 / s). Buffer seeded by repeating the first obs K times; last_action reset to 0 on reset. K=4 is the script default, not verified from the graph."
+     }
+    ]
+   },
+   "constant_inputs": {},
+   "output": "continuous_actions",
+   "joint_names": [
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint",
+    "waist_yaw_joint",
+    "waist_roll_joint",
+    "waist_pitch_joint",
+    "left_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_shoulder_yaw_joint",
+    "left_elbow_joint",
+    "left_wrist_roll_joint",
+    "left_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+    "right_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_shoulder_yaw_joint",
+    "right_elbow_joint",
+    "right_wrist_roll_joint",
+    "right_wrist_pitch_joint",
+    "right_wrist_yaw_joint"
+   ],
+   "default_joint_pos": [
+    -0.1,
+    0,
+    0,
+    0.3,
+    -0.2,
+    0,
+    -0.1,
+    0,
+    0,
+    0.3,
+    -0.2,
+    0,
+    0,
+    0,
+    0,
+    0.2,
+    0.3,
+    0,
+    1.28,
+    0,
+    0,
+    0,
+    0.2,
+    -0.3,
+    0,
+    1.28,
+    0,
+    0,
+    0
+   ],
+   "action_scale": [
+    0.54754648,
+    0.35066147,
+    0.54754648,
+    0.35066147,
+    0.43857732,
+    0.43857732,
+    0.54754648,
+    0.35066147,
+    0.54754648,
+    0.35066147,
+    0.43857732,
+    0.43857732,
+    0.54754648,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.07450087,
+    0.07450087,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.43857732,
+    0.07450087,
+    0.07450087
+   ],
+   "action_scale_note": "0.25 * TORQUE_LIMIT / KP per joint (tracking/infer_utils.py:35, tracking/constants.py:469, tracking/infer_utils.py:696-704)",
+   "action_offset": "default",
+   "action_clip": null,
+   "control_dt": 0.02,
+   "sim_dt": 0.001,
+   "decimation": 20,
+   "kp": [
+    40.17923737,
+    99.09842682,
+    40.17923737,
+    99.09842682,
+    28.5012455,
+    28.5012455,
+    40.17923737,
+    99.09842682,
+    40.17923737,
+    99.09842682,
+    28.5012455,
+    28.5012455,
+    40.17923737,
+    28.5012455,
+    28.5012455,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    16.77832794,
+    16.77832794,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    14.25062275,
+    16.77832794,
+    16.77832794
+   ],
+   "kd": [
+    2.5578897,
+    6.30880165,
+    2.5578897,
+    6.30880165,
+    1.81444573,
+    1.81444573,
+    2.5578897,
+    6.30880165,
+    2.5578897,
+    6.30880165,
+    1.81444573,
+    1.81444573,
+    2.5578897,
+    1.81444573,
+    1.81444573,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    1.06814146,
+    1.06814146,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    0.90722287,
+    1.06814146,
+    1.06814146
+   ],
+   "armature": [
+    0.025101925,
+    0.025101925,
+    0.01017752004,
+    0.025101925,
+    0.00721945,
+    0.00721945,
+    0.025101925,
+    0.025101925,
+    0.01017752004,
+    0.025101925,
+    0.00721945,
+    0.00721945,
+    0.01017752004,
+    0.00721945,
+    0.00721945,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.01,
+    0.01,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.003609725,
+    0.01,
+    0.01
+   ],
+   "effort": [
+    88,
+    139,
+    88,
+    139,
+    35,
+    35,
+    88,
+    139,
+    88,
+    139,
+    35,
+    35,
+    88,
+    35,
+    35,
+    25,
+    25,
+    25,
+    25,
+    25,
+    5,
+    5,
+    25,
+    25,
+    25,
+    25,
+    25,
+    5,
+    5
+   ],
+   "effort_note": "min(consts.TORQUE_LIMIT used for the explicit torque clip, 5010 MJCF joint actuatorfrcrange). TORQUE_LIMIT alone: [88, 139, 88, 139, 50, 50, 88, 139, 88, 139, 50, 50, 88, 50, 50, 25, 25, 25, 25, 25, 5, 5, 25, 25, 25, 25, 25, 5, 5]",
+   "velocity_limit": null,
+   "obs_normalization": null,
+   "obs_normalization_note": "No normalizer is applied in the Python caller (raw hstack fed to 'obs'); whether one is baked into the graph is unknown without opening the ONNX.",
+   "reference": {
+    "source": "gmr",
+    "frames": [
+     0,
+     1
+    ],
+    "lookahead_s": 0.02,
+    "note": "offline: frame +1 for joints/height/gravity/cvel, frame 0 for heading/xy; online (GMR from Noitom PNLink or Xsens): ref_next = newest retargeted frame, ref_curr = previous one, so no true lookahead."
+   },
+   "term_defs": {
+    "ref_root_gravity": {
+     "def": "-R_ref_pelvis^T @ e_z = unit gravity direction in the REFERENCE pelvis frame (gv frame is yaw-only, so the row-2 of R_kpt2gv equals that of R_pelvis2world). Same convention as projected_gravity. Taken from ref frame +1.",
+     "source_ref": [
+      "tracking/infer_utils.py:447",
+      "tracking/infer_utils.py:352-353",
+      "tracking/convert_qpos2kpt.py:470-475",
+      "tracking/convert_qpos2kpt.py:503-508"
+     ]
+    },
+    "ref_pelvis_cvel_gv": {
+     "def": "6 values [ang_xyz, lin_xyz] of the reference pelvis keypoint velocity rotated into the reference gravity-view (gv) frame (yaw-only frame of the ref pelvis, origin at ref pelvis xy on z=0). Offline path: MuJoCo mj_data.cvel[pelvis] after mj_forward of the reference qpos/qvel, i.e. com-based spatial velocity (translational part = velocity of the pelvis-attached point at the whole-robot subtree CoM, world axes); reference qvel comes from recompute_qvel(frame='world'), so qvel[3:6] carries a WORLD-frame angular velocity that MuJoCo interprets as body-frame. Online path (deploy LiveRefConverter): finite-difference twist of the pelvis body origin pose ([w_world, v_world] at the body origin) rotated into gv. Taken from ref frame +1. Units rad/s, m/s, unscaled.",
+     "source_ref": [
+      "tracking/infer_utils.py:448",
+      "tracking/infer_utils.py:354",
+      "tracking/convert_qpos2kpt.py:250-318",
+      "tracking/convert_qpos2kpt.py:253",
+      "tracking/convert_qpos2kpt.py:308",
+      "tracking/convert_qpos2kpt.py:506",
+      "tracking/convert_qpos2kpt.py:527-531",
+      "deploy/play_track.py:99-108",
+      "deploy/play_track.py:238-251"
+     ]
+    },
+    "heading_err_cos_sin": {
+     "def": "[cos(yaw_d), sin(yaw_d)], yaw_d = wrap(yaw(ref_qpos_root_quat) + yaw_cmd(=0) - yaw(robot_root_quat)), yaw = atan2(R10,R00) of wxyz quat. Uses ref frame 0 (ref_curr), not +1.",
+     "source_ref": [
+      "tracking/infer_utils.py:430",
+      "tracking/infer_utils.py:449-450",
+      "tracking/infer_utils.py:616-624",
+      "utils/transforms_np.py:9-25"
+     ]
+    },
+    "xy_err_heading": {
+     "def": "R(-yaw_robot) @ (ref_root_xy + xy_cmd(=0) - robot_root_xy), 2 values in the robot heading frame, metres, unclipped. Uses ref frame 0 (ref_curr). On the real robot robot xy is fixed to (0,0) and the reference is rebiased so its first frame sits at the robot's initial pose, so this becomes the reference displacement since start (open loop).",
+     "source_ref": [
+      "tracking/infer_utils.py:432",
+      "tracking/infer_utils.py:451",
+      "tracking/infer_utils.py:626-649",
+      "tracking/infer_utils.py:233-236",
+      "deploy/play_track.py:177-216"
+     ]
+    }
+   },
+   "obs_dim": 136,
+   "history_ref": [
+    "projects/transformer/infer_utils.py:22-52",
+    "projects/transformer/inference.py:77"
+   ]
+  }
+ },
+ "confidence": "medium",
+ "open_questions": [
+  "Which G1 asset (5010 default vs 4010) and which sim dt (inference 0.001 vs MJCF timestep 0.004) the released checkpoints were trained with; training code unreleased. effort uses min(TORQUE_LIMIT, 5010 actuatorfrcrange).",
+  "ref_pelvis_cvel_gv offline uses MuJoCo com-based cvel with a world-frame angular velocity written into qvel[3:6] (recompute_qvel default frame='world', convert_qpos2kpt.py:253,308) while the online path uses a body-origin finite-difference twist; which convention the training data used is unknown. Reproduce the offline pipeline exactly for offline benchmarks.",
+  "Whether pns_wo_priv216 has the same 136-d interface as pns_wo_priv264 (similar file size, no script references it); '216'/'264' meaning unknown.",
+  "Transformer variant context length K (default 4 in projects/transformer/inference.py:77) and whether the graph expects (B,K,136); not verified (ONNX not opened).",
+  "Whether the ONNX graphs contain a built-in obs normaliser or output squashing (caller applies none).",
+  "Training observation noise / latency / DR unknown.",
+  "inference.py sets only frame-0 xy of the reference to 0 (in place), so references not starting at the origin produce a large xy_err at step 1; normalise the reference so frame 0 xy = robot xy (as deploy rebias does).",
+  "velocity_limit null: no velocity limit in the released controller code."
+ ],
+ "measured": {
+  "how": "onnx.load graph + onnxruntime CPU, 1 thread, batch 1, random inputs, 200 runs on the dev laptop (2026-11-03). TorchScript archives are not loaded; params estimated from tensor blobs.",
+  "files": [
+   {
+    "file": "pns_wo_priv216.onnx",
+    "sha256": "1ca1f475dc647afb736f4cdbd55d45103c36b7f5059d830b05d6aef3a5fc3a1e",
+    "bytes": 11688332,
+    "format": "onnx",
+    "params": 2918458,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       "batch",
+       136
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "continuous_actions",
+      "shape": [
+       "batch",
+       29
+      ]
+     },
+     {
+      "name": "std_param",
+      "shape": [
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "mlp"
+    ],
+    "widest_layers": [
+     2048,
+     1024,
+     512
+    ],
+    "activations": [
+     "Sigmoid"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      20
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.3464500005065929,
+     "p95": 0.8477050010696985
+    }
+   },
+   {
+    "file": "pns_wo_priv216_trans.onnx",
+    "sha256": "82313c76869ca796395abf80ee4288cced424d25087e74e32f9ec739ff59c853",
+    "bytes": 42977083,
+    "format": "onnx",
+    "params": 10694813,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       "batch",
+       16,
+       136
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "continuous_actions",
+      "shape": [
+       "batch",
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "attention"
+    ],
+    "widest_layers": [
+     1152,
+     1024,
+     384
+    ],
+    "activations": [
+     "Sigmoid"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      18
+     ]
+    ],
+    "cpu_ms": {
+     "median": 6.401700000424171,
+     "p95": 8.722505000150704
+    }
+   },
+   {
+    "file": "pns_wo_priv264.onnx",
+    "sha256": "bbaac94ba08d30bd96879e0c5878d60a38180f1cb819a9336cc6b56d49f333f9",
+    "bytes": 11675419,
+    "format": "onnx",
+    "params": 2918458,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       "batch",
+       136
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "continuous_actions",
+      "shape": [
+       "batch",
+       29
+      ]
+     },
+     {
+      "name": "20",
+      "shape": [
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "mlp"
+    ],
+    "widest_layers": [
+     2048,
+     1024,
+     512
+    ],
+    "activations": [
+     "Sigmoid"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      18
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.3826000011031283,
+     "p95": 0.8271349970527808
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "schema_version": 1,
+ "generator": "tools/usd_export/convert_cell.py",
+ "source": {
+  "mjcf": "garage_layout/mj/scenes/stool/scene.xml",
+  "mjcf_sha256": "cba7c6816b2c24e4d73ae12367a00ed02dc8c69e7af7b19112cdcd8aa327e6de",
+  "model_name": "palette_cell",
+  "mujoco": "3.12.0",
+  "mujoco_usd_converter": "0.6.1",
+  "init_key": "layout",
+  "init_key_equals_qpos0": true,
+  "timestep": 0.002
+ },
+ "usd": {
+  "file": "palette_cell.usda",
+  "default_prim": "/palette_cell",
+  "geometry_scope": "/palette_cell/Geometry",
+  "physics_scope": "/palette_cell/Physics",
+  "overlays": [
+   "Payload/BusyBoxPhysx.usda",
+   "Payload/BusyBoxNotes.usda"
+  ],
+  "meters_per_unit": 1.0,
+  "up_axis": "Z"
+ },
+ "units": {
+  "range": "rad (hinge), m (slide); null when unlimited",
+  "usd_range": "as authored in USD: deg (revolute), m (prismatic)",
+  "damping": "N*m*s/rad (hinge, ball), N*s/m (slide)",
+  "frictionloss": "N*m (hinge, ball), N (slide)",
+  "armature": "kg*m^2 (hinge, ball), kg (slide)",
+  "stiffness": "N*m/rad (hinge), N/m (slide)",
+  "springref": "rad (hinge), m (slide)",
+  "init": "hinge/slide: qpos value; ball: quaternion; free: position [m] + quaternion",
+  "quaternions": "quat_wxyz = MuJoCo/USD order, quat_xyzw = Isaac Lab 3.0 order",
+  "positions": "metres in the cell frame (the asset's default prim)"
+ },
+ "joints": {
+  "basingen_stool_free": {
+   "type": "free",
+   "usd_prim_path": null,
+   "usd_rel_path": null,
+   "usd_joint_name": null,
+   "usd_joint_type": null,
+   "usd_axis": null,
+   "body": "basingen_stool",
+   "parent_body": "world",
+   "usd_body_path": "/palette_cell/Geometry/basingen_stool",
+   "articulation": null,
+   "range": null,
+   "usd_range": null,
+   "damping": 0.0,
+   "frictionloss": 0.0,
+   "armature": 0.0,
+   "init": {
+    "pos": [
+     0.228,
+     0.2,
+     0.0
+    ],
+    "quat_wxyz": [
+     0.7071067811865475,
+     0.0,
+     0.0,
+     0.7071067811865475
+    ],
+    "quat_xyzw": [
+     0.0,
+     0.0,
+     0.7071067811865475,
+     0.7071067811865475
+    ]
+   },
+   "renamed": false
+  }
+ },
+ "bodies": {
+  "basingen_stool": {
+   "usd_prim_path": "/palette_cell/Geometry/basingen_stool",
+   "usd_rel_path": "/Geometry/basingen_stool",
+   "usd_name": "basingen_stool",
+   "kind": "rigid_object",
+   "parent": null,
+   "articulation": null,
+   "joints": [
+    "basingen_stool_free"
+   ],
+   "mass": 4.839996058250838,
+   "n_colliders": 73,
+   "init_pos": [
+    0.228,
+    0.2,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    0.7071067811865475,
+    0.0,
+    0.0,
+    0.7071067811865475
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.7071067811865475,
+    0.7071067811865475
+   ]
+  }
+ },
+ "articulations": {},
+ "rigid_objects": [
+  "basingen_stool"
+ ],
+ "static_bodies": [],
+ "sites": {},
+ "equalities": {},
+ "excludes": [],
+ "cables": []
+}

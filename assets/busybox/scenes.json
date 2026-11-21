@@ -1,0 +1,1267 @@
+{
+ "schema_version": 2,
+ "layout": "purchased_2026-10-30",
+ "release": "scenes-2026-11-03b",
+ "note": "Teleop scenes for the headset menu, one entry per menu button, tabbed by 'group'. group 'pieces': cuts of the layout (a subset of the palette, the BROR cart and the BASINGEN stool; the floor is in every one); placement 'layout' keeps the layout's positions, 'front_of_spawn' (one prop) stands it straight ahead of spawn_ref, its near edge at the palette's front-most x (0.47), the stool's low step toward the spawn; groups tabletop / floor / overhead / whole_body: one task each (placement 'task'), three per category of the 2026-10 task taxonomy, for what the teleop does today (hands open/close only, flat floor, no stool). Tasks share setups: 'usd' is the setup's (see 'setups'), 'spawn' is where the robot starts (apply it as the stance), 'pick_box' false = the setup brings its own objects (rigid bodies obj_*), 'room' = the operator's room from the spawn (drawn on the floor, visual only). 'success' = {all: [checks], hold_s, hands_free}; checks: joint min/max, body origin 'in' an AABB of a frame ('world' = cell frame, or a body; palette links coincide with the cell frame at qpos0), 'in_any', 'pose' (xy/yaw with tolerances, sym_deg), 'yaw_rel'. Each was built and checked in MuJoCo, then converted to USD; every USD keeps the default prim /palette_cell.",
+ "default": "full",
+ "spawn_ref": {
+  "xy": [
+   1.5,
+   0.2
+  ],
+  "yaw_deg": 180,
+  "source": "examples/isaaclab_g1/busybox/scene.py DEFAULT_SPAWN"
+ },
+ "pieces": {
+  "palette": {
+   "prim": "palette",
+   "kind": "articulated"
+  },
+  "cart": {
+   "prim": "bror_cart",
+   "kind": "free_articulated"
+  },
+  "stool": {
+   "prim": "basingen_stool",
+   "kind": "free"
+  }
+ },
+ "scenes": [
+  {
+   "name": "full",
+   "label_ko": "전체 (팔레트 + 카트 + 계단)",
+   "label_en": "Palette + cart + stool",
+   "contains": [
+    "palette",
+    "cart",
+    "stool"
+   ],
+   "placement": "layout",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    },
+    "cart": {
+     "xyz": [
+      0,
+      -0.62,
+      0
+     ],
+     "yaw_deg": 0
+    },
+    "stool": {
+     "xyz": [
+      0,
+      1.06,
+      0
+     ],
+     "yaw_deg": 180
+    }
+   },
+   "usd": "assets/busybox/full/palette_cell.usda",
+   "articulations": [
+    "palette",
+    "bror_cart"
+   ],
+   "rigid_objects": [
+    "basingen_stool"
+   ],
+   "group": "pieces"
+  },
+  {
+   "name": "palette",
+   "label_ko": "팔레트만",
+   "label_en": "Palette only",
+   "contains": [
+    "palette"
+   ],
+   "placement": "layout",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "usd": "assets/busybox/palette/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [],
+   "group": "pieces"
+  },
+  {
+   "name": "cart_stool",
+   "label_ko": "카트 + 계단",
+   "label_en": "Cart + stool",
+   "contains": [
+    "cart",
+    "stool"
+   ],
+   "placement": "layout",
+   "poses": {
+    "cart": {
+     "xyz": [
+      0,
+      -0.62,
+      0
+     ],
+     "yaw_deg": 0
+    },
+    "stool": {
+     "xyz": [
+      0,
+      1.06,
+      0
+     ],
+     "yaw_deg": 180
+    }
+   },
+   "usd": "assets/busybox/cart_stool/palette_cell.usda",
+   "articulations": [
+    "bror_cart"
+   ],
+   "rigid_objects": [
+    "basingen_stool"
+   ],
+   "group": "pieces"
+  },
+  {
+   "name": "cart",
+   "label_ko": "카트만",
+   "label_en": "Cart only",
+   "contains": [
+    "cart"
+   ],
+   "placement": "front_of_spawn",
+   "poses": {
+    "cart": {
+     "xyz": [
+      0.035,
+      0.2,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "usd": "assets/busybox/cart/palette_cell.usda",
+   "articulations": [
+    "bror_cart"
+   ],
+   "rigid_objects": [],
+   "group": "pieces"
+  },
+  {
+   "name": "stool",
+   "label_ko": "계단만",
+   "label_en": "Stool only",
+   "contains": [
+    "stool"
+   ],
+   "placement": "front_of_spawn",
+   "poses": {
+    "stool": {
+     "xyz": [
+      0.228,
+      0.2,
+      0.0
+     ],
+     "yaw_deg": 90
+    }
+   },
+   "usd": "assets/busybox/stool/palette_cell.usda",
+   "articulations": [],
+   "rigid_objects": [
+    "basingen_stool"
+   ],
+   "group": "pieces"
+  },
+  {
+   "name": "floor",
+   "label_ko": "빈 바닥",
+   "label_en": "Empty floor",
+   "contains": [],
+   "placement": "layout",
+   "poses": {},
+   "usd": "assets/busybox/floor/palette_cell.usda",
+   "articulations": [],
+   "rigid_objects": [],
+   "group": "pieces"
+  },
+  {
+   "name": "slide_shelf_pull",
+   "label_ko": "슬라이드 선반 빼기",
+   "label_en": "Pull out the slide shelf",
+   "group": "tabletop",
+   "task_ko": "가슴 높이 슬라이드 선반을 끝까지 당겨 빼세요.",
+   "task_en": "Pull the chest-high slide shelf all the way out.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "joint": "ls_slide410_F15_slide0",
+      "min": 0.35
+     }
+    ],
+    "hold_s": 1.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "sort_two_bins",
+   "label_ko": "큐브 색깔별 분류",
+   "label_en": "Sort the cubes",
+   "group": "tabletop",
+   "task_ko": "슬라이드 선반을 빼고, 빨강·파랑 큐브를 같은 색 바구니에 넣으세요.",
+   "task_en": "Pull out the slide shelf and put the red and blue cubes in the bins of their colour.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_cube_red",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.091,
+        -0.171,
+        0.818
+       ],
+       "hi": [
+        0.051,
+        -0.029,
+        0.868
+       ]
+      }
+     },
+     {
+      "body": "obj_cube_blue",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.091,
+        0.029,
+        0.818
+       ],
+       "hi": [
+        0.051,
+        0.171,
+        0.868
+       ]
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "ring_hook",
+   "label_ko": "고리를 링에 걸기",
+   "label_en": "Hang the hook on a ring",
+   "group": "tabletop",
+   "task_ko": "슬라이드 선반 위의 고리를 집어 링 패널의 링 하나에 걸고 손을 떼세요.",
+   "task_en": "Take the hook from the slide shelf, hang it over one of the cable rings and let go.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_hook",
+      "in_any": [
+       {
+        "frame": "palette",
+        "lo": [
+         0.405,
+         -0.188,
+         0.7523
+        ],
+        "hi": [
+         0.464,
+         -0.172,
+         0.7643
+        ]
+       },
+       {
+        "frame": "palette",
+        "lo": [
+         0.405,
+         -0.098,
+         0.7523
+        ],
+        "hi": [
+         0.464,
+         -0.082,
+         0.7643
+        ]
+       },
+       {
+        "frame": "palette",
+        "lo": [
+         0.405,
+         -0.008,
+         0.7523
+        ],
+        "hi": [
+         0.464,
+         0.008,
+         0.7643
+        ]
+       },
+       {
+        "frame": "palette",
+        "lo": [
+         0.405,
+         0.082,
+         0.7523
+        ],
+        "hi": [
+         0.464,
+         0.098,
+         0.7643
+        ]
+       },
+       {
+        "frame": "palette",
+        "lo": [
+         0.405,
+         0.172,
+         0.7523
+        ],
+        "hi": [
+         0.464,
+         0.188,
+         0.7643
+        ]
+       }
+      ]
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "drawer_open",
+   "label_ko": "아래 서랍 열기",
+   "label_en": "Open the bottom drawer",
+   "group": "floor",
+   "task_ko": "쪼그려 앉아 맨 아래 서랍을 끝까지 당겨 여세요.",
+   "task_en": "Crouch and pull the bottom drawer all the way open.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "joint": "ls_drawer4_F2_slide0",
+      "min": 0.25
+     }
+    ],
+    "hold_s": 1.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "low_shelf_fetch",
+   "label_ko": "아래 선반 상자 꺼내기",
+   "label_en": "Fetch from the low shelf",
+   "group": "floor",
+   "task_ko": "아래 선반 안쪽의 상자를 꺼내 슬라이드 선반 위에 올리세요.",
+   "task_en": "Take the box from the back of the low shelf and put it on the slide shelf.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_box_low",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.102,
+        -0.202,
+        0.818
+       ],
+       "hi": [
+        0.392,
+        0.202,
+        0.968
+       ]
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "floor_pick",
+   "label_ko": "떨어진 큐브 줍기",
+   "label_en": "Pick up the dropped cube",
+   "group": "floor",
+   "task_ko": "바닥에 떨어진 초록 큐브를 주워 슬라이드 선반 위에 올리세요.",
+   "task_en": "Pick the green cube up off the floor and put it on the slide shelf.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_cube_floor",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.102,
+        -0.202,
+        0.818
+       ],
+       "hi": [
+        0.392,
+        0.202,
+        0.968
+       ]
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "bulb_fit",
+   "label_ko": "전구 끼우기 (시도)",
+   "label_en": "Fit the bulb (try)",
+   "group": "overhead",
+   "task_ko": "컵의 전구를 지붕 처마 밑 소켓에 밀어 올리고 돌려 잠근 뒤 손을 떼세요.",
+   "task_en": "Push the bulb from the cup up into the socket under the roof's eave, turn it to lock and let go.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_bulb",
+      "in": {
+       "frame": "palette",
+       "lo": [
+        0.376,
+        0.526,
+        1.294
+       ],
+       "hi": [
+        0.384,
+        0.534,
+        1.302
+       ]
+      }
+     },
+     {
+      "body": "obj_bulb",
+      "yaw_rel": {
+       "frame": "palette",
+       "min_deg": 20,
+       "max_deg": 40,
+       "sym_deg": 180
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "bulb_remove",
+   "label_ko": "전구 빼기",
+   "label_en": "Remove the bulb",
+   "group": "overhead",
+   "task_ko": "지붕 처마 밑 소켓의 전구를 돌려서 빼세요.",
+   "task_en": "Turn the bulb in the socket under the roof's eave and take it out.",
+   "setup": "palette_bulb_in",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_bulb_in/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_bulb",
+      "in": {
+       "frame": "world",
+       "lo": [
+        -5,
+        -5,
+        0
+       ],
+       "hi": [
+        5,
+        5,
+        1.2475
+       ]
+      }
+     }
+    ],
+    "hold_s": 1.0,
+    "hands_free": false
+   }
+  },
+  {
+   "name": "upper_shelf_take",
+   "label_ko": "위 선반 상자 꺼내기",
+   "label_en": "Take from upper shelf",
+   "group": "overhead",
+   "task_ko": "위 선반(위로 13 cm만 빔)의 납작한 상자를 꺼내 슬라이드 선반 위에 올리세요.",
+   "task_en": "Slide the flat box out of the upper shelf (13 cm headroom) and put it on the slide shelf.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_box_flat",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.102,
+        -0.202,
+        0.818
+       ],
+       "hi": [
+        0.392,
+        0.202,
+        0.968
+       ]
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  },
+  {
+   "name": "drawer_foot_close",
+   "label_ko": "서랍 상자 꺼내고 발로 닫기",
+   "label_en": "Drawer out + foot close",
+   "group": "whole_body",
+   "task_ko": "아래 서랍을 열어 상자를 양손으로 꺼내고, 상자를 든 채 발로 서랍을 닫으세요.",
+   "task_en": "Open the bottom drawer, lift the box out with both hands and, still holding it, shut the drawer with a foot.",
+   "setup": "palette_tasks",
+   "contains": [
+    "palette"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    }
+   },
+   "objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "spawn": {
+    "xy": [
+     1.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_tasks/palette_cell.usda",
+   "articulations": [
+    "palette"
+   ],
+   "rigid_objects": [
+    "obj_cube_red",
+    "obj_cube_blue",
+    "obj_hook",
+    "obj_bulb",
+    "obj_box_drawer",
+    "obj_box_low",
+    "obj_box_flat",
+    "obj_cube_floor"
+   ],
+   "success": {
+    "all": [
+     {
+      "joint": "ls_drawer4_F2_slide0",
+      "max": 0.01
+     },
+     {
+      "body": "obj_box_drawer",
+      "in": {
+       "frame": "world",
+       "lo": [
+        -5,
+        -5,
+        0.5
+       ],
+       "hi": [
+        5,
+        5,
+        3
+       ]
+      }
+     }
+    ],
+    "hold_s": 1.0,
+    "hands_free": false
+   }
+  },
+  {
+   "name": "cart_load_park",
+   "label_ko": "카트에 싣고 주차",
+   "label_en": "Load and park the cart",
+   "group": "whole_body",
+   "task_ko": "아래 선반의 상자를 카트 맨 위에 싣고, 카트를 돌려 노란 주차 칸에 넣으세요.",
+   "task_en": "Load the box from the low shelf onto the cart top, then turn the cart and park it in the yellow bay.",
+   "setup": "palette_cart",
+   "contains": [
+    "palette",
+    "cart"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    },
+    "cart": {
+     "xyz": [
+      1.75,
+      0.2,
+      0.0
+     ],
+     "yaw_deg": 90.0
+    }
+   },
+   "objects": [
+    "obj_box_load",
+    "obj_box_heavy"
+   ],
+   "spawn": {
+    "xy": [
+     2.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_cart/palette_cell.usda",
+   "articulations": [
+    "palette",
+    "bror_cart"
+   ],
+   "rigid_objects": [
+    "obj_box_load",
+    "obj_box_heavy"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_box_load",
+      "in": {
+       "frame": "bror_cart",
+       "lo": [
+        -0.4,
+        -0.25,
+        0.88
+       ],
+       "hi": [
+        0.4,
+        0.25,
+        1.08
+       ]
+      }
+     },
+     {
+      "body": "bror_cart",
+      "pose": {
+       "frame": "world",
+       "xy": [
+        0.99,
+        -0.55
+       ],
+       "yaw_deg": 0.0,
+       "tol_m": 0.1,
+       "tol_deg": 10,
+       "sym_deg": 180
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": false
+   }
+  },
+  {
+   "name": "heavy_box_lift",
+   "label_ko": "무거운 상자 들어 올리기",
+   "label_en": "Lift the heavy box",
+   "group": "whole_body",
+   "task_ko": "카트 아래 칸의 3 kg 상자를 쪼그려 꺼내 슬라이드 선반 위에 올리세요.",
+   "task_en": "Crouch, take the 3 kg box from the cart's bottom tray and put it on the slide shelf.",
+   "setup": "palette_cart",
+   "contains": [
+    "palette",
+    "cart"
+   ],
+   "placement": "task",
+   "poses": {
+    "palette": {
+     "xyz": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "yaw_deg": 0
+    },
+    "cart": {
+     "xyz": [
+      1.75,
+      0.2,
+      0.0
+     ],
+     "yaw_deg": 90.0
+    }
+   },
+   "objects": [
+    "obj_box_load",
+    "obj_box_heavy"
+   ],
+   "spawn": {
+    "xy": [
+     2.5,
+     0.2
+    ],
+    "yaw_deg": 180
+   },
+   "room": {
+    "ahead_m": 2.5,
+    "side_m": 1.0
+   },
+   "pick_box": false,
+   "usd": "assets/busybox/palette_cart/palette_cell.usda",
+   "articulations": [
+    "palette",
+    "bror_cart"
+   ],
+   "rigid_objects": [
+    "obj_box_load",
+    "obj_box_heavy"
+   ],
+   "success": {
+    "all": [
+     {
+      "body": "obj_box_heavy",
+      "in": {
+       "frame": "ls_slide410_F15_mov0",
+       "lo": [
+        -0.102,
+        -0.202,
+        0.818
+       ],
+       "hi": [
+        0.392,
+        0.202,
+        0.968
+       ]
+      }
+     }
+    ],
+    "hold_s": 2.0,
+    "hands_free": true
+   }
+  }
+ ],
+ "setups": {
+  "palette_tasks": {
+   "label_ko": "팔레트 작업대",
+   "label_en": "Palette task bench",
+   "spawn": [
+    1.5,
+    0.2
+   ]
+  },
+  "palette_bulb_in": {
+   "label_ko": "팔레트 작업대 (전구 끼워짐)",
+   "label_en": "Palette task bench, bulb in",
+   "spawn": [
+    1.5,
+    0.2
+   ]
+  },
+  "palette_cart": {
+   "label_ko": "팔레트 + 카트",
+   "label_en": "Palette + cart",
+   "spawn": [
+    2.5,
+    0.2
+   ]
+  }
+ }
+}

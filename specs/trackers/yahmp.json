@@ -1,0 +1,1033 @@
+{
+ "slug": "yahmp",
+ "name": "YAHMP: Yet Another Humanoid Motion tracking Policy (G1 general motion tracker, mjlab)",
+ "paper": null,
+ "repo": "https://github.com/hucebot/yahmp",
+ "repo_commit": "2111a998663e9f787b3ac36e8f8a7c17745ca83f",
+ "license_code": "Apache-2.0 (LICENSE)",
+ "license_weights": "not stated separately; weights are committed in the Apache-2.0 repo (assets/models). twist2_1017_25k.onnx is a third-party TWIST2 checkpoint redistributed here; its own license is TWIST2's (not checked).",
+ "files": [
+  {
+   "path": "g1_yahmp.onnx",
+   "bytes": 2560703,
+   "sha256": "59f02e2aa6408a006f6af672b78b71858f32c234756e3fb47a98c1e1a77861f6",
+   "source_url": "https://raw.githubusercontent.com/hucebot/yahmp/2111a998663e9f787b3ac36e8f8a7c17745ca83f/assets/models/g1_yahmp.onnx",
+   "what": "policy (YAHMP actor, obs[1,1727] -> actions[1,29], ONNX opset 18, metadata_props carry the full interface)"
+  },
+  {
+   "path": "g1_yahmp.onnx.metadata.json",
+   "bytes": 5551,
+   "sha256": "1471d9431956ee61d97f170cb0f238f86fa438a799cb3c997447c75ee805599a",
+   "source_url": "derived: metadata_props + graph IO read from g1_yahmp.onnx with our own pure-python protobuf walker (scratchpad cmp/onnx_meta.py); no onnx/onnxruntime used",
+   "what": "config (extracted ONNX metadata)"
+  },
+  {
+   "path": "twist2_1017_25k.onnx",
+   "bytes": 3184908,
+   "sha256": "126ab9089b6ca0be8b6582fc9ef17b0b6c6d6577378f9324a2e10d580fe48f2e",
+   "source_url": "https://raw.githubusercontent.com/hucebot/yahmp/2111a998663e9f787b3ac36e8f8a7c17745ca83f/assets/models/twist2_1017_25k.onnx",
+   "what": "baseline policy: original TWIST2 G1 student (third-party, bundled for comparison; obs[batch,1432] -> [batch,29], no metadata)"
+  },
+  {
+   "path": "twist2_1017_25k.onnx.metadata.json",
+   "bytes": 389,
+   "sha256": "972f2ca172afd34241afbd9378d0a05a11329659a0bffb091d14f44b23bc3f50",
+   "source_url": "derived: graph IO read from twist2_1017_25k.onnx with our own protobuf walker (no metadata_props present)",
+   "what": "config (extracted ONNX IO shapes)"
+  }
+ ],
+ "skipped": [
+  {
+   "what": "training motions g1_omomo_amass_clean (retargeted OMOMO+AMASS NPZ, Google Drive 13GOHVAp5plhQCbUCrOnD_aOkqwy46gHi)",
+   "why": "not needed for the interface; AMASS-derived data under AMASS license; repo ships no example motion"
+  },
+  {
+   "what": "mjlab package",
+   "why": "only two text files (g1_constants.py, g1.xml) fetched from mujocolab/mjlab tag v1.2.0 into src/mjlab_ref/ for actuator constants and the MJCF the policy was trained on"
+  }
+ ],
+ "format": "onnx",
+ "robot": "G1 29DoF (mjlab asset_zoo unitree_g1 g1.xml, self-collision disabled: FULL_COLLISION_WITHOUT_SELF)",
+ "hands": "none",
+ "control_hz": 50,
+ "sim_dt_trained": 0.005,
+ "decimation": 4,
+ "joint_order": [
+  "left_hip_pitch_joint",
+  "left_hip_roll_joint",
+  "left_hip_yaw_joint",
+  "left_knee_joint",
+  "left_ankle_pitch_joint",
+  "left_ankle_roll_joint",
+  "right_hip_pitch_joint",
+  "right_hip_roll_joint",
+  "right_hip_yaw_joint",
+  "right_knee_joint",
+  "right_ankle_pitch_joint",
+  "right_ankle_roll_joint",
+  "waist_yaw_joint",
+  "waist_roll_joint",
+  "waist_pitch_joint",
+  "left_shoulder_pitch_joint",
+  "left_shoulder_roll_joint",
+  "left_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "left_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_shoulder_pitch_joint",
+  "right_shoulder_roll_joint",
+  "right_shoulder_yaw_joint",
+  "right_elbow_joint",
+  "right_wrist_roll_joint",
+  "right_wrist_pitch_joint",
+  "right_wrist_yaw_joint"
+ ],
+ "default_joint_pos": {
+  "left_hip_pitch_joint": -0.31200000643730164,
+  "left_hip_roll_joint": 0.0,
+  "left_hip_yaw_joint": 0.0,
+  "left_knee_joint": 0.6690000295639038,
+  "left_ankle_pitch_joint": -0.3630000054836273,
+  "left_ankle_roll_joint": 0.0,
+  "right_hip_pitch_joint": -0.31200000643730164,
+  "right_hip_roll_joint": 0.0,
+  "right_hip_yaw_joint": 0.0,
+  "right_knee_joint": 0.6690000295639038,
+  "right_ankle_pitch_joint": -0.3630000054836273,
+  "right_ankle_roll_joint": 0.0,
+  "waist_yaw_joint": 0.0,
+  "waist_roll_joint": 0.0,
+  "waist_pitch_joint": 0.0,
+  "left_shoulder_pitch_joint": 0.20000000298023224,
+  "left_shoulder_roll_joint": 0.20000000298023224,
+  "left_shoulder_yaw_joint": 0.0,
+  "left_elbow_joint": 0.6000000238418579,
+  "left_wrist_roll_joint": 0.0,
+  "left_wrist_pitch_joint": 0.0,
+  "left_wrist_yaw_joint": 0.0,
+  "right_shoulder_pitch_joint": 0.20000000298023224,
+  "right_shoulder_roll_joint": -0.20000000298023224,
+  "right_shoulder_yaw_joint": 0.0,
+  "right_elbow_joint": 0.6000000238418579,
+  "right_wrist_roll_joint": 0.0,
+  "right_wrist_pitch_joint": 0.0,
+  "right_wrist_yaw_joint": 0.0
+ },
+ "kp": {
+  "left_hip_pitch_joint": 40.17923863450712,
+  "left_hip_roll_joint": 99.09842777666111,
+  "left_hip_yaw_joint": 40.17923863450712,
+  "left_knee_joint": 99.09842777666111,
+  "left_ankle_pitch_joint": 28.50124619574858,
+  "left_ankle_roll_joint": 28.50124619574858,
+  "right_hip_pitch_joint": 40.17923863450712,
+  "right_hip_roll_joint": 99.09842777666111,
+  "right_hip_yaw_joint": 40.17923863450712,
+  "right_knee_joint": 99.09842777666111,
+  "right_ankle_pitch_joint": 28.50124619574858,
+  "right_ankle_roll_joint": 28.50124619574858,
+  "waist_yaw_joint": 40.17923863450712,
+  "waist_roll_joint": 28.50124619574858,
+  "waist_pitch_joint": 28.50124619574858,
+  "left_shoulder_pitch_joint": 14.25062309787429,
+  "left_shoulder_roll_joint": 14.25062309787429,
+  "left_shoulder_yaw_joint": 14.25062309787429,
+  "left_elbow_joint": 14.25062309787429,
+  "left_wrist_roll_joint": 14.25062309787429,
+  "left_wrist_pitch_joint": 16.77832748089279,
+  "left_wrist_yaw_joint": 16.77832748089279,
+  "right_shoulder_pitch_joint": 14.25062309787429,
+  "right_shoulder_roll_joint": 14.25062309787429,
+  "right_shoulder_yaw_joint": 14.25062309787429,
+  "right_elbow_joint": 14.25062309787429,
+  "right_wrist_roll_joint": 14.25062309787429,
+  "right_wrist_pitch_joint": 16.77832748089279,
+  "right_wrist_yaw_joint": 16.77832748089279
+ },
+ "kd": {
+  "left_hip_pitch_joint": 2.557889775413375,
+  "left_hip_roll_joint": 6.308801853496639,
+  "left_hip_yaw_joint": 2.557889775413375,
+  "left_knee_joint": 6.308801853496639,
+  "left_ankle_pitch_joint": 1.814445686584846,
+  "left_ankle_roll_joint": 1.814445686584846,
+  "right_hip_pitch_joint": 2.557889775413375,
+  "right_hip_roll_joint": 6.308801853496639,
+  "right_hip_yaw_joint": 2.557889775413375,
+  "right_knee_joint": 6.308801853496639,
+  "right_ankle_pitch_joint": 1.814445686584846,
+  "right_ankle_roll_joint": 1.814445686584846,
+  "waist_yaw_joint": 2.557889775413375,
+  "waist_roll_joint": 1.814445686584846,
+  "waist_pitch_joint": 1.814445686584846,
+  "left_shoulder_pitch_joint": 0.907222843292423,
+  "left_shoulder_roll_joint": 0.907222843292423,
+  "left_shoulder_yaw_joint": 0.907222843292423,
+  "left_elbow_joint": 0.907222843292423,
+  "left_wrist_roll_joint": 0.907222843292423,
+  "left_wrist_pitch_joint": 1.06814150219,
+  "left_wrist_yaw_joint": 1.06814150219,
+  "right_shoulder_pitch_joint": 0.907222843292423,
+  "right_shoulder_roll_joint": 0.907222843292423,
+  "right_shoulder_yaw_joint": 0.907222843292423,
+  "right_elbow_joint": 0.907222843292423,
+  "right_wrist_roll_joint": 0.907222843292423,
+  "right_wrist_pitch_joint": 1.06814150219,
+  "right_wrist_yaw_joint": 1.06814150219
+ },
+ "armature": {
+  "left_hip_pitch_joint": 0.01017752004132231,
+  "left_hip_roll_joint": 0.025101924999999997,
+  "left_hip_yaw_joint": 0.01017752004132231,
+  "left_knee_joint": 0.025101924999999997,
+  "left_ankle_pitch_joint": 0.00721945,
+  "left_ankle_roll_joint": 0.00721945,
+  "right_hip_pitch_joint": 0.01017752004132231,
+  "right_hip_roll_joint": 0.025101924999999997,
+  "right_hip_yaw_joint": 0.01017752004132231,
+  "right_knee_joint": 0.025101924999999997,
+  "right_ankle_pitch_joint": 0.00721945,
+  "right_ankle_roll_joint": 0.00721945,
+  "waist_yaw_joint": 0.01017752004132231,
+  "waist_roll_joint": 0.00721945,
+  "waist_pitch_joint": 0.00721945,
+  "left_shoulder_pitch_joint": 0.003609725,
+  "left_shoulder_roll_joint": 0.003609725,
+  "left_shoulder_yaw_joint": 0.003609725,
+  "left_elbow_joint": 0.003609725,
+  "left_wrist_roll_joint": 0.003609725,
+  "left_wrist_pitch_joint": 0.00425,
+  "left_wrist_yaw_joint": 0.00425,
+  "right_shoulder_pitch_joint": 0.003609725,
+  "right_shoulder_roll_joint": 0.003609725,
+  "right_shoulder_yaw_joint": 0.003609725,
+  "right_elbow_joint": 0.003609725,
+  "right_wrist_roll_joint": 0.003609725,
+  "right_wrist_pitch_joint": 0.00425,
+  "right_wrist_yaw_joint": 0.00425
+ },
+ "effort_limit": {
+  "left_hip_pitch_joint": 88.0,
+  "left_hip_roll_joint": 139.0,
+  "left_hip_yaw_joint": 88.0,
+  "left_knee_joint": 139.0,
+  "left_ankle_pitch_joint": 50.0,
+  "left_ankle_roll_joint": 50.0,
+  "right_hip_pitch_joint": 88.0,
+  "right_hip_roll_joint": 139.0,
+  "right_hip_yaw_joint": 88.0,
+  "right_knee_joint": 139.0,
+  "right_ankle_pitch_joint": 50.0,
+  "right_ankle_roll_joint": 50.0,
+  "waist_yaw_joint": 88.0,
+  "waist_roll_joint": 50.0,
+  "waist_pitch_joint": 50.0,
+  "left_shoulder_pitch_joint": 25.0,
+  "left_shoulder_roll_joint": 25.0,
+  "left_shoulder_yaw_joint": 25.0,
+  "left_elbow_joint": 25.0,
+  "left_wrist_roll_joint": 25.0,
+  "left_wrist_pitch_joint": 5.0,
+  "left_wrist_yaw_joint": 5.0,
+  "right_shoulder_pitch_joint": 25.0,
+  "right_shoulder_roll_joint": 25.0,
+  "right_shoulder_yaw_joint": 25.0,
+  "right_elbow_joint": 25.0,
+  "right_wrist_roll_joint": 25.0,
+  "right_wrist_pitch_joint": 5.0,
+  "right_wrist_yaw_joint": 5.0
+ },
+ "action": {
+  "dim": 29,
+  "meaning": "joint pos RESIDUAL over the reference motion's joint_pos at the current control step: target = ref_joint_pos(t) + scale * a (metadata action_semantics=residual_joint_position)",
+  "scale": {
+   "left_hip_pitch_joint": 0.5475464463233948,
+   "left_hip_roll_joint": 0.3506614565849304,
+   "left_hip_yaw_joint": 0.5475464463233948,
+   "left_knee_joint": 0.3506614565849304,
+   "left_ankle_pitch_joint": 0.4385773241519928,
+   "left_ankle_roll_joint": 0.4385773241519928,
+   "right_hip_pitch_joint": 0.5475464463233948,
+   "right_hip_roll_joint": 0.3506614565849304,
+   "right_hip_yaw_joint": 0.5475464463233948,
+   "right_knee_joint": 0.3506614565849304,
+   "right_ankle_pitch_joint": 0.4385773241519928,
+   "right_ankle_roll_joint": 0.4385773241519928,
+   "waist_yaw_joint": 0.5475464463233948,
+   "waist_roll_joint": 0.4385773241519928,
+   "waist_pitch_joint": 0.4385773241519928,
+   "left_shoulder_pitch_joint": 0.4385773241519928,
+   "left_shoulder_roll_joint": 0.4385773241519928,
+   "left_shoulder_yaw_joint": 0.4385773241519928,
+   "left_elbow_joint": 0.4385773241519928,
+   "left_wrist_roll_joint": 0.4385773241519928,
+   "left_wrist_pitch_joint": 0.07450087368488312,
+   "left_wrist_yaw_joint": 0.07450087368488312,
+   "right_shoulder_pitch_joint": 0.4385773241519928,
+   "right_shoulder_roll_joint": 0.4385773241519928,
+   "right_shoulder_yaw_joint": 0.4385773241519928,
+   "right_elbow_joint": 0.4385773241519928,
+   "right_wrist_roll_joint": 0.4385773241519928,
+   "right_wrist_pitch_joint": 0.07450087368488312,
+   "right_wrist_yaw_joint": 0.07450087368488312
+  },
+  "offset": "reference joint pos (NOT default pose); action_offset metadata = 0.0",
+  "clip": null
+ },
+ "obs": {
+  "total_dim": 1727,
+  "terms": [
+   {
+    "name": "command.ref_joint_pos",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint space, ABSOLUTE reference joint angles (not minus default)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:29; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:576"
+   },
+   {
+    "name": "command.ref_joint_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint space",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:30; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:577"
+   },
+   {
+    "name": "command.ref_anchor_lin_vel_xy",
+    "dim": 2,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (reference pelvis frame: quat_apply_inverse(ref_pelvis_quat_w, ref_pelvis_lin_vel_w)[:2])",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:24,31; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:573,578"
+   },
+   {
+    "name": "command.ref_anchor_ang_vel_z",
+    "dim": 1,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (reference pelvis frame, z component)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:25,32; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:574,579"
+   },
+   {
+    "name": "command.ref_anchor_height",
+    "dim": 1,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "world z of reference pelvis (plane terrain, env origin z=0)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:33; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:580"
+   },
+   {
+    "name": "command.ref_anchor_roll",
+    "dim": 1,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "world (ZYX euler roll of ref pelvis quat, atan2 form)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:26,34,66-79; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:582-588"
+   },
+   {
+    "name": "command.ref_anchor_pitch",
+    "dim": 1,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "world (ZYX euler pitch, asin(clamp(2(wy-zx))))",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/mdp/motion/representations.py:35,66-79; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:582-588"
+   },
+   {
+    "name": "base_ang_vel",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (gyro 'imu_ang_vel' at site imu_in_pelvis, unrotated vs pelvis; runner uses mj_objectVelocity(pelvis, local=1)[0:3])",
+    "noise": "U(-0.2,0.2) in training only",
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:60-64; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:534-553,611-612; src/mjlab_ref/g1.xml:69,312"
+   },
+   {
+    "name": "projected_gravity",
+    "dim": 3,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "body (pelvis): quat_rotate_inverse(pelvis_quat_wxyz, unit gravity (0,0,-1))",
+    "noise": "U(-0.05,0.05) training only",
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:65-68; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:606-613"
+   },
+   {
+    "name": "joint_pos",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint, q - default_joint_pos",
+    "noise": "U(-0.01,0.01) training only",
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:69-72; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:614-616"
+   },
+   {
+    "name": "joint_vel",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "joint, qdot (default vel = 0)",
+    "noise": "U(-1.5,1.5) training only",
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:73-76; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:617-619"
+   },
+   {
+    "name": "actions",
+    "dim": 29,
+    "scale": 1.0,
+    "history": 0,
+    "frame": "raw previous policy output (before scale, unclipped)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:77; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:620,866"
+   },
+   {
+    "name": "history",
+    "dim": 1570,
+    "scale": 1.0,
+    "history": 10,
+    "frame": "10 x 157 block, each block = [command(64), base_ang_vel(3), projected_gravity(3), joint_pos_rel(29), joint_vel(29), last_action(29)] (no noise inside history in training: the term itself has no noise cfg, it calls the raw mdp funcs)",
+    "noise": null,
+    "source_ref": "src/yahmp/src/yahmp/yahmp_env_cfg.py:22,134-142,360; src/yahmp/src/yahmp/mdp/observations.py:281-300 (_current_observation), 323-378 (YahmpObservationHistory); src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:624-682"
+   }
+  ],
+  "term_order_note": "concatenation order = command(64) | base_ang_vel(3) | projected_gravity(3) | joint_pos(29) | joint_vel(29) | actions(29) | history(1570); slices given in ONNX metadata observation_terms_layout. base_lin_vel is NOT in the actor obs (critic-only).",
+  "history_layout": "oldest-first (time-major [t-H..t-1] per training; see open_questions on off-by-one vs their MuJoCo runner). On reset the buffer is filled with H copies of the current block.",
+  "normalization": "obs normalizer is baked into the ONNX graph (initializer names start with obs_normalizer.*); feed raw obs"
+ },
+ "reference": {
+  "type": "root+joints (joint pos+vel of all 29 joints + pelvis planar lin vel (body), yaw rate (body), height, roll, pitch)",
+  "future_frames": [
+   0
+  ],
+  "frame_dt": 0.02,
+  "lookahead_s": 0.0,
+  "includes_root": "height (world z), roll/pitch (world), lin vel xy + ang vel z in reference pelvis frame; no global x/y or yaw (yaw-invariant)",
+  "coordinate frame": "world z-up; quats wxyz; reference sampled by time with linear interp (joints, pos, vel) and slerp (quat) between motion frames",
+  "motion_file_format": "NPZ minimal: fps, root_pos[T,3], root_quat_w[T,4] wxyz, joint_pos[T,29] in joint_order (body kinematics recomputed by FK in mjlab G1, joint_vel by np.gradient). Extended: fps, joint_pos, joint_vel, body_pos_w, body_quat_w, body_lin_vel_w, body_ang_vel_w, body_names. Also TWIST2 PKL (root_pos, root_rot xyzw, dof_pos). Root/anchor body = pelvis."
+ },
+ "inputs_supported": [
+  "full-body motion clip (joint-space + pelvis state)"
+ ],
+ "example_motions": [],
+ "how_they_run_it": "run_yahmp_onnx_mujoco.py builds the mjlab task scene (Mjlab-YAHMP-Unitree-G1) as a MuJoCo model (physics dt 0.005, control dt 0.02 checked against ONNX metadata), initialises the free joint and joints from the first reference frame (root pos/quat/lin/ang vel and joint pos/vel; --init-default-joints uses the default pose instead), then each control step: sample the reference at playback time t (lerp/slerp), compute terms: command (64) from the reference, pelvis ang vel from mj_objectVelocity local frame, projected gravity from pelvis xquat, joint_pos-default, joint_vel, previous raw action; concatenate command|proprio|history -> obs[1727]; run ONNX; ctrl = ref_joint_pos(t)[targets] + action*action_scale written to MuJoCo position actuators (kp/kd as in metadata); mj_step x4; t += 0.02; previous_action = raw action; recompute terms at the new t and push the 157-d current block into the 10-step history (newest last). Motion time wraps modulo clip length.",
+ "code_refs": [
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:106-153 (interface read from ONNX metadata)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:534-553 (root kinematics)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:572-589 (command step)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:592-621 (terms)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:624-702 (history + obs assembly)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:705-718 (residual action)",
+  "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:787-882 (loop)",
+  "src/yahmp/src/yahmp/yahmp_env_cfg.py:22,58-78,127-154,357-361,404-414",
+  "src/yahmp/src/yahmp/mdp/observations.py:267-300,323-378",
+  "src/yahmp/src/yahmp/mdp/motion/representations.py:15-38",
+  "src/yahmp/src/yahmp/mdp/actions.py:25-46 (ResidualJointPositionAction: target = ref + processed - encoder_bias)",
+  "src/yahmp/src/yahmp/config/g1/env_cfgs.py:65-77 (DelayedActuator 0-4 physics-step lag on position target), 86-93, 120-122 (G1_ACTION_SCALE), 134-138 (anchor/root = pelvis)",
+  "src/yahmp/src/yahmp/rl/exporter.py:243-289 (metadata written at export)",
+  "src/yahmp/src/yahmp/mdp/motion/library.py:346-424 (NPZ finalize, FK, finite differences)",
+  "src/mjlab_ref/g1_constants.py (mjlab v1.2.0, 5af32e3):100-187 (actuators, kp=armature*(2pi*10)^2, kd=2*2*armature*2pi*10), 207-219 (KNEES_BENT default pose), 287-295 (action scale = 0.25*effort/kp)"
+ ],
+ "confidence": "high",
+ "open_questions": [
+  "History timing off-by-one: training YahmpObservationHistory returns [t-10..t-1] (excluding current) then appends current (observations.py:374-378), but run_yahmp_onnx_mujoco.py appends the post-step block so its history at step t is [t-9..t] (lines 867-878 then 844). Which one to reproduce? Training semantics is the safer default; their sim2sim works with the other.",
+  "Training used DelayedActuatorCfg with 0-4 physics-step (0-20 ms) position-target lag (env_cfgs.py:65-77); the MuJoCo runner applies no delay.",
+  "Gyro: training reads the MuJoCo gyro sensor at imu_in_pelvis; runner uses pelvis body local angular velocity. Equal for a rigid body with unrotated site, so harmless.",
+  "Effort limits are from mjlab g1_constants (forcerange on position actuators); verified consistent with the exported action_scale = 0.25*effort/kp for all 29 joints.",
+  "The interface fields (joint order, default pose, kp/kd, obs layout) were read from ONNX metadata_props strings with our own protobuf walker; graph tensors were not inspected.",
+  "twist2_1017_25k.onnx (TWIST2 baseline): obs 1432 = 127*(1 current + 10 history) + 35 (future mimic block filled with current mimic); mimic(35)=[root lin vel xy (body), root z, roll, pitch, yaw rate (body), 29 joint pos]; proprio(92)=[ang_vel*0.25, roll, pitch, q-default, qdot*0.05 (ankle vels zeroed optionally), last action]; target = TWIST2 default + 0.5*clip(a,-10,10). See run_twist2_onnx_mujoco.py:130-138, 459-548, 767-819. Its own default pose / gains are profiles at lines 62-129, 154-384. Not specced in full here.",
+  "runtime.action_offset='ref_joint_pos' is outside the documented runtime format ('default' or [29]): YAHMP actions are residuals over the CURRENT reference joint pos (mdp/actions.py:38-46, run_yahmp_onnx_mujoco.py:713-718). The runner needs a per-tick offset = ref_joint_pos(t).",
+  "runtime.velocity_limit = mjlab ElectricActuator datasheet values (g1_constants.py:100-119); they were NOT enforced in training (BuiltinPositionActuatorCfg built without them).",
+  "ONNX IO names 'obs'/'actions' come from rl/policy.py:719-725 (_OnnxYahmpActorModel.input_names/output_names). (Earlier, before the no-open rule, the ONNX metadata_props were read with our own protobuf walker; that is where joint order/default pose/kp/kd in this spec were cross-checked from, and they match mjlab g1_constants.py.)",
+  "runtime history steps follow training ([-10..-1]); their MuJoCo runner effectively uses [-9..0] (see first open question)."
+ ],
+ "isaac": {
+  "trained_in": {
+   "value": "mjlab 1.2.0 (MuJoCo Warp, GPU MuJoCo); physics dt 0.005, decimation 4, solver iterations 10 / ls_iterations 20. Not Isaac/PhysX: PhysX attachment is a sim-to-sim transfer.",
+   "refs": [
+    "src/yahmp/pyproject.toml:17",
+    "src/yahmp/uv.lock:1536-1537",
+    "src/yahmp/src/yahmp/yahmp_env_cfg.py:404-414"
+   ]
+  },
+  "actuator_model": {
+   "value": "implicit PD: mjlab BuiltinPositionActuatorCfg = MuJoCo position actuator (kp, kd via biasprm) with forcerange = effort_limit and joint armature. Wrapped in DelayedActuatorCfg: position target delayed by a random 0-4 physics steps (0-20 ms), delay_hold_prob 1.0, resampled per episode/term. No obs delay. Actions are residuals over the reference joint pos: target = ref_q + scale*a (so in Isaac use a custom action term, or JointPositionActionCfg with per-step offset = ref_q; a static offset=default pose is WRONG).",
+   "refs": [
+    "src/mjlab_ref/g1_constants.py:134-187",
+    "src/yahmp/src/yahmp/config/g1/env_cfgs.py:65-77,86-93",
+    "src/yahmp/src/yahmp/mdp/actions.py:25-46",
+    "src/yahmp/src/yahmp/yahmp_env_cfg.py:145-154"
+   ]
+  },
+  "velocity_limit": {
+   "value": "none enforced in sim: BuiltinPositionActuatorCfg is built without velocity_limit. Motor datasheet values exist in ElectricActuator but are unused for the actuator: 5020 37 rad/s, 7520_14 32, 7520_22 20, 4010 22. Suggest velocity_limit_sim large (or these datasheet values).",
+   "refs": [
+    "src/mjlab_ref/g1_constants.py:100-119",
+    "src/mjlab_ref/g1_constants.py:134-187"
+   ]
+  },
+  "self_collision": {
+   "value": "OFF in training: FULL_COLLISION_WITHOUT_SELF (contype=0, conaffinity=1 on all *_collision geoms, so robot geoms only collide with terrain). Self-collision reward/sensor commented out.",
+   "refs": [
+    "src/yahmp/src/yahmp/config/g1/env_cfgs.py:87,108-118",
+    "src/mjlab_ref/g1_constants.py:236-243",
+    "src/yahmp/src/yahmp/yahmp_env_cfg.py:312-317"
+   ]
+  },
+  "default_root_height": {
+   "value": "0.76 m pelvis (KNEES_BENT_KEYFRAME pos z). Episodes actually start from the reference motion's first frame (+/- pose_range noise), not this keyframe.",
+   "refs": [
+    "src/mjlab_ref/g1_constants.py:207-219",
+    "src/yahmp/src/yahmp/config/g1/env_cfgs.py:86",
+    "src/yahmp/src/yahmp/yahmp_env_cfg.py:34-55"
+   ]
+  },
+  "terrain_friction": {
+   "value": "flat plane only. Foot geoms (left|right)_foot[1-7]_collision condim 3, priority 1, nominal friction 0.6; DR at startup sets foot friction absolute U(0.3,1.2) shared per env. Other robot geoms condim 1. Also DR: torso COM offset (+/-2.5 cm x, +/-5 cm y/z), velocity pushes every 1-3 s, end-effector force pushes up to 20 N on wrist_yaw links.",
+   "refs": [
+    "src/yahmp/src/yahmp/yahmp_env_cfg.py:157-235,388",
+    "src/mjlab_ref/g1_constants.py:236-243",
+    "src/yahmp/src/yahmp/config/g1/env_cfgs.py:140-165"
+   ]
+  },
+  "hands": {
+   "value": "none actuated; G1 29-DoF mjlab model with rubber-hand meshes rigidly part of left/right_wrist_yaw_link, each with one capsule collision geom (hand_collision).",
+   "refs": [
+    "src/mjlab_ref/g1.xml:49,57,233-241,284-292"
+   ]
+  },
+  "teleop_reference": {
+   "value": "none in the repo for the released model. Reference must be a G1 joint-space motion (joint pos/vel + pelvis height, roll, pitch, body-frame lin vel xy, yaw rate), e.g. from an external retargeter (GMR or similar). TWIST2 PKL compatibility exists for offline clips only. A HandBase command variant (hand poses + pelvis) exists in code but is not the shipped ONNX.",
+   "refs": [
+    "src/yahmp/src/yahmp/mdp/motion/representations.py:15-38",
+    "src/yahmp/assets/motions/README.md:1-60",
+    "src/yahmp/src/yahmp/mdp/motion/hand_base.py:1-230"
+   ]
+  },
+  "realtime_lookahead": {
+   "value": "0 future frames for g1_yahmp.onnx (motion_command_step_offsets empty, single current step), so a live stream needs no faked future. Joint/pelvis velocities must be supplied (finite-difference the stream). The Future variant (FutureJointRefAnchorRpMotionCommand) would need future frames but is not shipped.",
+   "refs": [
+    "ckpt/yahmp/g1_yahmp.onnx.metadata.json (motion_command_step_offsets='')",
+    "src/yahmp/src/yahmp/mdp/motion/future_joint_ref.py:1-48",
+    "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:556-569"
+   ]
+  },
+  "deploy_rate": {
+   "value": "50 Hz policy (control_dt 0.02), sim 200 Hz. No real-robot deploy code in repo (MuJoCo sim2sim only).",
+   "refs": [
+    "ckpt/yahmp/g1_yahmp.onnx.metadata.json (physics_dt, control_dt)",
+    "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:814-865"
+   ]
+  },
+  "isaac_attach_summary": "ImplicitActuatorCfg per joint: stiffness=kp, damping=kd, armature=armature, effort_limit_sim=effort_limit (all in spec, policy joint order = Unitree/Isaac-URDF depth-first order, NOT Isaac Lab breadth-first). sim.dt 0.005, decimation 4, self-collision off, default pose = KNEES_BENT, root 0.76 m. Action: residual over reference joint pos with per-joint scale = action.scale."
+ },
+ "runtime": {
+  "onnx_url": "https://raw.githubusercontent.com/hucebot/yahmp/2111a998663e9f787b3ac36e8f8a7c17745ca83f/assets/models/g1_yahmp.onnx",
+  "sha256": "59f02e2aa6408a006f6af672b78b71858f32c234756e3fb47a98c1e1a77861f6",
+  "inputs": {
+   "obs": [
+    {
+     "terms": [
+      "ref_joint_pos",
+      "ref_joint_vel",
+      "ref_anchor_lin_vel_xy_b",
+      "ref_anchor_yaw_rate_b",
+      "ref_root_height",
+      "ref_anchor_roll",
+      "ref_anchor_pitch"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "base_ang_vel",
+      "projected_gravity",
+      "joint_pos_rel",
+      "joint_vel",
+      "last_action"
+     ],
+     "steps": [
+      0
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    },
+    {
+     "terms": [
+      "ref_joint_pos",
+      "ref_joint_vel",
+      "ref_anchor_lin_vel_xy_b",
+      "ref_anchor_yaw_rate_b",
+      "ref_root_height",
+      "ref_anchor_roll",
+      "ref_anchor_pitch",
+      "base_ang_vel",
+      "projected_gravity",
+      "joint_pos_rel",
+      "joint_vel",
+      "last_action"
+     ],
+     "steps": [
+      -10,
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "major": "time",
+     "scale": 1.0,
+     "clip": null
+    }
+   ]
+  },
+  "term_defs": {
+   "ref_joint_pos": {
+    "note": "runner built-in; ABSOLUTE reference joint angles in policy order (rad)",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:29"
+   },
+   "ref_joint_vel": {
+    "note": "runner built-in; reference joint velocities (rad/s), from NPZ or np.gradient of joint_pos at clip fps",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:30; src/yahmp/src/yahmp/mdp/motion/library.py:408-409"
+   },
+   "ref_anchor_lin_vel_xy_b": {
+    "dim": 2,
+    "frame": "reference pelvis body frame: quat_apply_inverse(ref_pelvis_quat_w, ref_pelvis_lin_vel_w)[:2]",
+    "units": "m/s",
+    "quat_order": "wxyz",
+    "per_step_layout": "[vx, vy]",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:24,31; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:573,578"
+   },
+   "ref_anchor_yaw_rate_b": {
+    "dim": 1,
+    "frame": "reference pelvis body frame: quat_apply_inverse(ref_pelvis_quat_w, ref_pelvis_ang_vel_w)[2]",
+    "units": "rad/s",
+    "quat_order": "wxyz",
+    "per_step_layout": "[wz]",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:25,32; src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:574,579"
+   },
+   "ref_root_height": {
+    "note": "runner built-in; reference pelvis world z (m), flat ground at z=0",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:33; src/yahmp/src/yahmp/mdp/motion/base.py:652-656"
+   },
+   "ref_anchor_roll": {
+    "dim": 1,
+    "frame": "world; ZYX-euler roll of ref pelvis quat: atan2(2(wx+yz), 1-2(x^2+y^2))",
+    "units": "rad",
+    "quat_order": "wxyz",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:34,66-72"
+   },
+   "ref_anchor_pitch": {
+    "dim": 1,
+    "frame": "world; ZYX-euler pitch: asin(clamp(2(wy-zx),-1,1))",
+    "units": "rad",
+    "quat_order": "wxyz",
+    "source": "src/yahmp/src/yahmp/mdp/motion/representations.py:35,73-74"
+   },
+   "base_ang_vel": {
+    "note": "runner built-in; pelvis gyro (site imu_in_pelvis, unrotated), body frame, rad/s, no scale",
+    "source": "src/yahmp/src/yahmp/yahmp_env_cfg.py:60-64; src/mjlab_ref/g1.xml:69,312"
+   },
+   "last_action": {
+    "note": "raw policy output of previous tick, unscaled, unclipped; zeros at reset",
+    "source": "src/yahmp/src/yahmp/scripts/deploy/run_yahmp_onnx_mujoco.py:800,866"
+   },
+   "history_block": {
+    "note": "3rd block = 10 past ticks of the 157-d current block, oldest first, time-major, excluding current tick (training semantics, observations.py:323-378). On reset all 10 slots = copies of the current block. Ref terms in the history are the reference values that were current at those past ticks.",
+    "source": "src/yahmp/src/yahmp/mdp/observations.py:281-300,323-378"
+   }
+  },
+  "constant_inputs": {},
+  "output": "actions",
+  "joint_names": [
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint",
+   "waist_yaw_joint",
+   "waist_roll_joint",
+   "waist_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_shoulder_yaw_joint",
+   "left_elbow_joint",
+   "left_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_shoulder_yaw_joint",
+   "right_elbow_joint",
+   "right_wrist_roll_joint",
+   "right_wrist_pitch_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "default_joint_pos": [
+   -0.31200000643730164,
+   0.0,
+   0.0,
+   0.6690000295639038,
+   -0.3630000054836273,
+   0.0,
+   -0.31200000643730164,
+   0.0,
+   0.0,
+   0.6690000295639038,
+   -0.3630000054836273,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.20000000298023224,
+   0.20000000298023224,
+   0.0,
+   0.6000000238418579,
+   0.0,
+   0.0,
+   0.0,
+   0.20000000298023224,
+   -0.20000000298023224,
+   0.0,
+   0.6000000238418579,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "action_scale": [
+   0.5475464463233948,
+   0.3506614565849304,
+   0.5475464463233948,
+   0.3506614565849304,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.5475464463233948,
+   0.3506614565849304,
+   0.5475464463233948,
+   0.3506614565849304,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.5475464463233948,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.07450087368488312,
+   0.07450087368488312,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.4385773241519928,
+   0.07450087368488312,
+   0.07450087368488312
+  ],
+  "action_offset": "ref_joint_pos",
+  "action_clip": null,
+  "control_dt": 0.02,
+  "sim_dt": 0.005,
+  "decimation": 4,
+  "kp": [
+   40.17923863450712,
+   99.09842777666111,
+   40.17923863450712,
+   99.09842777666111,
+   28.50124619574858,
+   28.50124619574858,
+   40.17923863450712,
+   99.09842777666111,
+   40.17923863450712,
+   99.09842777666111,
+   28.50124619574858,
+   28.50124619574858,
+   40.17923863450712,
+   28.50124619574858,
+   28.50124619574858,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   16.77832748089279,
+   16.77832748089279,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   14.25062309787429,
+   16.77832748089279,
+   16.77832748089279
+  ],
+  "kd": [
+   2.557889775413375,
+   6.308801853496639,
+   2.557889775413375,
+   6.308801853496639,
+   1.814445686584846,
+   1.814445686584846,
+   2.557889775413375,
+   6.308801853496639,
+   2.557889775413375,
+   6.308801853496639,
+   1.814445686584846,
+   1.814445686584846,
+   2.557889775413375,
+   1.814445686584846,
+   1.814445686584846,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   1.06814150219,
+   1.06814150219,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   0.907222843292423,
+   1.06814150219,
+   1.06814150219
+  ],
+  "armature": [
+   0.01017752004132231,
+   0.025101924999999997,
+   0.01017752004132231,
+   0.025101924999999997,
+   0.00721945,
+   0.00721945,
+   0.01017752004132231,
+   0.025101924999999997,
+   0.01017752004132231,
+   0.025101924999999997,
+   0.00721945,
+   0.00721945,
+   0.01017752004132231,
+   0.00721945,
+   0.00721945,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.00425,
+   0.00425,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.003609725,
+   0.00425,
+   0.00425
+  ],
+  "effort": [
+   88.0,
+   139.0,
+   88.0,
+   139.0,
+   50.0,
+   50.0,
+   88.0,
+   139.0,
+   88.0,
+   139.0,
+   50.0,
+   50.0,
+   88.0,
+   50.0,
+   50.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   5.0,
+   5.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   25.0,
+   5.0,
+   5.0
+  ],
+  "velocity_limit": [
+   32.0,
+   20.0,
+   32.0,
+   20.0,
+   37.0,
+   37.0,
+   32.0,
+   20.0,
+   32.0,
+   20.0,
+   37.0,
+   37.0,
+   32.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   22.0,
+   22.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   37.0,
+   22.0,
+   22.0
+  ],
+  "obs_normalization": "in_graph",
+  "reference": {
+   "source": "other:G1 joint-space motion clip (NPZ fps/root_pos/root_quat_w wxyz/joint_pos); no retargeter shipped",
+   "frames": [
+    0
+   ],
+   "lookahead_s": 0.0
+  },
+  "obs_normalization_ref": "src/yahmp/src/yahmp/rl/policy.py:690,704 (obs_normalizer copied into the ONNX wrapper)",
+  "ref_zero_joints": [
+   "left_wrist_roll_joint",
+   "left_wrist_pitch_joint",
+   "left_wrist_yaw_joint",
+   "right_wrist_roll_joint",
+   "right_wrist_pitch_joint",
+   "right_wrist_yaw_joint"
+  ],
+  "ref_zero_joints_why": "g1_yahmp.onnx's obs normalizer has std at the 0.01 floor and mean 0 for the 6 wrist ref joint_pos and joint_vel dims (current 19-21,26-28,48-50,55-57, and each of the 10 history frames: 132 dims): the training references held the wrists at 0, so a non-zero GMR wrist reference is ~100 sigma out of distribution. Found by Humanoid Bench's static read of the normalizer, checked here. Hand orientation is not tracked."
+ },
+ "measured": {
+  "how": "onnx.load graph + onnxruntime CPU, 1 thread, batch 1, random inputs, 200 runs on the dev laptop (2026-11-03). TorchScript archives are not loaded; params estimated from tensor blobs.",
+  "files": [
+   {
+    "file": "twist2_1017_25k.onnx",
+    "sha256": "126ab9089b6ca0be8b6582fc9ef17b0b6c6d6577378f9324a2e10d580fe48f2e",
+    "bytes": 3184908,
+    "format": "onnx",
+    "params": 790969,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "input",
+      "shape": [
+       "batch_size",
+       1432
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "output",
+      "shape": [
+       "batch_size",
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "conv"
+    ],
+    "widest_layers": [
+     512,
+     256,
+     128,
+     127,
+     60
+    ],
+    "activations": [
+     "Sigmoid"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      11
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.26499999876250513,
+     "p95": 0.49596999979257816
+    }
+   },
+   {
+    "file": "g1_yahmp.onnx",
+    "sha256": "59f02e2aa6408a006f6af672b78b71858f32c234756e3fb47a98c1e1a77861f6",
+    "bytes": 2560703,
+    "format": "onnx",
+    "params": 637563,
+    "params_est": null,
+    "inputs": [
+     {
+      "name": "obs",
+      "shape": [
+       1,
+       1727
+      ],
+      "dtype": "FLOAT"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "actions",
+      "shape": [
+       1,
+       29
+      ]
+     }
+    ],
+    "arch": [
+     "conv"
+    ],
+    "widest_layers": [
+     1727,
+     512,
+     256,
+     128
+    ],
+    "activations": [
+     "Elu"
+    ],
+    "opset": [
+     [
+      "ai.onnx",
+      18
+     ]
+    ],
+    "cpu_ms": {
+     "median": 0.17284999921685085,
+     "p95": 0.36248000087653015
+    }
+   }
+  ]
+ }
+}

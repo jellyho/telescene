@@ -1,0 +1,12 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "busybox_lab tools/usd_export/cell_fixes.py"
+    }
+    defaultPrim = "palette_cell"
+    doc = "busybox:* annotations for what mujoco_usd_converter 0.6.1 drops."
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+

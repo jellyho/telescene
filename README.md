@@ -4,14 +4,15 @@ Whole-body humanoid teleoperation from a VR headset: send the scene, not pixels.
 
 The PC sends the meshes once and then only the poses of what moves. The headset draws everything itself over
 passthrough, so head motion never crosses the network, and the PC renders nothing, so rendering cannot delay physics.
-Body tracking and controllers go back to the PC, and a controller of your choice drives the robot.
+Body tracking and controllers go back to the PC, and a controller of your choice drives the robot: NVIDIA's SONIC,
+SuperMimic, or any of nine released whole-body trackers, at a table or in the BusyBox work-bench scenes.
 
 The repo holds two halves, which are installed separately:
 
 | Half | What | Where | Guide |
 |---|---|---|---|
 | Headset | A native OpenXR app for the PICO 4 Ultra (C, no engine) | `apps/pico/` | [docs/headset.md](docs/headset.md) |
-| PC | The link, the teleop loop, an Isaac Lab adapter, SONIC as the G1's controller, and a G1 example | `src/telescene/`, `examples/` | [docs/simulation.md](docs/simulation.md) |
+| PC | The link, the teleop loop, an Isaac Lab adapter, whole-body controllers for the G1, and a G1 example with the BusyBox scenes | `src/telescene/`, `examples/`, `specs/`, `assets/` | [docs/simulation.md](docs/simulation.md) |
 
 ## Quick start
 
@@ -30,6 +31,15 @@ apps/pico/install.sh
 examples/isaaclab_g1/run.sh --operator-height 1.75
 ```
 
+More controllers and scenes:
+
+```bash
+scripts/download_trackers.sh                                          # GMR, SuperMimic, follow policy, 9 ONNX trackers
+examples/isaaclab_g1/run.sh --scene busybox                           # the BusyBox bench; the menu's SCENE tab switches
+examples/isaaclab_g1/run.sh --controller supermimic --follow          # copies your whole body and walks to you
+examples/isaaclab_g1/run.sh --controller tracker --tracker teleopit   # twist2, mimiclite, humanoid_gpt, ...
+```
+
 To check the app and body tracking first, without a simulator or a GPU, run `examples/isaaclab_g1/run.sh --mirror`. Then pick MIRROR in the headset.
 
 ## In the headset
@@ -38,7 +48,7 @@ The app opens on a menu. Point a controller at CONNECT or MIRROR and pull its tr
 
 | Input | Does |
 |---|---|
-| Right A | Turns whole-body POSE on and off. Off is hybrid: your head and hands drive the upper body, and the legs walk to you |
+| Right A | Turns whole-body POSE on and off. Off is hybrid: your head and hands drive the upper body, and the legs walk to you. With the other controllers, off is standing |
 | Right B | Resets the scene |
 | Left Y | Starts and stops a take (with `--record DIR`): one long buzz to start, two short to stop |
 | Left stick | Walks |
@@ -85,10 +95,13 @@ TeleopSession(sim, MyController(env), HeadsetServer(sim.scene_blob), world_scale
 | `src/telescene/session.py` | The teleop loop, for any simulator and controller |
 | `src/telescene/isaac/` | Isaac Lab: the scene sent to the headset, and the simulator adapter |
 | `src/telescene/sonic/` | SONIC (NVIDIA GEAR-SONIC) on G1: inference in numpy / torch / onnxruntime, an Isaac Lab action term and the headset controllers |
+| `src/telescene/trackers/` | Joint-for-joint whole-body trackers: SuperMimic with GMR retargeting, the follow policy, and a spec-driven ONNX tracker |
+| `specs/trackers/` | One JSON per released G1 tracker: observation layout, motors, timing, sources and licences |
+| `assets/busybox/` | The BusyBox scenes (USD) and their manifest, `scenes.json` |
 | `src/telescene/recording.py`, `replay.py` | Takes: record a session, and play a take's operator input back with no headset |
-| `examples/isaaclab_g1/` | A G1 at a table, driven by SONIC |
+| `examples/isaaclab_g1/` | A G1 at a table or in a BusyBox scene, driven by any of the controllers |
 | `examples/mirror.py` | Your tracked body in a mirror, no simulator |
-| `tests/` | CPU only: `pip install -e .[sonic,dev] && pytest` |
+| `tests/` | CPU only: `pip install -e .[sonic,trackers,dev] && pytest` |
 
 ## Limits
 
@@ -100,8 +113,12 @@ TeleopSession(sim, MyController(env), HeadsetServer(sim.scene_blob), world_scale
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). Some things are not covered by it and are not in this repo:
+MIT, see [LICENSE](LICENSE): the code, the tracker specs and the BusyBox scenes. Some things are not covered by it and
+are not in this repo:
 - SONIC's weights, under the NVIDIA Open Model License, which `scripts/download_sonic.sh` downloads;
+- the tracker weights, each under its own project's terms, which `scripts/download_trackers.sh` downloads. SuperMimic's
+  (realmimic) and the follow policy's are CC BY-NC 4.0: **non-commercial use only**;
+- GMR (MIT), cloned into `third_party/`;
 - Isaac Sim and its assets, under NVIDIA's licences;
 - the Khronos OpenXR loader (Apache-2.0), which the build bundles into the APK.
 

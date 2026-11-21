@@ -1,0 +1,204 @@
+{
+ "schema_version": 1,
+ "generator": "tools/usd_export/convert_cell.py",
+ "source": {
+  "mjcf": "garage_layout/mj/scenes/palette/scene.xml",
+  "mjcf_sha256": "8c50159d13e09a81541bae446761feff34149628aff1e7055a6f060e96590dd4",
+  "model_name": "palette_cell",
+  "mujoco": "3.12.0",
+  "mujoco_usd_converter": "0.6.1",
+  "init_key": "layout",
+  "init_key_equals_qpos0": true,
+  "timestep": 0.002
+ },
+ "usd": {
+  "file": "palette_cell.usda",
+  "default_prim": "/palette_cell",
+  "geometry_scope": "/palette_cell/Geometry",
+  "physics_scope": "/palette_cell/Physics",
+  "overlays": [
+   "Payload/BusyBoxPhysx.usda",
+   "Payload/BusyBoxNotes.usda"
+  ],
+  "meters_per_unit": 1.0,
+  "up_axis": "Z"
+ },
+ "units": {
+  "range": "rad (hinge), m (slide); null when unlimited",
+  "usd_range": "as authored in USD: deg (revolute), m (prismatic)",
+  "damping": "N*m*s/rad (hinge, ball), N*s/m (slide)",
+  "frictionloss": "N*m (hinge, ball), N (slide)",
+  "armature": "kg*m^2 (hinge, ball), kg (slide)",
+  "stiffness": "N*m/rad (hinge), N/m (slide)",
+  "springref": "rad (hinge), m (slide)",
+  "init": "hinge/slide: qpos value; ball: quaternion; free: position [m] + quaternion",
+  "quaternions": "quat_wxyz = MuJoCo/USD order, quat_xyzw = Isaac Lab 3.0 order",
+  "positions": "metres in the cell frame (the asset's default prim)"
+ },
+ "joints": {
+  "ls_drawer4_F2_slide0": {
+   "type": "slide",
+   "usd_prim_path": "/palette_cell/Geometry/palette/ls_drawer4_F2_mov0/ls_drawer4_F2_slide0",
+   "usd_rel_path": "/Geometry/palette/ls_drawer4_F2_mov0/ls_drawer4_F2_slide0",
+   "usd_joint_name": "ls_drawer4_F2_slide0",
+   "usd_joint_type": "PhysicsPrismaticJoint",
+   "usd_axis": "X",
+   "body": "ls_drawer4_F2_mov0",
+   "parent_body": "palette",
+   "usd_body_path": "/palette_cell/Geometry/palette/ls_drawer4_F2_mov0",
+   "articulation": "palette",
+   "range": [
+    0.0,
+    0.2975
+   ],
+   "usd_range": [
+    0.0,
+    0.29750001430511475
+   ],
+   "damping": 5.0,
+   "frictionloss": 2.0,
+   "armature": 0.01,
+   "init": 0.0,
+   "renamed": false
+  },
+  "ls_slide410_F15_slide0": {
+   "type": "slide",
+   "usd_prim_path": "/palette_cell/Geometry/palette/ls_slide410_F15_mov0/ls_slide410_F15_slide0",
+   "usd_rel_path": "/Geometry/palette/ls_slide410_F15_mov0/ls_slide410_F15_slide0",
+   "usd_joint_name": "ls_slide410_F15_slide0",
+   "usd_joint_type": "PhysicsPrismaticJoint",
+   "usd_axis": "X",
+   "body": "ls_slide410_F15_mov0",
+   "parent_body": "palette",
+   "usd_body_path": "/palette_cell/Geometry/palette/ls_slide410_F15_mov0",
+   "articulation": "palette",
+   "range": [
+    0.0,
+    0.4
+   ],
+   "usd_range": [
+    0.0,
+    0.4000000059604645
+   ],
+   "damping": 5.0,
+   "frictionloss": 2.0,
+   "armature": 0.01,
+   "init": 0.0,
+   "renamed": false
+  }
+ },
+ "bodies": {
+  "palette": {
+   "usd_prim_path": "/palette_cell/Geometry/palette",
+   "usd_rel_path": "/Geometry/palette",
+   "usd_name": "palette",
+   "kind": "fixed_base_root",
+   "parent": null,
+   "articulation": "palette",
+   "joints": [],
+   "mass": 33.34045398624232,
+   "n_colliders": 481,
+   "init_pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "ls_drawer4_F2_mov0": {
+   "usd_prim_path": "/palette_cell/Geometry/palette/ls_drawer4_F2_mov0",
+   "usd_rel_path": "/Geometry/palette/ls_drawer4_F2_mov0",
+   "usd_name": "ls_drawer4_F2_mov0",
+   "kind": "link",
+   "parent": "palette",
+   "articulation": "palette",
+   "joints": [
+    "ls_drawer4_F2_slide0"
+   ],
+   "mass": 7.170965690132711,
+   "n_colliders": 9,
+   "init_pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "ls_slide410_F15_mov0": {
+   "usd_prim_path": "/palette_cell/Geometry/palette/ls_slide410_F15_mov0",
+   "usd_rel_path": "/Geometry/palette/ls_slide410_F15_mov0",
+   "usd_name": "ls_slide410_F15_mov0",
+   "kind": "link",
+   "parent": "palette",
+   "articulation": "palette",
+   "joints": [
+    "ls_slide410_F15_slide0"
+   ],
+   "mass": 5.77289,
+   "n_colliders": 6,
+   "init_pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "init_quat_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "articulations": {
+  "palette": {
+   "root_body": "palette",
+   "root_body_path": "/palette_cell/Geometry/palette",
+   "articulation_root_prim": "/palette_cell/Geometry/palette/PhysicsFixedJoint",
+   "articulation_root_rel_path": "/Geometry/palette/PhysicsFixedJoint",
+   "fixed_base": true,
+   "bodies": [
+    "palette",
+    "ls_drawer4_F2_mov0",
+    "ls_slide410_F15_mov0"
+   ],
+   "joints": [
+    "ls_drawer4_F2_slide0",
+    "ls_slide410_F15_slide0"
+   ]
+  }
+ },
+ "rigid_objects": [],
+ "static_bodies": [],
+ "sites": {},
+ "equalities": {},
+ "excludes": [],
+ "cables": []
+}

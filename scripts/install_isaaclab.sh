@@ -25,6 +25,6 @@ if [[ ! -d $ISAACLAB_DIR/.git ]]; then
 fi
 export UV_HTTP_TIMEOUT=${UV_HTTP_TIMEOUT:-300}
 (cd "$ISAACLAB_DIR" && UV_PROJECT_ENVIRONMENT="$VENV" uv sync --frozen --inexact --extra isaacsim)
-uv pip install --python "$VENV/bin/python" -e "$REPO[sonic]"
+uv pip install --python "$VENV/bin/python" -e "$REPO[sonic,trackers]"
 "$VENV/bin/python" -c "import isaaclab, telescene, onnxruntime; print('isaaclab', isaaclab.__version__ if hasattr(isaaclab, '__version__') else '', 'telescene ok')"
 echo "done. Next: scripts/download_sonic.sh, then examples/isaaclab_g1/run.sh"

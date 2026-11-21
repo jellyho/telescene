@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "telescene"
-version = "0.1.0"
+version = "0.2.0"
 description = "Whole-body humanoid teleoperation from a VR headset: send the scene, not pixels."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -13,6 +13,7 @@ dependencies = ["numpy"]
 
 [project.optional-dependencies]
 sonic = ["onnxruntime", "pyyaml"]  # and torch, which Isaac Lab brings
+trackers = ["onnxruntime", "mujoco>=3.10", "mink>=1.4", "rich", "scipy"]  # and GMR: scripts/download_trackers.sh
 dev = ["pytest", "onnx"]
 
 [tool.setuptools.packages.find]

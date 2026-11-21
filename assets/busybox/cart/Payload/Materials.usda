@@ -1,0 +1,413 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.6.1"
+    }
+    defaultPrim = "palette_cell"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "palette_cell"
+{
+    def Scope "Materials"
+    {
+        def Material "col_a19485ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_a19485ff>
+        )
+        {
+        }
+
+        def Material "col_26262aff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_26262aff>
+        )
+        {
+        }
+
+        def Material "col_d6b284ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_d6b284ff>
+        )
+        {
+        }
+
+        def Material "col_a8acb2ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_a8acb2ff>
+        )
+        {
+        }
+
+        def Material "col_2c2c30ff" (
+            prepend references = @./MaterialsLibrary.usdc@</Materials/col_2c2c30ff>
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "floor" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </palette_cell/Materials/col_a19485ff>
+        }
+
+        over "bror_cart"
+        {
+            over "bror_cart_g0" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g1" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g2" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g3" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g4" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g5" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g6" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g7" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g8" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_d6b284ff>
+            }
+
+            over "bror_cart_g9" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g10" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g11" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g12" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g13" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g14" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g15" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g16" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g17" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g18" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g19" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g20" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g21" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g22" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_26262aff>
+            }
+
+            over "bror_cart_g23" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g28" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g33" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_g38" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+            }
+
+            over "bror_cart_caster_br"
+            {
+                over "bror_cart_fork_br0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_br1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_br" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_br"
+                {
+                    over "bror_cart_wheelv_br" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_br" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_bl"
+            {
+                over "bror_cart_fork_bl0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_bl1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_bl" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_bl"
+                {
+                    over "bror_cart_wheelv_bl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_bl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fr"
+            {
+                over "bror_cart_fork_fr0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_fr1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_fr" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_fr"
+                {
+                    over "bror_cart_wheelv_fr" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_fr" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+
+            over "bror_cart_caster_fl"
+            {
+                over "bror_cart_fork_fl0" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_fork_fl1" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_a8acb2ff>
+                }
+
+                over "bror_cart_pedal_fl" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </palette_cell/Materials/col_26262aff>
+                }
+
+                over "bror_cart_wheel_fl"
+                {
+                    over "bror_cart_wheelv_fl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+
+                    over "bror_cart_wheelc_fl" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </palette_cell/Materials/col_2c2c30ff>
+                    }
+                }
+            }
+        }
+    }
+}
+

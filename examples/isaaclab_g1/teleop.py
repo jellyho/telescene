@@ -30,7 +30,7 @@ parser.add_argument("--controller", choices=("switch", "pose", "supermimic", "tr
                          "tracker: the same, with the ONNX tracker --tracker names")
 parser.add_argument("--tracker", default=None, metavar="NAME",
                     help="tracker: a spec in specs/trackers (twist2, teleopit, textop, mimiclite, humanoid_gpt, yahmp, "
-                         "protomotions_g1, mosaic#gmt, mosaic#pico_teleop), or a path to one")
+                         "protomotions_g1, gigabrain_wbc, mosaic#gmt, mosaic#pico_teleop), or a path to one")
 parser.add_argument("--follow", nargs="?", const="v1", default=None, metavar="CHECKPOINT",
                     help="supermimic: the follow policy, so the robot also walks to where you stand. Alone, v1")
 parser.add_argument("--retarget", choices=("gmr", "teleop"), default="gmr",

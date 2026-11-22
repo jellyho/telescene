@@ -8,7 +8,7 @@
 #   third_party/GMR                     GMR (github.com/YanjieZe/GMR, MIT), only its code and its G1 model (about 55 MB)
 #   DIR/supermimic/realmimic_g1_86k.pt  realmimic's SuperMimic policy (110 MB), CC BY-NC 4.0, with its model card
 #   DIR/supermimic/follow_v1.pt         the follow policy (1 MB), from this repo's release, CC BY-NC 4.0
-#   DIR/trackers/<slug>.onnx            nine ONNX trackers (about 100 MB), each under its own project's licence
+#   DIR/trackers/<slug>.onnx            ten ONNX trackers (about 135 MB), each under its own project's licence
 #
 # None of these weights are under this repo's MIT licence: see THIRD_PARTY.md. realmimic and the follow policy are for
 # non-commercial use only.
@@ -62,6 +62,10 @@ fetch https://raw.githubusercontent.com/hucebot/yahmp/2111a998663e9f787b3ac36e8f
 # A Git LFS file: GitHub's media host serves the content. NVIDIA Open Model License.
 fetch https://media.githubusercontent.com/media/NVlabs/ProtoMotions/6a1887f65b8a619c77198431d0ec00d5c88bea2c/data/pretrained_models/motion_tracker/g1-bones-deploy/compiled_models/unified_pipeline.onnx \
     "$T/protomotions_g1.onnx" fbbcf33a3fbcc939a5765161947f390b7911800011ca535ab896acf9f40e12a3
+# GigaBrain-WBC-0.5, Apache-2.0: a reference encoder and an action decoder (35 MB).
+GIGA=https://huggingface.co/open-gigaai/GigaBrain-WBC-0.5/resolve/2aba857fc8bb0415aee2433d292c5b7cd8055cdd/checkpoints/unitree_g1_model/exported
+fetch "$GIGA/policy_encoder.onnx" "$T/gigabrain_wbc_encoder.onnx" 68a31c2dfe720649e0113ec45f6e6f77166ea6bee1cf5f2f5bb1846ade42e378
+fetch "$GIGA/policy_decoder.onnx" "$T/gigabrain_wbc.onnx" 1ce6a68754a748c00d8f2104b9552f4af384a749d33af5363211f98e8e9185c0
 # On Google Drive, with no stated licence (its code is GPL-3.0). Skip it with SKIP_MIMICLITE=1.
 if [[ -z ${SKIP_MIMICLITE:-} ]]; then
     fetch "https://drive.usercontent.google.com/download?id=1TR5L_eAMzT8OWg4Afes4OpTU8YjS0HyA&export=download&confirm=t" \

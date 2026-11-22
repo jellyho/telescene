@@ -5,7 +5,7 @@ Whole-body humanoid teleoperation from a VR headset: send the scene, not pixels.
 The PC sends the meshes once and then only the poses of what moves. The headset draws everything itself over
 passthrough, so head motion never crosses the network, and the PC renders nothing, so rendering cannot delay physics.
 Body tracking and controllers go back to the PC, and a controller of your choice drives the robot: NVIDIA's SONIC,
-SuperMimic, or any of nine released whole-body trackers, at a table or in the BusyBox work-bench scenes.
+SuperMimic, or any of ten released whole-body trackers, at a table or in the BusyBox work-bench scenes.
 
 The repo holds two halves, which are installed separately:
 
@@ -37,7 +37,7 @@ More controllers and scenes:
 scripts/download_trackers.sh                                          # GMR, SuperMimic, follow policy, 9 ONNX trackers
 examples/isaaclab_g1/run.sh --scene busybox                           # the BusyBox bench; the menu's SCENE tab switches
 examples/isaaclab_g1/run.sh --controller supermimic --follow          # copies your whole body and walks to you
-examples/isaaclab_g1/run.sh --controller tracker --tracker teleopit   # twist2, mimiclite, humanoid_gpt, ...
+examples/isaaclab_g1/run.sh --controller tracker --tracker teleopit   # twist2, gigabrain_wbc, mimiclite, ...
 ```
 
 To check the app and body tracking first, without a simulator or a GPU, run `examples/isaaclab_g1/run.sh --mirror`. Then pick MIRROR in the headset.

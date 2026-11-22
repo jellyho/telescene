@@ -106,6 +106,11 @@ class TrackerSpec:
             (``action_offset: "ref_joint_pos"`` in the spec, as yahmp's).
         ref_zero_joints: Joints whose reference is held at 0 (so their reference velocity is 0 too, and a residual adds to
             0): those the policy only ever saw at 0 in training, as yahmp's wrists.
+        controller: Which controller runs the spec: ``"onnx"`` (``OnnxTrackerController``) or ``"gigabrain"``
+            (``gigabrain.GigaBrainController``, an encoder and a decoder with a KV cache).
+        encoder: A second graph the controller runs first, ``weights_dir/<slug>_encoder.onnx``, or None.
+        encoder_sha256: Its sha256.
+        encoder_mode: Which of the encoder's mask modes to feed it.
     """
 
     slug: str
@@ -125,6 +130,10 @@ class TrackerSpec:
     sha256: str | None = None
     residual: bool = False
     ref_zero_joints: tuple[str, ...] = ()
+    controller: str = "onnx"
+    encoder: Path | None = None
+    encoder_sha256: str | None = None
+    encoder_mode: int = 0
 
     def __post_init__(self):
         if sorted(self.joint_names) != sorted(JOINT_NAMES):
@@ -137,6 +146,8 @@ class TrackerSpec:
             raise ValueError(f"ref_zero_joints names no G1 joint: {set(self.ref_zero_joints) - set(JOINT_NAMES)}")
         if self.last_action not in ("raw", "target"):
             raise ValueError("last_action is 'raw' or 'target'")
+        if self.controller not in ("onnx", "gigabrain"):
+            raise ValueError(f"controller is 'onnx' or 'gigabrain', not {self.controller!r}")
         if not 0 <= self.lookahead < self.frames + 16:
             raise ValueError(f"lookahead {self.lookahead} is out of range")
 
@@ -199,6 +210,7 @@ class TrackerSpec:
         if lookahead is None:
             lookahead = round(float(reference.get("lookahead_s") or 0.0) / control_dt)
         onnx = (path.parent / raw["onnx"]) if raw.get("onnx") else Path(weights_dir) / f"{slug}.onnx"
+        encoder = raw.get("encoder") or None
 
         def block(b):
             scale = b.get("scale", 1.0)
@@ -213,7 +225,10 @@ class TrackerSpec:
             output=raw.get("output"), constant_inputs={k: np.asarray(v, np.float32) for k, v in (raw.get("constant_inputs") or {}).items()},
             action_clip=raw.get("action_clip"), control_dt=control_dt, lookahead=int(lookahead),
             stand_root_height=raw.get("stand_root_height"), last_action=raw.get("last_action") or "raw",
-            sha256=raw.get("sha256"), residual=residual, ref_zero_joints=tuple(raw.get("ref_zero_joints") or ()))
+            sha256=raw.get("sha256"), residual=residual, ref_zero_joints=tuple(raw.get("ref_zero_joints") or ()),
+            controller=raw.get("controller") or "onnx",
+            encoder=(Path(weights_dir) / f"{slug}_encoder.onnx").resolve() if encoder else None,
+            encoder_sha256=encoder.get("sha256") if encoder else None, encoder_mode=int(encoder.get("mode", 0)) if encoder else 0)
 
 
 # ------------------------------------------------------------------------------------------------ kinematics
@@ -467,19 +482,24 @@ def build_block(block: Block, spec: TrackerSpec, ticks: list[Tick], frame: Calla
 
 
 # -------------------------------------------------------------------------------------------- the network
+def onnx_session(path: Path, sha256: str | None, slug: str, threads: int = 2):
+    """A CPU session for a checkpoint, after checking it is there and, given one, its sha256."""
+    import onnxruntime as ort
+
+    if not path.exists():
+        raise FileNotFoundError(f"{slug}: no checkpoint at {path}; run scripts/download_trackers.sh (see the spec's onnx_url)")
+    if sha256 and hashlib.sha256(path.read_bytes()).hexdigest() != sha256:
+        raise ValueError(f"{slug}: {path} does not match the spec's sha256")
+    options = ort.SessionOptions()
+    options.intra_op_num_threads, options.inter_op_num_threads = threads, 1
+    return ort.InferenceSession(str(path), options, providers=["CPUExecutionProvider"])
+
+
 class OnnxPolicy:
     """Runs the checkpoint on the CPU. ``__call__`` takes the built inputs and returns the raw action, 29 numbers."""
 
     def __init__(self, spec: TrackerSpec, threads: int = 2):
-        import onnxruntime as ort
-
-        if not spec.onnx.exists():
-            raise FileNotFoundError(f"{spec.slug}: no checkpoint at {spec.onnx}; download it (see the spec's onnx_url)")
-        if spec.sha256 and hashlib.sha256(spec.onnx.read_bytes()).hexdigest() != spec.sha256:
-            raise ValueError(f"{spec.slug}: {spec.onnx} does not match the spec's sha256")
-        options = ort.SessionOptions()
-        options.intra_op_num_threads, options.inter_op_num_threads = threads, 1
-        self.session = ort.InferenceSession(str(spec.onnx), options, providers=["CPUExecutionProvider"])
+        self.session = onnx_session(spec.onnx, spec.sha256, spec.slug, threads)
         self.input_shapes = {i.name: i.shape for i in self.session.get_inputs()}
         expected = set(spec.inputs) | set(spec.constant_inputs)
         if expected != set(self.input_shapes):
@@ -636,7 +656,16 @@ def from_env(env, spec: str | Path | TrackerSpec, retarget=None,
         action[0, offset:] = torch.as_tensor(target, dtype=action.dtype, device=action.device)
         return action
 
-    return OnnxTrackerController(isaac_state_reader(env, robot), spec, retarget, emit, **options)
+    return make_controller(isaac_state_reader(env, robot), spec, retarget, emit, **options)
+
+
+def make_controller(state: Callable[[], RobotState], spec: TrackerSpec, retarget=None, emit=None, **options) -> OnnxTrackerController:
+    """The controller ``spec.controller`` names, built with ``OnnxTrackerController``'s arguments."""
+    if spec.controller == "gigabrain":
+        from .gigabrain import GigaBrainController
+
+        return GigaBrainController(state, spec, retarget, emit, **options)
+    return OnnxTrackerController(state, spec, retarget, emit, **options)
 
 
 register("onnx_tracker", from_env)

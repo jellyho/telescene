@@ -45,7 +45,7 @@ scripts/download_trackers.sh
 ```
 
 Only needed for `--controller supermimic` or `--controller tracker`. It clones GMR (the retargeter they share) into
-`third_party/GMR`, and fetches SuperMimic, the follow policy and nine ONNX trackers into `checkpoints/` (about 260 MB
+`third_party/GMR`, and fetches SuperMimic, the follow policy and ten ONNX trackers into `checkpoints/` (about 295 MB
 with GMR), checking every sha256. Each set of weights keeps its own licence; see [Controllers](#controllers) and
 [THIRD_PARTY.md](../THIRD_PARTY.md). `SKIP_MIMICLITE=1` skips the one whose weights state no licence.
 
@@ -69,7 +69,7 @@ With a headset on USB, `run.sh` first installs or updates the app and sets the P
 | Option | |
 |---|---|
 | `--controller C` | `switch` (default), `pose`, `supermimic` or `tracker`: see [Controllers](#controllers) |
-| `--tracker NAME` | With `tracker`: `twist2`, `teleopit`, `textop`, `mimiclite`, `humanoid_gpt`, `yahmp`, `protomotions_g1`, `mosaic#gmt`, `mosaic#pico_teleop`, or a spec's path |
+| `--tracker NAME` | With `tracker`: `twist2`, `teleopit`, `textop`, `mimiclite`, `humanoid_gpt`, `yahmp`, `protomotions_g1`, `gigabrain_wbc`, `mosaic#gmt`, `mosaic#pico_teleop`, or a spec's path |
 | `--follow` | With `supermimic`: the follow policy, so the robot also walks to you |
 | `--retarget teleop` | With `supermimic`/`tracker`: legs scaled to the G1 and wrists placed relative to the pelvis. About half the hand error of GMR's own table on recorded takes |
 | `--scene NAME` | `table` (default), or a BusyBox scene: `busybox` (= `full`), `palette`, `sort_two_bins`, ... See [Scenes](#scenes) |
@@ -129,6 +129,10 @@ where copying your legs carries it. With A off, the robot stands. `telescene.tra
   (`specs/trackers/<name>.json`) says the joint order, default pose, action scale, motors and timing the network was
   trained with, and lays out its observation term by term, each with a `file:line` reference to the project's own code.
   The env then uses the spec's motors and physics rate. Adding a tracker is a spec, and maybe one observation term.
+- **GigaBrain-WBC-0.5** (`--tracker gigabrain_wbc`, `telescene/trackers/gigabrain.py`): a reference encoder and a
+  Transformer action decoder that keeps a KV cache of its last 32 ticks, so it has its own small controller on top of
+  the ONNX tracker's. Its inputs follow the authors' G1 deployment and evaluation code; a test checks the encoder
+  input against an independent computation. It reads 9 frames ahead (180 ms), as they do with a streamed reference.
 
 | `--tracker` | Project | Weights licence | Hand error, still (cm) |
 |---|---|---|---|
@@ -140,12 +144,15 @@ where copying your legs carries it. With A off, the robot stands. `telescene.tra
 | `textop` | [TeleHuman/TextOp](https://github.com/TeleHuman/TextOp) | MIT (in the repo) | 7.0 |
 | `mosaic#gmt`, `mosaic#pico_teleop` | [BAAI-Humanoid/MOSAIC](https://github.com/BAAI-Humanoid/MOSAIC) | Apache-2.0 | about 11 |
 | `protomotions_g1` | [NVlabs/ProtoMotions](https://github.com/NVlabs/ProtoMotions) | NVIDIA Open Model License | 11.9 |
+| `gigabrain_wbc` | [open-gigaai/giga-brain-wbc](https://github.com/open-gigaai/giga-brain-wbc) | Apache-2.0 | not yet measured |
 
 For comparison, SuperMimic scored 6.8 and SONIC POSE 6.6 on the same test. The last column is from our own replay of
 seven recorded teleop takes (standing manipulation, crouching, reaching), five seeds each: the hand's position error
 against the GMR reference while the operator stood still, with the heading aligned. It measures how each tracker
 follows *this* reference in *this* simulator, not the tracker's quality in its own setting. `humanoid_gpt` needs 1 kHz
 physics, which puts the tick near the 20 ms budget on our PC. `twist2` drifts in yaw, as it sees only the yaw rate.
+`gigabrain_wbc` was added after that test; on one replayed BusyBox take its joint error was 0.11 rad rms, about
+SuperMimic's, with no falls.
 
 ## Scenes
 

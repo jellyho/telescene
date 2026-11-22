@@ -46,7 +46,7 @@ def test_spec_loads(name):
 def test_checkpoint_runs(name):
     pytest.importorskip("onnxruntime")
     spec = ot.TrackerSpec.from_json(str(SPECS / name))
-    if not spec.onnx.exists():
+    if not spec.onnx.exists() or (spec.encoder is not None and not spec.encoder.exists()):
         pytest.skip(f"no {spec.onnx.name}: scripts/download_trackers.sh")
     retarget = None
     if sm.GMR_ROOT.exists():
@@ -57,7 +57,7 @@ def test_checkpoint_runs(name):
         return sm.RobotState(np.array([1.0, 0.0, 0.0, 0.0]), np.zeros(3), sm.DEFAULT_JOINT_POS.copy(), np.zeros(29),
                              pos=np.array([0.0, 0.0, sm.STAND_ROOT_HEIGHT]), lin_vel_b=np.zeros(3))
 
-    controller = ot.OnnxTrackerController(standing, spec, retarget=retarget)
+    controller = ot.make_controller(standing, spec, retarget=retarget)
     body = fake_body.pose().astype(np.float32)
     for i in range(30):
         tracking = retarget is not None and i >= 10

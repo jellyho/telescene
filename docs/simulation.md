@@ -152,7 +152,8 @@ against the GMR reference while the operator stood still, with the heading align
 follows *this* reference in *this* simulator, not the tracker's quality in its own setting. `humanoid_gpt` needs 1 kHz
 physics, which puts the tick near the 20 ms budget on our PC. `twist2` drifts in yaw, as it sees only the yaw rate.
 `gigabrain_wbc` was added after that test; on one replayed BusyBox take its joint error was 0.11 rad rms, about
-SuperMimic's, with no falls.
+SuperMimic's, with no falls. In a first live session in the `full` scene it tracked standing and reaching, then fell
+sideways after 14 s, while the operator walked up to the shelf and handled a box.
 
 ## Scenes
 
@@ -178,6 +179,10 @@ env config: `use_busybox(env_cfg, scene_entry("drawer_open"))`.
 A take records each tick's operator input (head, body, controllers, buttons) and the simulator's state, as one `.npz`
 with a `.json` of metadata beside it. `--replay TAKE.npz` (`telescene.replay.ReplayServer`) plays a take's operator input back into a session with no headset.
 For example, you can compare two controllers on the same motion.
+
+`examples/isaaclab_g1/render_take.py TAKE.npz` renders a take to an mp4 with Isaac's RTX renderer, from a fixed camera
+beside the robot (`--eye`, `--target`, `--start`, `--seconds`). Nothing is simulated: the recorded states are written
+back frame by frame. It needs ffmpeg and paints the G1's hands, feet and head black, as on the real robot.
 
 ## Without the real weights
 

@@ -29,7 +29,7 @@ scripts/download_sonic.sh
 
 # Headset app: the Android toolchain once (no root), then build and install over USB
 apps/pico/setup_toolchain.sh
-apps/pico/install.sh                     # or skip the toolchain: apps/pico/install.sh telescene-0.2.0.apk (release)
+apps/pico/install.sh                     # or skip the toolchain: apps/pico/install.sh telescene-0.3.0.apk (release)
 
 # Start the simulation. Then, in the headset, open Telescene and pick CONNECT.
 examples/isaaclab_g1/run.sh --operator-height 1.75

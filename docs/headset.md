@@ -36,7 +36,7 @@ apps/pico/build.sh            # writes apps/pico/build/telescene.apk
 ```
 
 `build.sh` signs the APK with a debug key it creates next to the toolchain. A prebuilt APK may also be attached to
-the GitHub release. You can install it with `apps/pico/install.sh telescene-0.2.0.apk` and skip the toolchain.
+the GitHub release. You can install it with `apps/pico/install.sh telescene-0.3.0.apk` and skip the toolchain.
 
 ## 3. Install
 

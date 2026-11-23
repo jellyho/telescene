@@ -18,6 +18,10 @@ The repo holds two halves, which are installed separately:
 
 You need a PICO 4 Ultra, ideally with two Motion Trackers for the legs, and an Ubuntu PC with an NVIDIA GPU. Both must be on the same network.
 
+Before the first install, turn on developer mode and USB debugging in the headset, plug it in by USB and allow
+debugging when it asks. [docs/headset.md](docs/headset.md) has these steps, pairing the Motion Trackers and the PC's
+firewall ports.
+
 ```bash
 # PC: Isaac Lab 3.0 + Isaac Sim 6.2 into .venv, then SONIC's weights (about 865 MB)
 scripts/install_isaaclab.sh
@@ -25,7 +29,7 @@ scripts/download_sonic.sh
 
 # Headset app: the Android toolchain once (no root), then build and install over USB
 apps/pico/setup_toolchain.sh
-apps/pico/install.sh
+apps/pico/install.sh                     # or skip the toolchain: apps/pico/install.sh telescene-0.2.0.apk (release)
 
 # Start the simulation. Then, in the headset, open Telescene and pick CONNECT.
 examples/isaaclab_g1/run.sh --operator-height 1.75
@@ -34,7 +38,7 @@ examples/isaaclab_g1/run.sh --operator-height 1.75
 More controllers and scenes:
 
 ```bash
-scripts/download_trackers.sh                                          # GMR, SuperMimic, follow policy, 9 ONNX trackers
+scripts/download_trackers.sh                                          # GMR, SuperMimic, follow policy, 10 ONNX trackers
 examples/isaaclab_g1/run.sh --scene busybox                           # the BusyBox bench; the menu's SCENE tab switches
 examples/isaaclab_g1/run.sh --controller supermimic --follow          # copies your whole body and walks to you
 examples/isaaclab_g1/run.sh --controller tracker --tracker teleopit   # twist2, gigabrain_wbc, mimiclite, ...

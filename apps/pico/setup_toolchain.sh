@@ -22,7 +22,12 @@ if [[ ! -x sdk/cmdline-tools/latest/bin/sdkmanager ]]; then
     unzip -q tools.zip -d sdk/cmdline-tools && mv sdk/cmdline-tools/cmdline-tools sdk/cmdline-tools/latest && rm tools.zip
 fi
 echo "[toolchain] SDK packages"
-yes | sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root="$XRT/sdk" --licenses >/dev/null || true
+# the Android SDK licences: sdkmanager asks; TELESCENE_ACCEPT_ANDROID_LICENSES=yes accepts them without asking
+if [[ ${TELESCENE_ACCEPT_ANDROID_LICENSES:-} == yes ]]; then
+    yes | sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root="$XRT/sdk" --licenses >/dev/null || true
+else
+    sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root="$XRT/sdk" --licenses
+fi
 sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root="$XRT/sdk" \
     "platforms;android-34" "build-tools;34.0.0" "ndk;26.3.11579264" "platform-tools"
 if [[ ! -f oxr/l.aar ]]; then

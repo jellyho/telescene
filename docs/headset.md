@@ -27,7 +27,8 @@ It is tested on a PICO 4 Ultra.
 
 `setup_toolchain.sh` installs JDK 17, the Android SDK (platform 34, build-tools 34.0.0, NDK 26.3, adb) and the Khronos
 OpenXR loader 1.1.49 into `~/.local/share/telescene-android` (or `$TELESCENE_ANDROID`). It needs no root and takes
-about 2.5 GB. It asks you to accept the Android SDK licences.
+about 3 GB. It asks you to accept the Android SDK licences (`TELESCENE_ACCEPT_ANDROID_LICENSES=yes` accepts them
+without asking).
 
 ```bash
 apps/pico/setup_toolchain.sh
@@ -35,7 +36,7 @@ apps/pico/build.sh            # writes apps/pico/build/telescene.apk
 ```
 
 `build.sh` signs the APK with a debug key it creates next to the toolchain. A prebuilt APK may also be attached to
-the GitHub release. You can install it with `apps/pico/install.sh telescene.apk` and skip the toolchain.
+the GitHub release. You can install it with `apps/pico/install.sh telescene-0.2.0.apk` and skip the toolchain.
 
 ## 3. Install
 
